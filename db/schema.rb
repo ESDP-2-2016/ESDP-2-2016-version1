@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915114506) do
+ActiveRecord::Schema.define(version: 20160915121518) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -41,6 +41,36 @@ ActiveRecord::Schema.define(version: 20160915114506) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "oblasts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "organization_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "city_or_village"
+    t.string   "address"
+    t.string   "contact_person"
+    t.string   "phone"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.integer  "organization_category_id"
+    t.integer  "oblast_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["oblast_id"], name: "index_organizations_on_oblast_id"
+    t.index ["organization_category_id"], name: "index_organizations_on_organization_category_id"
   end
 
 end
