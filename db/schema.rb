@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915121518) do
+ActiveRecord::Schema.define(version: 20160915160639) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160915121518) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
-    t.string   "city_or_village"
     t.string   "address"
     t.string   "contact_person"
     t.string   "phone"
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160915121518) do
     t.integer  "oblast_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "location"
     t.index ["oblast_id"], name: "index_organizations_on_oblast_id"
     t.index ["organization_category_id"], name: "index_organizations_on_organization_category_id"
   end

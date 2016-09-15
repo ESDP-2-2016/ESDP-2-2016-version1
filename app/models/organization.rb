@@ -5,7 +5,7 @@ class Organization < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 50}
   validates :oblast_id, presence: true
-  validates :city_or_village, presence: true, length: {maximum: 50}  
-  validates :category_id, presence: true
+  validates :location, presence: true, length: {maximum: 50}  
+  validates :organization_category_id, presence: true
 
 end
