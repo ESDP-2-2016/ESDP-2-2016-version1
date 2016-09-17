@@ -1,2 +1,13 @@
-<h1>Organizations#show</h1>
-<p>Find me in app/views/organizations/show.html.erb</p>
+<div class="container">
+  <h1><%= @organization.name %></h1>       
+  <div>   
+    <h5>Общая информация об организации:</h5>                   
+    <ul>
+      <li>Местоположение: <%= @organization.location %></li>
+      <li>Область: <%= @organization.oblast.name %></li>
+      <li>Адрес: <%= @organization.address %></li>
+      <li>Телефон: <%= @organization.phone %></li>
+      <li>Область: <%= @organization.oblast.name %></li>
+    </ul>        
+  </div>
+</div>

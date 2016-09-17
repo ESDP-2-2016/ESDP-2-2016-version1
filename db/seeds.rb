@@ -89,7 +89,7 @@ organizations = Organization.create!([
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, Ленинский район, г. Бишкек, ул. Интергельпо, 8',
     phone: '+996 (312) 653711',
-    organization_category_id: organization_category_1.id,
+    organization_category_id: organization_category_3.id,
     url: '',
     active: true
   }, 

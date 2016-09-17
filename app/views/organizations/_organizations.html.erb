@@ -1,8 +1,9 @@
-<div class="container"> 
-  <p><%= link_to "К списку организаций", root_path %></p> 
-  <h1>Организации доноры:</h1> 
+<div class="organizations"> 
+<% @organization_categories.each do |organization_category| %>      
+  <h2><%= organization_category.name %></h2> 
   <% @organizations.each do |organization| %>   
-  <div>     
+  <div>
+    <% if organization.organization_category_id == organization_category.id %>  
     <h4><%= link_to organization.name, organization_show_path(organization) %></h4>                 
     <ul>
       <li>Местоположение: <%= organization.location %></li>
@@ -10,7 +11,9 @@
       <li>Адрес: <%= organization.address %></li>
       <li>Телефон: <%= organization.phone %></li>
       <li>Область: <%= organization.oblast.name %></li>
-    </ul>   
+    </ul>  
+    <% end %>
   </div>
   <% end %>
+<% end %>   
 </div>
