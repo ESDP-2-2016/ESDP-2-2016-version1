@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919082326) do
+ActiveRecord::Schema.define(version: 20160919190557) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -73,6 +73,24 @@ ActiveRecord::Schema.define(version: 20160919082326) do
     t.boolean  "active"
     t.index ["oblast_id"], name: "index_organizations_on_oblast_id"
     t.index ["organization_category_id"], name: "index_organizations_on_organization_category_id"
+  end
+
+  create_table "post_categories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "posted"
+    t.integer  "organization_id"
+    t.integer  "category_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["organization_id"], name: "index_posts_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
