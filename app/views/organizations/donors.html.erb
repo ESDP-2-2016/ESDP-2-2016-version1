@@ -1,15 +1,4 @@
 <div class="container">
-  <h1>Организации доноры:</h1> 
-  <% @organizations.each do |organization| %>   
-  <div>     
-    <h4><%= link_to organization.name, organization_show_path(organization) %></h4>                 
-    <ul>
-      <li>Местоположение: <%= organization.location %></li>
-      <li>Область: <%= organization.oblast.name %></li>
-      <li>Адрес: <%= organization.address %></li>
-      <li>Телефон: <%= organization.phone %></li>
-      <li>Область: <%= organization.oblast.name %></li>
-    </ul>   
-  </div>
-  <% end %>
+  <h1>Организации доноры:</h1>
+
 </div>

@@ -7,15 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456')
 
+user1 = User.create!(name: 'User_1', phone: '0-700-62-00-00', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
+user2 = User.create!(name: 'User_2', phone: '0-555-67-12-14', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
+user3 = User.create!(name: 'User_3', phone: '0-777-68-10-00', email: 'user3@example.com', password: '123456', password_confirmation: '123456')
+user4 = User.create!(name: 'User_4', phone: '0-556-63-12-14', email: 'user4@example.com', password: '123456', password_confirmation: '123456')
+user5 = User.create!(name: 'User_5', phone: '0-556-19-00-10', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
+
 
 organization_category_1 = OrganizationCategory.create!(   
-  name: 'Детский дом', 
-  description: 'Quod reprehenderit similique voluptas consectetur facilis.',
+  name: 'Активисты', 
+  description: 'Necessitatibus a nam dolorum, adipisci nesciunt reprehenderit.',
   active: true    
 )
-organization_category_2 = OrganizationCategory.create!(   
-  name: 'Донорская помощь', 
-  description: 'Necessitatibus a nam dolorum, adipisci nesciunt reprehenderit.',
+organization_category_2= OrganizationCategory.create!(   
+  name: 'Детский дом', 
+  description: 'Quod reprehenderit similique voluptas consectetur facilis.',
   active: true    
 )
 organization_category_3 = OrganizationCategory.create!(   
@@ -54,12 +60,21 @@ oblast_9 = Oblast.create!(
 
 organizations = Organization.create!([
   {    
+    name: 'Волонтеры',
+    oblast_id: oblast_1.id,
+    location: 'г. Бишкек',
+    address: 'Кыргызстан, Чуйская область, г. Бишкек',
+    phone: '+996 (3134) 33172',
+    organization_category_id: organization_category_1.id,
+    active: true
+  }, 
+  {    
     name: 'Военно-Антоновский детский дом',
     oblast_id: oblast_9.id,
     location: 'с. Военно-Антоновка',
     address: 'Кыргызстан, Чуйская область, Сокулукский район, с. Военно-Антоновка, ул. Фрунзе, 118',
     phone: '+996 (3134) 33172',
-    organization_category_id: organization_category_1.id,
+    organization_category_id: organization_category_2.id,
     url: 'www.v-adetdom.kg',
     active: true
   }, 
@@ -69,7 +84,7 @@ organizations = Organization.create!([
     location: 'с. Теплоключенка',
     address: 'Кыргызстан, Иссык-Кульская область, Ак-Суйский район, с. Теплоключенка, ул. Ленина, 152',
     phone: '+996 (3948) 91109',
-    organization_category_id: organization_category_1.id,
+    organization_category_id: organization_category_2.id,
     url: '',
     active: true
   }, 
@@ -99,39 +114,21 @@ organizations = Organization.create!([
     location: 'пгт. Орловка',
     address: 'Кыргызстан, Чуйская область, Кеминский район, пгт. Орловка, ул. Победы, 16',
     phone: '+996 (3137) 23459',
-    organization_category_id: organization_category_1.id,
+    organization_category_id: organization_category_2.id,
     url: '',
     active: true
-  }, 
-  {    
-    name: 'Айс Квин ОсОО',
-    oblast_id: oblast_9.id,
-    location: 'г. Бишкек',
-    address: 'Кыргызстан, Чуйская область, Первомайский район, г. Бишкек, ул. Аэропортинская, 1',
-    phone: '+996 (770) 676017',
-    organization_category_id: organization_category_2.id,
-    url: ' icequene.wix.com/catalog',
-    active: true
-  }, 
-  {    
-    name: 'Atalyk Group ЗАО',
-    oblast_id: oblast_9.id,
-    location: 'с. Новопокровка',
-    address: 'Кыргызстан, Чуйская область, Иссык-Атинский район, 725022 с. Новопокровка, ул.Ленина, 250',
-    phone: '+996 (312) 617555',
-    organization_category_id: organization_category_2.id,
-    url: ' www.atalyk.com.kg',
-    active: true
-  }, 
+  },   
   {    
     name: 'Специализированный дом ребёнка (СДР)',
     oblast_id: oblast_9.id,
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, Октябрьский район, г. Бишкек, ул. Белорусская, 121',
     phone: '+996 (3138) 62971',
-    organization_category_id: organization_category_1.id,
+    organization_category_id: organization_category_2.id,
     url: '',
     active: true
   } 
 ])
+
+
 

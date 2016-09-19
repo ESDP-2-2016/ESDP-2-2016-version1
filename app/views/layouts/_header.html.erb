@@ -8,6 +8,8 @@
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
+            <span class="navbar-text">Добро пожаловать, <%= link_to current_user.name, edit_user_registration_path(current_user), class: 'navbar-link' %></span>            
+            <%= link_to 'Редактировать профиль', edit_user_registration_path(current_user), class: 'btn btn-default navbar-btn' %>
             <%= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn'  %>
         <% else  %>
           <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-default navbar-btn'  %>
