@@ -1,0 +1,19 @@
+<header>
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <%= link_to 'SiteName', root_path, class: 'navbar-brand' %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Доноры", donors_path %></li>
+        <li><%= link_to "Организации", organizations_list_path %></li>
+      </ul>
+      <ul class="navbar-nav navbar-right">
+        <% if user_signed_in? %>
+            <%= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn'  %>
+        <% else  %>
+          <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-default navbar-btn'  %>
+          <%= link_to 'Вход', new_user_session_path, class: 'btn btn-default navbar-btn'  %>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

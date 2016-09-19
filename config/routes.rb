@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'organizations#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   resources :organizations,  only: [:new, :create, :update, :destroy]
 
   get 'organizations/show/:id' => 'organizations#show', as: 'organization_show'
+
+  get 'organizations/organizations_list' => 'organizations#organizations_list', as: 'organizations_list'
 
   get 'organizations/donors' => 'organizations#donors', as: 'donors'
 

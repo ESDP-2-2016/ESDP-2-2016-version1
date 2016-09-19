@@ -6,6 +6,12 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all.where(active: true).where.not(organization_category_id: @donor.id)
   end
 
+  def organizations_list
+    @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Донорская помощь')
+    @donor = OrganizationCategory.find_by(name: 'Донорская помощь')
+    @organizations = Organization.all.where(active: true).where.not(organization_category_id: @donor.id)
+  end
+
   def donors
     @donor = OrganizationCategory.find_by(name: 'Донорская помощь')
     @organizations = Organization.all.where(active: true).where(organization_category_id: @donor.id)
