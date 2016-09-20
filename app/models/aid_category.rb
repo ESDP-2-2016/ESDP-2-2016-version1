@@ -1,0 +1,2 @@
+class AidCategory < ApplicationRecord
+end
