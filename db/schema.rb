@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920093628) do
+ActiveRecord::Schema.define(version: 20160921142530) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -113,10 +113,12 @@ ActiveRecord::Schema.define(version: 20160920093628) do
     t.datetime "posted"
     t.integer  "organization_id"
     t.integer  "category_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "post_category_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["organization_id"], name: "index_posts_on_organization_id"
+    t.index ["post_category_id"], name: "index_posts_on_post_category_id"
   end
 
   create_table "users", force: :cascade do |t|
