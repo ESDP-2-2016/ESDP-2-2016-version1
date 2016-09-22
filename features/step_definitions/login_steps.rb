@@ -15,6 +15,6 @@ When(/^должен перейти на главную страницу$/) do
 end
 
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
-  page.should have_content(text)
+  expect(page).to have_content(text)
   sleep(3)
 end
