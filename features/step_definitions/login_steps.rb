@@ -15,6 +15,11 @@ When(/^должен перейти на главную страницу$/) do
 end
 
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
-  page.should have_content(text)
+  page.has_content?(text)
+  puts "Добро пожаловать"
   sleep(3)
+end
+
+When(/^я на странице "\/users\/sign_up"$/) do
+  visit new_user_registration_path
 end
