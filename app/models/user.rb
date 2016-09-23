@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :user_organizations
+  has_many :organizations, :through => :user_organizations
+
   validates :name, presence: true, length: {maximum: 60}
 end

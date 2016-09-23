@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Профиль: <% current_user.name  %></h1>
+  <p><%= current_user.phone  %></p>
+  <p><%= current_user.email  %></p>
+  <p><%= link_to 'Зарегистрировать организацию',  new_organization_path, class: 'btn btn-primary' %></p>
+  <h2>Ваши организации: </h2>
+</div>
