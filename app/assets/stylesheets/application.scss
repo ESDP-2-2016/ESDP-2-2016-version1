@@ -1,3 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "style";
+@import "leaflet";
+
+#map {
+  height: 300px;
+}
+#index-map {
+  height: 300px;
+}
