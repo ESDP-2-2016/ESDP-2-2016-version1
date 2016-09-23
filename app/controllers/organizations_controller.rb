@@ -13,6 +13,8 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
+      @user_organization = UserOrganization.create!(organization_id: @organization.id,
+                                                    user_id: current_user.id, role: 1)
       redirect_to root_path
     else
       render 'new'
@@ -60,6 +62,10 @@ class OrganizationsController < ApplicationController
   def organization_params
     params.require(:organization).permit(:name, :location, :phone, :address, :contact_person,
       :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active)
+  end
+
+  def user_organization_params
+    params.require(:user_organization).permit(:role, :organization_id, :user_id)
   end
 end
 

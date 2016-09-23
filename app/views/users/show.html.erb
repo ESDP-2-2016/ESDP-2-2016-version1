@@ -1,7 +1,22 @@
 <div class="container">
-  <h1>Профиль: <% current_user.name  %></h1>
-  <p><%= current_user.phone  %></p>
-  <p><%= current_user.email  %></p>
+  <h1>Профиль: <% @user.name  %></h1>
+  <p><%= @user.phone  %></p>
+  <p><%= @user.email  %></p>
   <p><%= link_to 'Зарегистрировать организацию',  new_organization_path, class: 'btn btn-primary' %></p>
-  <h2>Ваши организации: </h2>
+  <h2>Организации, в которых вы являетесь администратором: </h2>
+  <ul>
+  <% @owner_organizations.each do |item| %>
+    <% if item.organization.active == true %>
+      <li><%= item.organization.name %></li>
+    <% end %>
+  <% end %>
+  </ul>
+  <h2>Организации, в которых вы являетесь участником: </h2>
+  <ul>
+    <% @participant_organizations.each do |item| %>
+      <% if item.organization.active == true %>
+        <li><%= item.organization.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
