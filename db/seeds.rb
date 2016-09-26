@@ -163,6 +163,36 @@ user_organizations = UserOrganization.create!([
     }
 ])
 
+post_categories = PostCategory.create!([
+  {
+      title: "Нужна помощь"
+  },
+  {
+      title: "Отчет о проделанной работе"
+  },
+  {
+      title: "Делимся радостью"
+  },
+  {
+      title: "Благодарность"
+  }
+])
+
+posts = Post.create!([
+    {
+        title: "Some awesome post",
+        body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at culpa maxime officia! Beatae corporis ea fuga numquam odio porro quod? Dolor enim est natus quisquam recusandae reiciendis sint voluptatem?",
+        post_category: post_categories.first,
+        organization: user_organizations.first.organization,
+        user_id: user_organizations.first.user.id
+    },
+    {
+        title: "one more awesome post",
+        body: "Stack Overflow is a community of 4.7 million programmers, just like you, helping each other. Join them; it only takes a minute: ",
+
+    }
+])
+
 
 
 

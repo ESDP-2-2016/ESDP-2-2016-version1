@@ -48,12 +48,13 @@ class OrganizationsController < ApplicationController
   end
 
   def list
-    @organizations = Organization.where(active: true)
+    @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :address])
+    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :organization_id])
     respond_to do |format|
       format.html
       format.js {}
       format.json {
-        render json: {:organizations => @organizations}
+        render json: {:organizations => @organizations, :posts => @help_requests}
       }
     end
   end

@@ -6,6 +6,7 @@ class Organization < ApplicationRecord
   belongs_to :oblast
 
   has_many :user_organizations
+  has_many :posts
   has_many :users, :through => :user_organizations
 
   validates :name, presence: true, length: {maximum: 250}

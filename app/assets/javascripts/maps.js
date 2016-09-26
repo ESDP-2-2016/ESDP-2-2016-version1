@@ -50,15 +50,52 @@ $(document).ready(function () {
         mymap.panTo(newCoordinate);
     }
 
-    function populateMap(map, organizations) {
+    function organizationHasPosts(id, posts){
+        var result = null;
+        for(var i=0; i< posts.length; ++i)
+        {
+            if(posts[i].organization_id == id)
+            {
+                return posts[i];
+            }
+        }
+        return result;
+
+    }
+
+    function createIcon(imageUrl){
+        var newIcon = L.icon({
+            iconUrl: imageUrl,
+            iconSize: [38, 40],
+            iconAnchor: [22, 42],
+            popupAnchor: [-3, -45]
+        });
+        return newIcon;
+    }
+
+    function populateMap(map, data) {
+        var organizations = data.organizations;
+        var posts = data.posts;
         for (var i = 0; i < organizations.length; ++i)
         {
             var org = organizations[i];
             if(org.latitude && org.longitude)
             {
+                var iconUrl = "";
                 var orgCoordinate = new L.latLng(parseFloat(org.latitude), parseFloat(org.longitude));
-                var marker = L.marker(orgCoordinate).addTo(map);
-                marker.bindPopup("<h5>" + org.name + "</h5><p>" + org.address + "</p>");
+                var popupContent = "";
+                var post = organizationHasPosts(org.id, posts);
+                if(post)
+                {
+                    iconUrl = '/assets/marker-important.svg';
+                    popupContent = "<h5>" + org.name + "</h5><a href='/posts/"+ post.id +"'>"+ post.title +"</a>";
+                } else
+                {
+                    iconUrl = '/assets/marker-default.svg';
+                    popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p>";
+                }
+                var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
+                marker.bindPopup(popupContent);
             }
         }
     }
@@ -80,8 +117,7 @@ $(document).ready(function () {
         url:  "/organizations/list",
         dataType: "json",
         success: function(data) {
-            console.log(data);
-            populateMap(indexMap, data.organizations);
+            populateMap(indexMap, data);
         }
     });
 
