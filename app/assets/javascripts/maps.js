@@ -54,12 +54,14 @@ $(document).ready(function () {
         for (var i = 0; i < organizations.length; ++i)
         {
             var org = organizations[i];
-            var orgCoordinate = new L.latLng(parseFloat(org.latitude), parseFloat(org.longitude));
-            var marker = L.marker(orgCoordinate).addTo(map);
-            marker.bindPopup("<h5>" + org.name + "</h5><p>" + org.address + "</p>");
+            if(org.latitude && org.longitude)
+            {
+                var orgCoordinate = new L.latLng(parseFloat(org.latitude), parseFloat(org.longitude));
+                var marker = L.marker(orgCoordinate).addTo(map);
+                marker.bindPopup("<h5>" + org.name + "</h5><p>" + org.address + "</p>");
+            }
         }
     }
-
     mymap.on('click', function(e) {
         moveMarker(e);
         updateFields();
@@ -73,21 +75,14 @@ $(document).ready(function () {
         updateFields();
     };
 
-    var allOrganizations = [
-        {
-            name: "test org",
-            latitude: 42.87,
-            longitude: 74.7,
-            address: "Test Street, 85"
-        },
-        {
-            name: "One more org",
-            latitude: 42.77,
-            longitude: 74.3,
-            address: "New street, 43"
+    $.ajax({
+        type: "GET",
+        url:  "/organizations/list",
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            populateMap(indexMap, data.organizations);
         }
-    ];
-
-    populateMap(indexMap, allOrganizations);
+    });
 
 });

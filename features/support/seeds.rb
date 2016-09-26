@@ -66,7 +66,9 @@ organizations = Organization.create!([
     address: 'Кыргызстан, Чуйская область, г. Бишкек',
     phone: '+996 (3134) 33172',
     organization_category_id: organization_category_1.id,
-    active: true
+    active: true,
+    latitude: '42.87596410238256',
+    longitude: '74.54360961914062'
   },
   {
     name: 'Военно-Антоновский детский дом',
@@ -76,7 +78,9 @@ organizations = Organization.create!([
     phone: '+996 (3134) 33172',
     organization_category_id: organization_category_2.id,
     url: 'www.v-adetdom.kg',
-    active: true
+    active: true,
+    latitude: '42.9008671451945',
+    longitude: '74.64300155639648'
   },
   {
     name: 'Ак-Суйский детский дом',
@@ -86,7 +90,9 @@ organizations = Organization.create!([
     phone: '+996 (3948) 91109',
     organization_category_id: organization_category_2.id,
     url: '',
-    active: true
+    active: true,
+    latitude: '42.91155476081381',
+    longitude: '74.59613800048828'
   },
   {
     name: 'Бишкекский городской дом-интернат общего типа для престарелых',
@@ -96,7 +102,9 @@ organizations = Organization.create!([
     phone: '+996 (312) 540305',
     organization_category_id: organization_category_3.id,
     url: ' www.dominter.biz',
-    active: true
+    active: true,
+    latitude: '42.86413792617463',
+    longitude: '74.58824157714844'
   },
   {
     name: 'Дом-интернат для пожилых людей Ленинского района мэрии г. Бишкек',
@@ -106,7 +114,9 @@ organizations = Organization.create!([
     phone: '+996 (312) 653711',
     organization_category_id: organization_category_3.id,
     url: '',
-    active: true
+    active: true,
+    latitude: '42.850799307092515',
+    longitude: '74.6407699584961'
   },
   {
     name: 'Орловский детский дом',
@@ -116,7 +126,9 @@ organizations = Organization.create!([
     phone: '+996 (3137) 23459',
     organization_category_id: organization_category_2.id,
     url: '',
-    active: true
+    active: true,
+    latitude: '',
+    longitude: ''
   },
   {
     name: 'Специализированный дом ребёнка (СДР)',
@@ -126,9 +138,31 @@ organizations = Organization.create!([
     phone: '+996 (3138) 62971',
     organization_category_id: organization_category_2.id,
     url: '',
-    active: true
+    active: true,
+    latitude: '42.835947266683796',
+    longitude: '74.60609436035156'
   }
 ])
+
+
+user_organizations = UserOrganization.create!([
+    {
+      user_id: user1.id,
+      organization_id: organizations[2].id,
+      role: 1
+    },
+    {
+      user_id: user1.id,
+      organization_id: organizations[3].id,
+      role: 1
+    },
+    {
+      user_id: user1.id,
+      organization_id: organizations[5].id,
+      role: 2
+    }
+])
+
 
 
 

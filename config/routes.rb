@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'organizations/show/:id' => 'organizations#show', as: 'organization_show'
 
-  get 'organizations/organizations_list' => 'organizations#organizations_list', as: 'organizations_list'
+  get 'organizations/list' => 'organizations#list', as: 'organizations_list'
 
   get 'organizations/donors' => 'organizations#donors', as: 'donors'
 

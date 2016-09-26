@@ -4,6 +4,8 @@ class OrganizationsController < ApplicationController
     # @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Донорская помощь')
     # @donor = OrganizationCategory.find_by(name: 'Донорская помощь')
     # @organizations = Organization.all.where(active: true).where.not(organization_category_id: @donor.id)
+
+
   end
 
   def new
@@ -45,8 +47,15 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all.where(active: true)
   end
 
-  def show
-    @organization = Organization.find(params[:id])
+  def list
+    @organizations = Organization.where(active: true)
+    respond_to do |format|
+      format.html
+      format.js {}
+      format.json {
+        render json: {:organizations => @organizations}
+      }
+    end
   end
 
   def donors
