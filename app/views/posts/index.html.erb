@@ -1,2 +1,15 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+<h1>Все посты</h1>
+  <% @posts.each do |post| %>
+  <div class="post-item">
+    <div class="post-title">
+      <h3><%= post.title %></h3>
+      <div class="post-category">Категория: <%= post.post_category.name %> </div>
+      <p>Организация: <%= post.organization.name %></p>
+    </div>
+     <div class="post_body">
+       <p><%= post.body %></p>
+     </div>
+  </div>
+  <% end %>
+</div>
