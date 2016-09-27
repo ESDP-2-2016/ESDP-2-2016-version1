@@ -1,7 +1,14 @@
 <div class="container">
 <h1>Все посты</h1>
+  <% @posts.each do |item| %>
   <div class="post-item">
-    <h2>Категория поста</h2>
-    <h3>Заголовок поста</h3>
+    <div class="post-title">
+      <h3><%= item.title %></h3>
+      <div class="post-category">Категория: <%= item.post_category.title %> </div>
+    </div>
+     <div class="post_body">
+       <p><%= item.body %></p>
+     </div>
   </div>
+  <% end %>
 </div>
