@@ -7,6 +7,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.0]
       t.string :phone
       t.string :longitude
       t.string :latitude
+      t.string :contact_person
       t.boolean :active
       t.string :url
       t.references :organization_category, foreign_key: true

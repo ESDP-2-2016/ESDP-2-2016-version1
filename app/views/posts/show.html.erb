@@ -1,2 +1,12 @@
 <h1><%= @post.title %></h1>
+<div>
+  <% if user_signed_in? && (current_user == @post.user) %>
+    <%= link_to 'Редактировать', edit_post_path(@post) %>
+    <%= link_to 'Удалить', post_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+  <% end  %>
+</div>
+<p> Автор: <%= @post.user.name %></p>
+<p> Организация: <%= @post.organization.name %></p>
+<p> Опубликовано: <%= @post.created_at %></p>
+
 <p><%= @post.body %></p>

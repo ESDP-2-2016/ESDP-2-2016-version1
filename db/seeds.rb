@@ -165,16 +165,16 @@ user_organizations = UserOrganization.create!([
 
 post_categories = PostCategory.create!([
   {
-      title: "Нужна помощь"
+      name: "Нужна помощь"
   },
   {
-      title: "Отчет о проделанной работе"
+      name: "Отчет о проделанной работе"
   },
   {
-      title: "Делимся радостью"
+      name: "Делимся радостью"
   },
   {
-      title: "Благодарность"
+      name: "Благодарность"
   }
 ])
 
@@ -185,12 +185,12 @@ posts = Post.create!([
         post_category: post_categories.first,
         organization: user_organizations.first.organization,
         user_id: user_organizations.first.user.id
-    },
-    {
-        title: "one more awesome post",
-        body: "Stack Overflow is a community of 4.7 million programmers, just like you, helping each other. Join them; it only takes a minute: ",
-
-    }
+    }    ,
+    # {
+    #     title: "one more awesome post",
+    #     body: "Stack Overflow is a community of 4.7 million programmers, just like you, helping each other. Join them; it only takes a minute: ",
+    #
+    # }
 ])
 
 

@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160922075853) do
     t.string   "phone"
     t.string   "longitude"
     t.string   "latitude"
+    t.string   "contact_person"
     t.boolean  "active"
     t.string   "url"
     t.integer  "organization_category_id"
@@ -75,19 +76,20 @@ ActiveRecord::Schema.define(version: 20160922075853) do
   end
 
   create_table "post_categories", force: :cascade do |t|
-    t.string   "title"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
+    t.string   "title",                           null: false
+    t.text     "body",                            null: false
+    t.boolean  "open",             default: true
     t.integer  "organization_id"
     t.integer  "post_category_id"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["organization_id"], name: "index_posts_on_organization_id"
     t.index ["post_category_id"], name: "index_posts_on_post_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
