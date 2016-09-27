@@ -1,7 +1,7 @@
 <div class="organizations"> 
 <% @organization_categories.each do |organization_category| %>      
-  <h2><%= organization_category.name %></h2> 
-  <% @organizations.each do |organization| %>   
+  <h2>Категория: <%= organization_category.name %></h2>
+  <% @organizations_all.each do |organization| %>
   <div>
     <% if organization.organization_category_id == organization_category.id %>  
     <h4><%= link_to organization.name, organization_show_path(organization) %></h4>                 
@@ -10,7 +10,6 @@
       <li>Область: <%= organization.oblast.name %></li>
       <li>Адрес: <%= organization.address %></li>
       <li>Телефон: <%= organization.phone %></li>
-      <li>Область: <%= organization.oblast.name %></li>
     </ul>  
     <% end %>
   </div>
