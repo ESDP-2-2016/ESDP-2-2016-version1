@@ -43,32 +43,6 @@ ActiveRecord::Schema.define(version: 20160922075853) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "aid_categories", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "aids", force: :cascade do |t|
-    t.integer  "organization_id"
-    t.integer  "donor_id"
-    t.integer  "aid_category_id"
-    t.text     "description"
-    t.datetime "date_time_published"
-    t.datetime "date_time_delivered"
-    t.boolean  "aid_delivered"
-    t.text     "result"
-    t.integer  "post_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["aid_category_id"], name: "index_aids_on_aid_category_id"
-    t.index ["donor_id"], name: "index_aids_on_donor_id"
-    t.index ["organization_id"], name: "index_aids_on_organization_id"
-    t.index ["post_id"], name: "index_aids_on_post_id"
-  end
-
   create_table "oblasts", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -85,18 +59,17 @@ ActiveRecord::Schema.define(version: 20160922075853) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
+    t.string   "location"
     t.string   "address"
-    t.string   "contact_person"
     t.string   "phone"
     t.string   "longitude"
     t.string   "latitude"
+    t.boolean  "active"
+    t.string   "url"
     t.integer  "organization_category_id"
     t.integer  "oblast_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.string   "location"
-    t.string   "url"
-    t.boolean  "active"
     t.index ["oblast_id"], name: "index_organizations_on_oblast_id"
     t.index ["organization_category_id"], name: "index_organizations_on_organization_category_id"
   end
