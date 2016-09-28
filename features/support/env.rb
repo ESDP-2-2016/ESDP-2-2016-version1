@@ -65,6 +65,13 @@ Before('@login') do
   click_button "Log in"
 
 end
+Before('@logadmin') do
+  visit new_admin_user_session_path
+  fill_in "Email", with:"admin@example.com"
+  fill_in "Password",with: "123456"
+  click_button "Login"
+
+end
 
 
 at_exit do
