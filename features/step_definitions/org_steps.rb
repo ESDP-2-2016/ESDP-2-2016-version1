@@ -18,6 +18,10 @@ end
 
 When(/^кликаю на  "([^"]*)"$/) do |button|
   click_button button
+  sleep(3)
+end
+When(/^radio "([^"]*)" в поле "([^"]*)"$/) do |value, field|
+  choose(value)
 end
 
 

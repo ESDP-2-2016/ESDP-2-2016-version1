@@ -14,4 +14,5 @@
   @logadmin
   Сценарий: Активация Организации
     Допустим я на странице админ "/admin/organizations"
-    И I follow "Edit" for "Специализированный дом ребёнка (СДР)"
+    И I follow "Edit" for "Organization1"
+    И radio "Yes" в поле "Active"
