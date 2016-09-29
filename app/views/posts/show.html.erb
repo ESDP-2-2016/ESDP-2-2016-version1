@@ -17,6 +17,7 @@
   </div>
 <% end %>
 <div class="comments-list">
+  <h2>Комментарии:</h2>
   <% @post_comments.each do |post_comment| %>
     <div class="comment">
       <p><%= post_comment.user.name %></p>

@@ -193,6 +193,19 @@ posts = Post.create!([
     # }
 ])
 
+post_comments = PostComment.create!([
+    {
+        body: "Ea voluptate eos similique, ullam atque quam amet modi, quidem labore, distinctio placeat nemo ipsam eius magnam maxime numquam in. Ut, nostrum.",
+        user_id: user1.id,
+        post_id: posts.first.id
+    },
+    {
+        body: "Officia laboriosam voluptate dolores officiis reiciendis sapiente cumque fugit, incidunt exercitationem doloremque itaque asperiores commodi maxime, sed ad expedita molestias nisi voluptatibus.",
+        user_id: user2.id,
+        post_id: posts.first.id
+    }
+])
+
 
 
 
