@@ -1,0 +1,11 @@
+<%= form_for @post_comment do |f| %>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :post_id, :value => current_post.id %>
+    <div class="form-group">
+      <%= f.submit(btn_txt, class: "btn btn-primery") %>
+    </div>
+<% end %>
