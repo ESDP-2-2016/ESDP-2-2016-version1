@@ -126,6 +126,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    ffaker (2.2.0)
     ffi (1.9.14)
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
@@ -297,6 +298,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  ffaker
   inherited_resources!
   jbuilder (~> 2.5)
   jquery-rails

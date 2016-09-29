@@ -46,7 +46,7 @@ class OrganizationsController < ApplicationController
     @organization_categories = OrganizationCategory.all.where(active: true)
     @organizations_all = Organization.all.where(active: true)
     @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :address])
-    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :organization_id])
+    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :organization_id]).order('created_at desc')
     respond_to do |format|
       format.html
       format.js {}
