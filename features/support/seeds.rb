@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'ffaker'
+
 AdminUser.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456')
 
 user1 = User.create!(name: 'User_1', phone: '0-700-62-00-00', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
@@ -145,7 +147,7 @@ organizations = Organization.create!([
 ])
 
 
-user_organizations = UserOrganization.create!([
+UserOrganization.create!([
     {
       user_id: user1.id,
       organization_id: organizations[2].id,
@@ -162,6 +164,36 @@ user_organizations = UserOrganization.create!([
       role: 2
     }
 ])
+user_organizations = UserOrganization.all
+
+PostCategory.create!([
+  {
+      name: "Нужна помощь"
+  },
+  {
+      name: "Отчет о проделанной работе"
+  },
+  {
+      name: "Делимся радостью"
+  },
+  {
+      name: "Благодарность"
+  }
+])
+post_categories = PostCategory.all
+
+20.times do
+  org = user_organizations[rand(0...user_organizations.size)]
+  Post.create!([
+      {
+          title: FFaker::Lorem.sentence(word_count=5),
+          body: FFaker::Lorem.paragraph,
+          post_category: post_categories[rand(0...post_categories.size)],
+          organization: org.organization,
+          user: org.user
+      }
+  ])
+end
 
 
 
