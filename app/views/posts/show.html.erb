@@ -19,14 +19,16 @@
 <div class="comments-list">
   <h2>Комментарии:</h2>
   <% @post_comments.each do |post_comment| %>
-    <div class="comment">
-      <p><%= post_comment.user.name %></p>
-      <p><%= post_comment.body %></p>
-      <p> Опубликовано: <%= post_comment.created_at %></p>
-      <% if current_user == post_comment.user %>
-        <%= link_to 'Редактировать', edit_post_comment_path(post_comment) %>
-        <%= link_to 'Удалить', post_comment_path, method: :delete, data: { confirm: 'Are you sure?'} %>
-      <%  end %>
+    <div class="comment panel panel-success">
+      <div class="panel-heading"><%= post_comment.user.name %></div>
+      <div class="panel-body">
+        <p> <%= post_comment.body %></p>
+        <p> Опубликовано: <%= post_comment.created_at %></p>
+        <% if current_user == post_comment.user %>
+            <%= link_to 'Редактировать', edit_post_comment_path(post_comment) %>
+            <%= link_to 'Удалить', post_comment_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

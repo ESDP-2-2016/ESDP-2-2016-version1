@@ -15,6 +15,7 @@ user3 = User.create!(name: 'User_3', phone: '0-777-68-10-00', email: 'user3@exam
 user4 = User.create!(name: 'User_4', phone: '0-556-63-12-14', email: 'user4@example.com', password: '123456', password_confirmation: '123456')
 user5 = User.create!(name: 'User_5', phone: '0-556-19-00-10', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
 
+users = User.all
 
 organization_category_1 = OrganizationCategory.create!(   
   name: 'Активисты', 
@@ -195,18 +196,17 @@ post_categories = PostCategory.all
   ])
 end
 
-post_comments = PostComment.create!([
+posts = Post.all
+
+50.times do
+  PostComment.create!([
     {
-        body: "Ea voluptate eos similique, ullam atque quam amet modi, quidem labore, distinctio placeat nemo ipsam eius magnam maxime numquam in. Ut, nostrum.",
-        user_id: user1.id,
-        post_id: posts.first.id
-    },
-    {
-        body: "Officia laboriosam voluptate dolores officiis reiciendis sapiente cumque fugit, incidunt exercitationem doloremque itaque asperiores commodi maxime, sed ad expedita molestias nisi voluptatibus.",
-        user_id: user2.id,
-        post_id: posts.first.id
+      body: FFaker::Lorem.paragraph,
+      post: posts[rand(0...posts.size)],
+      user: users[rand(0...users.size)]
     }
-])
+  ])
+end
 
 
 
