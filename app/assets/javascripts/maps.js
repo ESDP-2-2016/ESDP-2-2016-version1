@@ -1,32 +1,9 @@
 $(document).ready(function () {
-
     // необходимые настройки карты
     var defaultCoordinate = [42.87, 74.60];
-    var mymap = L.map('map').setView(defaultCoordinate, 13);
-    var indexMap = L.map('index-map').setView(defaultCoordinate, 10);
     var leafletURL = 'https://api.mapbox.com/styles/v1/tsvetkovamariia/cited6yv400an2hrzaezesxtn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHN2ZXRrb3ZhbWFyaWlhIiwiYSI6ImNpdGU4dnhvMTAwY2EyeW1qM216aDN3aHgifQ.D-AjvTmNye975Riw4LfT2A';
 
-    // элементы страницы для взаимодействия с картой
-    var fieldLatitude  = document.getElementById('latitude');
-    var fieldLongitude = document.getElementById('longitude');
-    var btnReset = document.getElementById('map-reset');
-
-    L.tileLayer(leafletURL, {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18
-        }).addTo(mymap);
-
-    L.tileLayer(leafletURL, {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18
-    }).addTo(indexMap);
-
-    var marker = L.marker(defaultCoordinate).addTo(mymap);
-    marker.bindPopup("<h5>Name</h5><p>Address</p>").openPopup();
-
-    fieldLatitude.value = marker.getLatLng().lat;
-    fieldLongitude.value = marker.getLatLng().lng;
-
+    // методы для взаимодействия с картой
     function moveMarker(e) {
         marker.setLatLng(e.latlng);
         mymap.panTo(e.latlng);
@@ -99,26 +76,49 @@ $(document).ready(function () {
             }
         }
     }
-    mymap.on('click', function(e) {
-        moveMarker(e);
-        updateFields();
-    });
 
-    fieldLongitude.onkeydown = function() {updateMarker()} ;
-    fieldLatitude.onkeydown = function() {updateMarker()} ;
+    // Карта на странице формы
+    if (document.getElementById("map")!=null){
+        var fieldLatitude  = document.getElementById('latitude');
+        var fieldLongitude = document.getElementById('longitude');
+        var btnReset = document.getElementById('map-reset');
+        var mymap = L.map('map').setView(defaultCoordinate, 13);
+        L.tileLayer(leafletURL, {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18
+            }).addTo(mymap);
+        var marker = L.marker(defaultCoordinate).addTo(mymap);
+        fieldLatitude.value = marker.getLatLng().lat;
+        fieldLongitude.value = marker.getLatLng().lng;
+        mymap.on('click', function(e) {
+            moveMarker(e);
+            updateFields();
+        });
 
-    btnReset.onclick = function() {
-        resetMarker();
-        updateFields();
-    };
+        fieldLongitude.onkeydown = function() {updateMarker()} ;
+        fieldLatitude.onkeydown = function() {updateMarker()} ;
 
-    $.ajax({
-        type: "GET",
-        url:  "/organizations/list",
-        dataType: "json",
-        success: function(data) {
-            populateMap(indexMap, data);
-        }
-    });
+        btnReset.onclick = function() {
+            resetMarker();
+            updateFields();
+        };
+    }
 
+    // Карта на главной странице
+    if (document.getElementById("index-map")!=null){
+        var indexMap = L.map('index-map').setView(defaultCoordinate, 10);
+        L.tileLayer(leafletURL, {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18
+        }).addTo(indexMap);
+
+        $.ajax({
+            type: "GET",
+            url:  "/organizations/list",
+            dataType: "json",
+            success: function(data) {
+                populateMap(indexMap, data);
+            }
+        });
+    }
 });

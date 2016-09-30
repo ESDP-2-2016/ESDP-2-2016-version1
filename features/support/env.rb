@@ -5,7 +5,7 @@
 # files.
 
 require 'cucumber/rails'
-
+include ActionController::Helpers
 Capybara.default_driver = :selenium
 
 # Capybara defaults to CSS3 selectors rather than XPath.
@@ -63,16 +63,21 @@ Before('@login') do
   fill_in "Email", with:"user1@example.com"
   fill_in "Password",with: "123456"
   click_button "Log in"
-
 end
+
+After('@logout') do
+  if page.has_content?("Добро пожаловать")
+    click_link "Выход"
+  end
+end
+
+
 Before('@logadmin') do
   visit new_admin_user_session_path
   fill_in "Email", with:"admin@example.com"
   fill_in "Password",with: "123456"
   click_button "Login"
-
 end
-
 
 at_exit do
   DatabaseCleaner.clean_with(:truncation)

@@ -20,3 +20,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 .idea/**/*
+
+# Ignore local Selenium config
+/features/support/webdriver.rb

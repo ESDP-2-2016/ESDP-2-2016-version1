@@ -17,9 +17,13 @@ end
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
   page.has_content?(text)
   puts "Добро пожаловать"
-  sleep(3)
+  # sleep(3)
 end
 
 When(/^я на странице "\/users\/sign_up"$/) do
   visit new_user_registration_path
+end
+
+When(/^я на странице создания поста$/) do
+  visit new_post_path
 end
