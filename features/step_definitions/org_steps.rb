@@ -1,11 +1,12 @@
 
 When(/^я на странице юзера "\/organizations\/new"$/) do
   visit new_organization_path
-  sleep(2)
+  sleep(1)
 end
+
 When(/^я на странице админ "\/admin\/organizations"$/) do
   visit admin_organizations_path
-  sleep(2)
+  sleep(1)
 end
 
 When(/^введу "([^"]*)" в поле "([^"]*)"$/) do |value, field|
@@ -27,7 +28,8 @@ end
 
 When(/^должен на главную страницу$/) do
   visit root_path
-end
+  sleep(1)
+  end
 
 
 When /^I follow "([^"]*)" for "([^"]*)"$/ do |link, person|
@@ -36,5 +38,11 @@ When /^I follow "([^"]*)" for "([^"]*)"$/ do |link, person|
   within(:xpath, "//tbody/tr[contains(.,'#{person}')]") do
     click_link(link)
   end
-  sleep(5)
+  sleep(1)
+end
+
+
+When(/^перехожу на "\/organizations\/list"$/) do
+  visit ('/organizations/list')
+  sleep(10)
 end

@@ -16,3 +16,9 @@
     Допустим я на странице админ "/admin/organizations"
     И I follow "Edit" for "Organization1"
     И radio "Yes" в поле "Active"
+    И кликаю на  "Update Organization"
+
+   @login
+   Сценарий: Проверка наличия организации в списке
+#     И кликаю "/organizations/list" for "Организации"
+     Допустим перехожу на "/organizations/list"
