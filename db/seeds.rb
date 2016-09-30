@@ -15,6 +15,7 @@ user3 = User.create!(name: 'User_3', phone: '0-777-68-10-00', email: 'user3@exam
 user4 = User.create!(name: 'User_4', phone: '0-556-63-12-14', email: 'user4@example.com', password: '123456', password_confirmation: '123456')
 user5 = User.create!(name: 'User_5', phone: '0-556-19-00-10', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
 
+users = User.all
 
 organization_category_1 = OrganizationCategory.create!(   
   name: 'Активисты', 
@@ -192,6 +193,18 @@ post_categories = PostCategory.all
           organization: org.organization,
           user: org.user
       }
+  ])
+end
+
+posts = Post.all
+
+50.times do
+  PostComment.create!([
+    {
+      body: FFaker::Lorem.paragraph,
+      post: posts[rand(0...posts.size)],
+      user: users[rand(0...users.size)]
+    }
   ])
 end
 

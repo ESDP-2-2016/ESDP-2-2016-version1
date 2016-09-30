@@ -10,3 +10,25 @@
 <p> Опубликовано: <%= @post.created_at %></p>
 
 <p><%= @post.body %></p>
+<% if user_signed_in? %>
+  <h2>Добавить комментарий: </h2>
+  <div class="comments-form">
+    <%= render 'post_comments/form', current_post: @post, btn_txt: "Опубликовать" %>
+  </div>
+<% end %>
+<div class="comments-list">
+  <h2>Комментарии:</h2>
+  <% @post_comments.each do |post_comment| %>
+    <div class="comment panel panel-success">
+      <div class="panel-heading"><%= post_comment.user.name %></div>
+      <div class="panel-body">
+        <p> <%= post_comment.body %></p>
+        <p> Опубликовано: <%= post_comment.created_at %></p>
+        <% if current_user == post_comment.user %>
+            <%= link_to 'Редактировать', edit_post_comment_path(post_comment) %>
+            <%= link_to 'Удалить', post_comment_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
