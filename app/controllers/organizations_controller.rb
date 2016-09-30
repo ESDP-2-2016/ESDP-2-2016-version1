@@ -5,7 +5,10 @@ class OrganizationsController < ApplicationController
     # @donor = OrganizationCategory.find_by(name: 'Донорская помощь')
     # @organizations = Organization.all.where(active: true).where.not(organization_category_id: @donor.id)
 
-
+    @posts = Post.all.where(post_category_id:1)
+    @posts = Post.all.order(created_at: :desc).last(3)
+    @organization_categories = OrganizationCategory.all.where(active: true)
+    @organizations  =  Organization.all.order(created_at: :desc).last(3)
   end
 
   def new
