@@ -1,8 +1,9 @@
 <div class="container">
   <h1>Профиль: <% @user.name  %></h1>
-  <p><%= @user.phone  %></p>
-  <p><%= @user.email  %></p>
+  <p>Номер телефона: <%= @user.phone  %></p>
+  <p>Почта: <%= @user.email  %></p>
   <p><%= link_to 'Зарегистрировать организацию',  new_organization_path, class: 'btn btn-primary' %></p>
+  <p><%= link_to 'Создать новую тему', new_post_path, class: 'btn btn-primary' %></p>
   <h2>Организации, в которых вы являетесь администратором: </h2>
   <ul>
   <% @owner_organizations.each do |item| %>
