@@ -1,8 +1,15 @@
 <div class="container">
   <h1 class="al-center">Зарегистрировать организацию</h1>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 form-block">
+    <div class="col-md-6 form-block">
       <%=  render 'form', btn_txt: "Зарегистрировать" %>
+    </div>
+    <div class="col-md-6">
+      <p>Карта для страницы регистрации организации</p>
+      <button id="map-reset">Reset Map</button>
+      <br><br>
+      <div id="map"></div>
+      <br><br><br>
     </div>
   </div>
 </div>
