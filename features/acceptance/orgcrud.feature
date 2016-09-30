@@ -14,7 +14,7 @@
   @logadmin
   Сценарий: Активация Организации
     Допустим я на странице админ "/admin/organizations"
-    И I follow "Edit" for "Organization1"
+    И I follow "Edit" for "organization_8"
     И radio "Yes" в поле "Active"
     И кликаю на  "Update Organization"
 
