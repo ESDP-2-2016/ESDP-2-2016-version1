@@ -1,16 +1,54 @@
 <div class="container">
-  <h1>Индексная страница сайта:</h1>
-  <p>Карта для страницы регистрации организации</p>
-  <input type="number" id="latitude">
-  <input type="number" id="longitude">
-  <button id="map-reset">Reset Map</button>
-  <div id="map"></div>
-  <br><br><br>
+
   <h3>Карта для главной страницы</h3>
   <div id="index-map"></div>
   <br><br><br><br>
   <ul id="result">
 
   </ul>
+
+    <div class="block_needhelp">
+      <h2>Просьба о помощи</h2>
+      <hr>
+      <% @posts.each do |post| %>
+          <div class="post col-md-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
+              </div>
+              <div class="panel-body">
+                <p>Категория: <%= post.post_category.name %> </p>
+                <p>Организация: <%= post.organization.name %></p>
+                <p>Автор: <%= post.user.name %></p>
+                <p>Опубликовано: <%= post.created_at.strftime("%d %b. %Y") %></p>
+                <div class="text-right">
+                  <%= link_to "Читать", post_path(post), class: "btn btn-default" %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+
+    </div>
+
+    <div class="new_organization col-md-12">
+      <h2>Новые организации</h2>
+      <hr>
+         <% @organizations.each do |organization| %>
+            <div class="col-md-4">
+                  <h4><%= link_to organization.name, organization_show_path(organization) %></h4>
+                  <ul>
+                    <li>Местоположение: <%= organization.location %></li>
+                    <li>Область: <%= organization.oblast.name %></li>
+                    <li>Адрес: <%= organization.address %></li>
+                    <li>Телефон: <%= organization.phone %></li>
+                  </ul>
+            </div>
+        <% end %>
+
+    </div>
+  <br>
+  <br>
+
 </div>
 
