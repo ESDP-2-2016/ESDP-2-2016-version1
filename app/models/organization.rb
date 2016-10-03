@@ -6,8 +6,8 @@ class Organization < ApplicationRecord
   belongs_to :oblast
 
   has_many :user_organizations
-  has_many :posts
-  has_many :users, :through => :user_organizations
+  has_many :posts, dependent: :destroy
+  has_many :users, :through => :user_organizations,dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 250}
   validates :oblast_id, presence: true
