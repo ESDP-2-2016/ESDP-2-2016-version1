@@ -8,6 +8,8 @@ class Organization < ApplicationRecord
   has_many :user_organizations
   has_many :posts, dependent: :destroy
   has_many :users, :through => :user_organizations,dependent: :destroy
+  has_many :aids
+
 
   validates :name, presence: true, length: {maximum: 250}
   validates :oblast_id, presence: true
