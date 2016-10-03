@@ -11,13 +11,13 @@ class PostCommentsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
     @post_comment = PostComment.find(params[:id])
+    @post = @post_comment.post
   end
 
   def update
-    @post = Post.find(params[:id])
     @post_comment = PostComment.find(params[:id])
+    @post = @post_comment.post
     if @post_comment.update(post_comment_params)
       redirect_to (@post)
     else

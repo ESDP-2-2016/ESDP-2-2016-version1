@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  resources :organizations,  only: [:new, :create, :update, :destroy]
+  resources :organizations,  only: [:new, :create, :edit, :update, :destroy]
 
   get 'users/show/:id' => 'users#show', as: 'user_profile'
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :post_comments, only: [:create, :edit, :update, :destroy]
-
+  resources :aids
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

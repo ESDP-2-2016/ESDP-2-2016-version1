@@ -6,19 +6,16 @@
           <%= f.text_area :description, class: "form-control" %>
         </div>
       </div>
-
-
-
-
-
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :status, :value => 0 %>
       <div class="form-group row">
-        <%= f.label :url, class: "col-sm-4 control-label" %>
-        <div class="col-sm-6">
-          <%= f.text_field :url, class: "form-control" %>
-        </div>
+        <% if current_user.organizations.count == 1 %>
+            <p> Публикуется от имени <%=current_user.organizations.first.name %></p>
+            <%= f.hidden_field :organization_id, :value => current_user.organizations.first.id %>
+        <% elsif current_user.organizations.count > 1 %>
+            <%= f.collection_select :organization_id, current_user.organizations, :id, :name, class: "form-select from-control"  %>
+        <% end %>
       </div>
-
-      <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="form-group move-right col-sm-offset-4">
         <%= f.submit(btn_txt, class: "btn btn-primary") %>
       </div>

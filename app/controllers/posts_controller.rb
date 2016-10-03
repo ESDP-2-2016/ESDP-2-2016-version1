@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @post_comments = PostComment.where(post_id: @post.id)
+    @aids = Aid.where(post_id: @post.id)
   end
 
   def edit
@@ -49,10 +50,8 @@ class PostsController < ApplicationController
   end
 
   private
-
   def post_params
       params.require(:post).permit(:title, :body, :post_category_id, :organization_id, :user_id)
-
   end
 
   def correct_user

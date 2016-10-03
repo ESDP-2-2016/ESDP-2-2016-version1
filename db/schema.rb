@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161003082109) do
 
   create_table "aids", force: :cascade do |t|
     t.text     "description"
-    t.boolean  "status"
+    t.integer  "status"
     t.integer  "user_id"
     t.integer  "post_id"
     t.integer  "organization_id"

@@ -9,4 +9,7 @@
       <li>Телефон: <%= @organization.phone %></li>
     </ul>        
   </div>
+  <% if user_signed_in? && (current_user == @user) %>
+    <%= link_to 'Редактировать', edit_organization_path(@organization) %>
+  <% end  %>
 </div>
