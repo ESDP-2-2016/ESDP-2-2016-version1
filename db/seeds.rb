@@ -160,9 +160,19 @@ UserOrganization.create!([
       role: 1
     },
     {
+        user_id: user2.id,
+        organization_id: organizations[3].id,
+        role: 2
+    },
+    {
       user_id: user1.id,
       organization_id: organizations[5].id,
       role: 2
+    },
+    {
+      user_id: user2.id,
+      organization_id: organizations[5].id,
+      role: 1
     }
 ])
 user_organizations = UserOrganization.all
