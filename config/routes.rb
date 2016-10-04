@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'about/index'
+
   root 'organizations#index'
 
   get 'users/show'

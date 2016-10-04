@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require active_admin
 //= require bootstrap-sprockets
 //= require leaflet
 //= require_tree .
