@@ -22,17 +22,19 @@
 <% end %>
 <div class="comments-list">
   <h2>Комментарии:</h2>
-  <% @post_comments.each do |post_comment| %>
-    <div class="comment panel panel-success">
-      <div class="panel-heading"><%= post_comment.user.name %></div>
-      <div class="panel-body">
-        <p> <%= post_comment.body %></p>
-        <p> Опубликовано: <%= post_comment.created_at %></p>
-        <% if current_user == post_comment.user %>
-            <%= link_to 'Редактировать', edit_post_comment_path(post_comment) %>
-            <%= link_to 'Удалить', post_comment_path(post_comment), method: :delete, data: { confirm: 'Are you sure?'} %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  <div id="hypercomments_widget"></div>
+  <script type="text/javascript">
+    _hcwp = window._hcwp || [];
+    _hcwp.push({widget:"Stream", widget_id: 81181});
+    (function() {
+      if("HC_LOAD_INIT" in window)return;
+      HC_LOAD_INIT = true;
+      var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+      var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+      hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/81181/"+lang+"/widget.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hcc, s.nextSibling);
+    })();
+  </script>
+  <a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>
 </div>
