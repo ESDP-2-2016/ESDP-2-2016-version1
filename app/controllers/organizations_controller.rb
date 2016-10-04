@@ -66,6 +66,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @post = Post.where(organization_id: @organization.id )
     @org_user = @organization.user_organizations.find_by(organization_id: @organization.id)
     unless @org_user.nil?
       @user = @org_user.user
@@ -79,7 +80,7 @@ class OrganizationsController < ApplicationController
   end
 
   def user_organization_params
-    params.require(:user_organization).permit(:role, :organization_id, :user_id)
+    params.require(:user_organization).permit(:role, :organization_id, :user_id, :post)
   end
 
 end
