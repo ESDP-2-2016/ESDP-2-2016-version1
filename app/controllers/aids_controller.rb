@@ -8,7 +8,7 @@ class AidsController < ApplicationController
 
   def create
     @aid = Aid.new(aid_params)
-    if @iad.save
+    if @aid.save
       redirect_to :back
     else
       render 'new'
