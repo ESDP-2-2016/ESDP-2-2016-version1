@@ -14,12 +14,7 @@
 <% if user_signed_in? && (@post.post_category.id == 1 ) %>
 <p><%= link_to 'Откликнуться', new_aid_path(@post), class: "btn btn-primary" %></p>
 <% end %>
-<% if user_signed_in? %>
-  <h2>Добавить комментарий: </h2>
-  <div class="comments-form">
-    <%= render 'post_comments/form', current_post: @post, btn_txt: "Опубликовать" %>
-  </div>
-<% end %>
+
 <div class="comments-list">
   <h2>Комментарии:</h2>
   <div id="hypercomments_widget"></div>
@@ -36,5 +31,5 @@
       s.parentNode.insertBefore(hcc, s.nextSibling);
     })();
   </script>
-  <a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>
+  <!--<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>-->
 </div>
