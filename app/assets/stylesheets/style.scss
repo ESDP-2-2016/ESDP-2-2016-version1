@@ -4,3 +4,19 @@ body{
 .navbar{
   background: #ccc;
 }
+.aids-block{
+  .aid-item{
+    padding: 5px 10px;
+    margin: 0 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .aid-item.post{
+    padding: 0 0 5px;
+    margin: 0 0 10px;
+    border: none;
+    border-bottom: 1px dotted #ccc;
+    border-radius: 0;
+    width: 50%;
+  }
+}

@@ -187,6 +187,16 @@ UserOrganization.create!([
     user_id: user1.id,
     organization_id: organizations[5].id,
     role: 2
+  },
+  {
+    user_id: user2.id,
+    organization_id: organizations[3].id,
+    role: 2
+  },
+  {
+    user_id: user2.id,
+    organization_id: organizations[5].id,
+    role: 1
   }
 ])
 user_organizations = UserOrganization.all
@@ -234,7 +244,7 @@ end
 
 aid_posts = Post.all.where(post_category_id: 1)
 
-10.times do
+20.times do
   Aid.create!([
     {
        description: FFaker::Lorem.paragraph,

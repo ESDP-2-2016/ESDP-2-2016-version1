@@ -25,15 +25,15 @@
   <% @aids.each do |aid| %>
       <div class="aid-item">
         <div class="aid-author">
-          <div>Опубликовано от имени организации: <b><%= aid.organization.name %></b>, дата публикации: <b><%= aid.created_at %></b></div>
+          <div><b>Опубликовано от имени организации:</b> <%= aid.organization.name %>, <em>дата публикации:</em> <%= aid.created_at %></div>
         </div>
         <p><%= aid.description %></p>
         <% if aid.status == 0 %>
-            <div class="aid-status">Статус: Вы откликнулись</div>
+            <div class="aid-status"><b>Статус:</b> Вы откликнулись.</div>
         <% elsif aid.status == 1 %>
-            <div class="aid-status">Статус: помощь оказана. Благодарим за отклик!!!</div>
+            <div class="aid-status"><b>Статус:</b> Вы оказали помощь, по данному запросу. Благодарим за отклик!!!</div>
         <% else %>
-            <div class="aid-status">Статус: Вы откликнулись, но помощь не оказали</div>
+            <div class="aid-status"><b>Статус:</b> Вы откликнулись, но помощь не оказали.</div>
         <% end %>
       </div>
   <% end %>

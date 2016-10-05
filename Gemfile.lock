@@ -86,6 +86,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    ckeditor (4.2.0)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -294,6 +297,7 @@ DEPENDENCIES
   activeadmin (~> 1.0.0.pre4)
   bootstrap-sass (~> 3.3.6)
   byebug
+  ckeditor
   coffee-rails (~> 4.2)
   cucumber-rails
   database_cleaner
@@ -320,4 +324,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.1

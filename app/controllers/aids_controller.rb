@@ -10,7 +10,7 @@ class AidsController < ApplicationController
   def create
     @aid = Aid.new(aid_params)
     if @aid.save
-      redirect_to post_path(params[:aid][:post_id])
+    redirect_to post_path(params[:aid][:post_id])
     else
       render 'new'
     end
