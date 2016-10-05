@@ -1,3 +1,8 @@
+When(/^кликаю на алерт "([^"]*)"$/) do |arg|
+  page.driver.browser.switch_to.alert.accept
+  sleep(0.5)
+end
+
 When(/^кликаю на ссылку "([^"]*)"$/) do |link|
   click_link link
   sleep(0.5)
@@ -18,12 +23,17 @@ When(/^должен увидеть текст "([^"]*)"$/) do |text|
   sleep(0.5)
 end
 
-When(/^выбираю "([^"]*)" в поле "([^"]*)"$/) do |value, field|
+When(/^выбираю из списка "([^"]*)" в поле "([^"]*)"$/) do |value, field|
   page.select(value, :from => field)
   sleep(0.5)
 end
 
 When(/^выбираю в радио батон "([^"]*)" в поле "([^"]*)"$/) do |value, field|
   choose(value)
+  sleep(0.5)
+end
+
+When(/^должен не найти "([^"]*)"$/) do |text|
+  page.has_no_content?(text)
   sleep(0.5)
 end

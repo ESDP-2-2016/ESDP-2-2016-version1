@@ -51,3 +51,8 @@ When /^кликаю "([^"]*)" для "([^"]*)"$/ do |link, person|
   end
   sleep(0.5)
 end
+
+When(/^перехожу "\/posts"$/) do
+  visit ('/posts')
+  sleep(0.5)
+end
