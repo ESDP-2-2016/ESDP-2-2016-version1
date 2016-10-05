@@ -4,12 +4,13 @@ class AidsController < ApplicationController
 
   def new
     @aid = Aid.new
+    @respond_post = Post.find(params[:respond_post])
   end
 
   def create
     @aid = Aid.new(aid_params)
-    if @iad.save
-      redirect_to :back
+    if @aid.save
+      redirect_to post_path(params[:aid][:post_id])
     else
       render 'new'
     end
@@ -30,6 +31,6 @@ class AidsController < ApplicationController
 
   private
   def aid_params
-    params.require(:aid).permit(:descripton, :status, :organization_id, :user_id, :post_id)
+    params.require(:aid).permit(:description, :status, :organization_id, :user_id, :post_id)
   end
 end

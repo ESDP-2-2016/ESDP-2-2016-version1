@@ -12,7 +12,25 @@
 
 <p><%= @post.body %></p>
 <% if user_signed_in? && (@post.post_category.id == 1 ) %>
-<p><%= link_to 'Откликнуться', new_aid_path(@post), class: "btn btn-primary" %></p>
+<p><%= link_to 'Откликнуться', new_aid_path(respond_post: @post.id), class: "btn btn-primary" %></p>
+<% end %>
+
+<% unless @aids.empty? %>
+<div class="aids-block">
+  <h2>На запрос о помощи окликнулись:</h2>
+  <% @aids.each do |aid| %>
+    <% if aid.status == 1 %>
+    <div class="aid-item">
+      <div class="aid-author">
+        <div>Автор: <b><%= aid.user.name %></b></div>
+        <div>Опубликовано от имени организации: <b><%= aid.organization.name %></b>, дата публикации: <b><%= aid.created_at %></b></div>
+      </div>
+      <p><%= aid.description %></p>
+      <div class="aid-status">Статус: помощь оказана. Благодарим за отклик!!!</div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
 <% end %>
 
 <div class="comments-list">
