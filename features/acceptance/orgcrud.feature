@@ -4,21 +4,22 @@
   @login
   Сценарий: Регистрация новой организации
     Допустим я на странице юзера "/organizations/new"
-    Когда введу "Organization1" в поле "Name"
-    И введу "chuy" в поле "Location"
-    Когда выбираю "Детский дом" в поле "Organization category"
+    И ввожу в поле "Name" текст "Organization1"
+    И ввожу в поле "Location" текст "chuy"
+    И выбираю "Детский дом" в поле "Organization category"
     И выбираю "Баткенская область" в поле "Oblast"
-    И кликаю на  "Зарегистрировать"
-    Тогда должен на главную страницу
+    И кликаю на кнопку "Зарегистрировать"
+    И должен увидеть текст "Привет"
 
   @logadmin
   Сценарий: Активация Организации
     Допустим я на странице админ "/admin/organizations"
-    И I follow "Edit" for "organization_8"
-    И radio "Yes" в поле "Active"
-    И кликаю на  "Update Organization"
+    И кликаю "Edit" для "organization_8"
+    И выбираю в радио батон "Yes" в поле "Active"
+    И кликаю на кнопку "Update Organization"
+    И должен увидеть текст "Organization was successfully updated"
 
    @login
    Сценарий: Проверка наличия организации в списке
-#     И кликаю "/organizations/list" for "Организации"
      Допустим перехожу на "/organizations/list"
+     И должен увидеть текст "Organization1"
