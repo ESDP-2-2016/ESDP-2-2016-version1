@@ -11,7 +11,7 @@
 <p>Опубликовано: <%= @post.created_at %></p>
 
 <p><%= @post.body %></p>
-<% if user_signed_in? && (@post.post_category.id == 1 ) %>
+<% if user_signed_in? && (@post.post_category.id == 1 ) && (current_user != @post.user) %>
 <p><%= link_to 'Откликнуться', new_aid_path(respond_post: @post.id), class: "btn btn-primary" %></p>
 <% end %>
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'organizations#index'
 
-  get 'users/show'
+
 
   devise_for :users
 

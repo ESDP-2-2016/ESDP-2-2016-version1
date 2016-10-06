@@ -30,6 +30,10 @@
         <p><%= aid.description %></p>
         <% if aid.status == 0 %>
             <div class="aid-status"><b>Статус:</b> Вы откликнулись.</div>
+            <div>
+              <%= link_to 'Редактировать', edit_aid_path(respond_post: aid.post) %>
+              <%= link_to 'Удалить', aid_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+            </div>
         <% elsif aid.status == 1 %>
             <div class="aid-status"><b>Статус:</b> Вы оказали помощь, по данному запросу. Благодарим за отклик!!!</div>
         <% else %>
