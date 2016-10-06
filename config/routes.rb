@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'about/index'
 
   root 'organizations#index'
-
+  get 'about/index'
   get 'users/show'
 
   devise_for :users
