@@ -20,4 +20,22 @@
       <% end %>
     <% end %>
   </ul>
+  <div class="aids-block">
+  <h2>Ваши отклики на запросы о помощи:</h2>
+  <% @aids.each do |aid| %>
+      <div class="aid-item">
+        <div class="aid-author">
+          <div><b>Опубликовано от имени организации:</b> <%= aid.organization.name %>, <em>дата публикации:</em> <%= aid.created_at %></div>
+        </div>
+        <p><%= aid.description %></p>
+        <% if aid.status == 0 %>
+            <div class="aid-status"><b>Статус:</b> Вы откликнулись.</div>
+        <% elsif aid.status == 1 %>
+            <div class="aid-status"><b>Статус:</b> Вы оказали помощь, по данному запросу. Благодарим за отклик!!!</div>
+        <% else %>
+            <div class="aid-status"><b>Статус:</b> Вы откликнулись, но помощь не оказали.</div>
+        <% end %>
+      </div>
+  <% end %>
+</div>
 </div>

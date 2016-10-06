@@ -147,33 +147,57 @@ organizations = Organization.create!([
   }
 ])
 
-
 UserOrganization.create!([
-    {
-      user_id: user1.id,
-      organization_id: organizations[2].id,
-      role: 1
-    },
-    {
-      user_id: user1.id,
-      organization_id: organizations[3].id,
-      role: 1
-    },
-    {
-        user_id: user2.id,
-        organization_id: organizations[3].id,
-        role: 2
-    },
-    {
-      user_id: user1.id,
-      organization_id: organizations[5].id,
-      role: 2
-    },
-    {
-      user_id: user2.id,
-      organization_id: organizations[5].id,
-      role: 1
-    }
+  {
+    user_id: user1.id,
+    organization_id: organizations[0].id,
+    role: 2
+  },
+  {
+    user_id: user2.id,
+    organization_id: organizations[0].id,
+    role: 2
+  },
+  {
+    user_id: user3.id,
+    organization_id: organizations[0].id,
+    role: 2
+  },
+  {
+    user_id: user4.id,
+    organization_id: organizations[0].id,
+    role: 2
+  },
+  {
+    user_id: user5.id,
+    organization_id: organizations[0].id,
+    role: 2
+  },
+  {
+    user_id: user1.id,
+    organization_id: organizations[2].id,
+    role: 1
+  },
+  {
+    user_id: user1.id,
+    organization_id: organizations[3].id,
+    role: 1
+  },
+  {
+    user_id: user1.id,
+    organization_id: organizations[5].id,
+    role: 2
+  },
+  {
+    user_id: user2.id,
+    organization_id: organizations[3].id,
+    role: 2
+  },
+  {
+    user_id: user2.id,
+    organization_id: organizations[5].id,
+    role: 1
+  }
 ])
 user_organizations = UserOrganization.all
 
@@ -182,13 +206,16 @@ PostCategory.create!([
       name: "Нужна помощь"
   },
   {
-      name: "Отчет о проделанной работе"
+      name: "Фото отчет"
   },
   {
       name: "Делимся радостью"
   },
   {
       name: "Благодарность"
+  },
+  {
+      name: "Отдам даром"
   }
 ])
 post_categories = PostCategory.all
@@ -214,6 +241,20 @@ posts = Post.all
       body: FFaker::Lorem.paragraph,
       post: posts[rand(0...posts.size)],
       user: users[rand(0...users.size)]
+    }
+  ])
+end
+
+aid_posts = Post.all.where(post_category_id: 1)
+
+20.times do
+  Aid.create!([
+    {
+       description: FFaker::Lorem.paragraph,
+       post: aid_posts[rand(0...aid_posts.size)],
+       user: users[rand(0...users.size)],
+       organization: organizations.first,
+       status: rand(0..2)
     }
   ])
 end
