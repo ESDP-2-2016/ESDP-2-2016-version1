@@ -18,7 +18,7 @@
   @logadmin
   Сценарий: Активация Организации
     Допустим я на странице админ "/admin/organizations"
-    И кликаю "Edit" для "organization_8"
+    И кликаю через xpath1 "Edit" для "organization_8"
     И выбираю в радио батон "Yes" в поле "Active"
     И кликаю на кнопку "Update Organization"
     И должен увидеть текст "Organization was successfully updated"

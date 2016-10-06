@@ -206,13 +206,16 @@ PostCategory.create!([
       name: "Нужна помощь"
   },
   {
-      name: "Отчет о проделанной работе"
+      name: "Фото отчет"
   },
   {
       name: "Делимся радостью"
   },
   {
       name: "Благодарность"
+  },
+  {
+      name: "Отдам даром"
   }
 ])
 post_categories = PostCategory.all
