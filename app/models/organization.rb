@@ -10,12 +10,13 @@ class Organization < ApplicationRecord
   has_many :users, :through => :user_organizations,dependent: :destroy
   has_many :aids
 
-
   validates :name, presence: true, length: {maximum: 250}
+  validates :address, presence: true
+  # validates :longitude, presence: true
+  # validates :latitude, presence: true
   validates :oblast_id, presence: true
   validates :location, presence: true 
   validates :organization_category_id, presence: true
-
 
   def set_defaults
     self.active = false if self.active.nil?

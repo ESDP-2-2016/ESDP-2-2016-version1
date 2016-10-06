@@ -19,6 +19,7 @@ ActiveAdmin.register About do
 
       f.input :description, :input_html => { :class => "ckeditor" }
     end
+    f.actions
   end
 
 end

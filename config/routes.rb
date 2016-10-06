@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'organizations#index'
 
-
+  get 'about/index'
 
   devise_for :users
 

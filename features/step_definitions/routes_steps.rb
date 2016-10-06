@@ -43,7 +43,7 @@ When(/^перехожу на "\/organizations\/list"$/) do
   sleep(0.5)
 end
 
-When /^кликаю "([^"]*)" для "([^"]*)"$/ do |link, person|
+When /^кликаю через xpath1 "([^"]*)" для "([^"]*)"$/ do |link, person|
   # Use capybara to find row based on 'person' text... no need for the additional 'find'
   # the '.,' sets the scope to the current node, that is the tr in question
   within(:xpath, "//tbody/tr[@id='#{person}']") do
