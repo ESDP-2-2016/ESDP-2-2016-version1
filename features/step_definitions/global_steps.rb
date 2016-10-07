@@ -19,7 +19,7 @@ When(/^ввожу в поле "([^"]*)" текст "([^"]*)"$/) do |field, value
 end
 
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
-  page.has_content?(text)
+  page.assert_text(text)
   sleep(0.5)
 end
 
@@ -34,6 +34,6 @@ When(/^выбираю в радио батон "([^"]*)" в поле "([^"]*)"$/
 end
 
 When(/^должен не найти "([^"]*)"$/) do |text|
-  page.has_no_content?(text)
+  page.assert_no_text(text)
   sleep(0.5)
 end

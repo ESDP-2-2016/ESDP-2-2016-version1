@@ -1,7 +1,8 @@
 <!DOCTYPEhtml>
 <html>
 <head>
-  <title>ESDP22016Test</title>
+  <title><%= yield(:title) %></title>
+  </title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

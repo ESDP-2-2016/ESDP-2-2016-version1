@@ -54,7 +54,7 @@ class OrganizationsController < ApplicationController
       format.html
       format.js {}
       format.json {
-        render json: {:organizations => @organizations, :posts => @help_requests}
+        render json: {:organizations => @organizations, :posts => @help_requests }
       }
     end
   end
