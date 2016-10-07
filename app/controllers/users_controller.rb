@@ -5,5 +5,6 @@ class UsersController < ApplicationController
     @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2)
     @aids = Aid.where(user_id: @user.id)
     @organization = Organization.find(params[:id])
+
   end
 end
