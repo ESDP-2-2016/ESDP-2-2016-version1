@@ -1,5 +1,10 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
+  menu :priority => 2, url: ->{ admin_admin_users_path(locale: I18n.locale) } # Pass the locale to the menu link
+
+  action_item do
+    link_to I18n.t("New Customer"), new_admin_admin_user_path(locale: I18n.locale) # Pass the locale to the new button
+  end
 
   index do
     selectable_column

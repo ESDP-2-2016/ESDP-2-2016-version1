@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
-  ActiveAdmin.routes(self)
-
+  scope '(/:locale)', locale: /en|ru/, defaults: { locale: I18n.locale } do
+    ActiveAdmin.routes(self)
+  end
 
 
   resources :organizations,  only: [:new, :create, :edit, :update, :destroy]
