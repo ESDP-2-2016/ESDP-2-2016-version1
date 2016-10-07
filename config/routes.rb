@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   get 'about/index'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
+  devise_scope :user do
+    get 'registrations/show/:id' => 'registrations#show', as: 'user_profile'
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   scope '(/:locale)', locale: /en|ru/, defaults: { locale: I18n.locale } do
@@ -18,7 +22,6 @@ Rails.application.routes.draw do
 
 
 
-  get 'users/show/:id' => 'users#show', as: 'user_profile'
 
   get 'organizations/show/:id' => 'organizations#show', as: 'organization_show'
 
