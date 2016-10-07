@@ -1,4 +1,38 @@
 ru:
+  activerecord:
+      attributes:
+        organization:
+            name: 'Имя'
+            organization_category: 'категория организации'
+            oblast: 'Область'
+            user_organizations: 'юзерорганизашнс'
+            posts: 'Темы'
+            users: 'Пользователи'
+            aids: 'помощи'
+            location: 'местоположение'
+            address: 'адрес'
+            phone: 'телефон'
+            longitude: 'долгота'
+            latitude: 'широта'
+            contact_person: 'контактные данные'
+            active: 'статус'
+            url: 'юрл'
+            created_at: 'создано'
+            updated_at: 'обновлено'
+      models:
+        organization: 'Организация'
+#          one: 'Организация'
+#          other: 'Организации'
+        organization_category: 'Категория организации'
+#          one: 'Категория организации'
+#          other: 'Категории организации'
+        post: 'Тема'
+#          one: 'Тема'
+#          other: 'Темы  '
+        post_category: 'Категория тем'
+        about: ' О нас'
+        admin_user: ' админы'
+        comment: 'коммент'
   active_admin:
     dashboard: "Панель управления"
     dashboard_welcome:
