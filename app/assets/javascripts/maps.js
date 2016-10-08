@@ -1,6 +1,5 @@
 $(document).ready(function () {
     // необходимые настройки карты
-    g
     var defaultCoordinate = [42.87, 74.60];
     var leafletURL = 'https://api.mapbox.com/styles/v1/tsvetkovamariia/cited6yv400an2hrzaezesxtn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHN2ZXRrb3ZhbWFyaWlhIiwiYSI6ImNpdGU4dnhvMTAwY2EyeW1qM216aDN3aHgifQ.D-AjvTmNye975Riw4LfT2A';
 
@@ -78,6 +77,15 @@ $(document).ready(function () {
         }
     }
 
+    function organizationMap(map, data) {
+        var org = data.organization;
+        var org_id = data.organization.id;
+        if(org.latitude && org.longitude){
+            var orgCoordinate = new L.latLng(parseFloat(org.latitude), parseFloat(org.longitude));
+            var marker = L.marker(orgCoordinate).addTo(map);
+        }
+    }
+
     // Карта на странице формы
     if (document.getElementById("map")!=null){
         var fieldLatitude  = document.getElementById('latitude');
@@ -104,6 +112,28 @@ $(document).ready(function () {
             updateFields();
         };
     }
+
+
+    // Карта на странице организации
+    if (document.getElementById("org-map")!=null){
+
+        var orgMap = L.map('org-map').setView(defaultCoordinate, 13);
+        L.tileLayer(leafletURL, {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18
+        }).addTo(orgMap);
+
+        $.ajax({
+            type: "GET",
+            url: '/organizations/show/' + org_id,
+            dataType: "json",
+            success: function(data) {
+                organizationMap(orgMap, data);
+            }
+        });
+
+    }
+
 
     // Карта на главной странице
     if (document.getElementById("index-map")!=null){
