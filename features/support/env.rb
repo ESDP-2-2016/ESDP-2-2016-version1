@@ -74,9 +74,9 @@ end
 
 Before('@logadmin') do
   visit new_admin_user_session_path
-  fill_in "Email", with:"admin@example.com"
-  fill_in "Password",with: "123456"
-  click_button "Login"
+  fill_in "Эл. почта", with:"admin@example.com"
+  fill_in "Пароль",with: "123456"
+  click_button "Войти"
 end
 
 at_exit do
