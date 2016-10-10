@@ -1,6 +1,5 @@
 $(document).ready(function () {
     // необходимые настройки карты
-
     var defaultCoordinate = [42.87, 74.60];
     var leafletURL = 'https://api.mapbox.com/styles/v1/tsvetkovamariia/cited6yv400an2hrzaezesxtn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHN2ZXRrb3ZhbWFyaWlhIiwiYSI6ImNpdGU4dnhvMTAwY2EyeW1qM216aDN3aHgifQ.D-AjvTmNye975Riw4LfT2A';
 
@@ -104,6 +103,24 @@ $(document).ready(function () {
             updateFields();
         };
     }
+
+
+    // Карта на странице организации
+    if (document.getElementById("org-map")!=null){
+        var orgLongitude = document.getElementById("org-longitude").innerHTML;
+        var orgLatitude = document.getElementById("org-latitude").innerHTML;
+        console.log(orgLongitude);
+        console.log(orgLatitude);
+        var coordinate = new L.latLng(parseFloat(orgLatitude), parseFloat(orgLongitude));
+        var orgMap = L.map('org-map').setView(coordinate, 13);
+        L.tileLayer(leafletURL, {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18
+        }).addTo(orgMap);
+        var marker = L.marker(coordinate).addTo(orgMap);
+
+    }
+
 
     // Карта на главной странице
     if (document.getElementById("index-map")!=null){

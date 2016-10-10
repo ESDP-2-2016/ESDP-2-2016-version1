@@ -10,9 +10,14 @@
   height: 300px;
 }
 #index-map {
+  height: 500px;
+}
+#org-map {
   height: 300px;
 }
-
 .posts-all .post:nth-child(3n+1){
   clear:left;
+}
+.org-coordinate{
+  display: none;
 }
