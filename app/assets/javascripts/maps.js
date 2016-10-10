@@ -102,6 +102,19 @@ $(document).ready(function () {
             resetMarker();
             updateFields();
         };
+
+        $('.pure-button').on('click', function(){
+            mymap.locate({setView: true, maxZoom: 15});
+        });
+
+        mymap.on('locationfound', onLocationFound);
+        function onLocationFound(e) {
+            console.log(e);
+            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
+            L.marker(e.latlng).addTo(mymap);
+            // call moveMarker
+        }
+
     }
 
 
@@ -117,6 +130,17 @@ $(document).ready(function () {
         }).addTo(orgMap);
         var marker = L.marker(coordinate).addTo(orgMap);
 
+        $('.pure-button').on('click', function(){
+            orgMap.locate({setView: true, maxZoom: 15});
+        });
+
+        orgMap.on('locationfound', onLocationFound);
+        function onLocationFound(e) {
+            console.log(e);
+            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
+            L.marker(e.latlng).addTo(orgMap);
+            // call moveMarker
+        }
     }
 
     // Карта на главной странице
@@ -126,6 +150,18 @@ $(document).ready(function () {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18
         }).addTo(indexMap);
+
+        $('.pure-button').on('click', function(){
+            indexMap.locate({setView: true, maxZoom: 15});
+        });
+
+        indexMap.on('locationfound', onLocationFound);
+        function onLocationFound(e) {
+            console.log(e);
+            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
+            L.marker(e.latlng).addTo(indexMap);
+            // call moveMarker
+        }
 
         $.ajax({
             type: "GET",

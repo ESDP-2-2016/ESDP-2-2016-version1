@@ -1,6 +1,7 @@
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html>
 <head>
+
   <title>
     <%= if content_for?(:title) then yield(:title) + ' | ' end %>
     Social hubs
@@ -9,6 +10,10 @@
         content='<%= yield_meta_tag(:description, '<Организации, детский дом, дом престарелых, дом-интернат, Кыргызстан, Бишкек') %>' />
   <meta name='keywords'
         content='<%= yield_meta_tag(:keywords, 'defaults,ruby,rails') %>' />
+
+  <title><%= yield(:title) %></title>
+  <%= csrf_meta_tags %>
+
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %></head>
 <body>

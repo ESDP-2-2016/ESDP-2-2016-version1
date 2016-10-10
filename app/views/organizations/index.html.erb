@@ -5,7 +5,17 @@
 </ul>
 <div class="container">
   <% content_for :title, "Главная" %>
+
   <% meta_tag :description, 'Организации '%>
+
+  <h3>Карта для главной страницы</h3>
+    <div id="leafletmap"></div>
+    <i class="fa fa-map-marker"></i>
+    <button class="pure-button pure-button-primary">Моё местоположение</button>
+  <div id="index-map"></div>
+  <br><br><br><br>
+  <ul id="result">
+
 
 
     <div class="block_needhelp">

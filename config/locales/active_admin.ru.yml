@@ -16,7 +16,7 @@ ru:
             latitude: 'широта'
             contact_person: 'контактные данные'
             active: 'статус'
-            url: 'юрл'
+            url: 'сылка'
             created_at: 'создано'
             updated_at: 'обновлено'
       models:
