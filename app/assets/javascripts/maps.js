@@ -127,6 +127,18 @@ $(document).ready(function () {
             maxZoom: 18
         }).addTo(indexMap);
 
+        $('.pure-button').on('click', function(){
+            indexMap.locate({setView: true, maxZoom: 15});
+        });
+
+        indexMap.on('locationfound', onLocationFound);
+        function onLocationFound(e) {
+            console.log(e);
+            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
+            L.marker(e.latlng).addTo(indexMap);
+            // call moveMarker
+        }
+
         $.ajax({
             type: "GET",
             url:  "/organizations/list",
