@@ -1,4 +1,8 @@
 <% content_for :title, "О нас" %>
+
+<% meta_tag :description, @about.description %>
+
+
 <div class="htmlpage">
   <%= @about.description.html_safe %>
 </div>
