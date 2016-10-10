@@ -71,13 +71,6 @@ class OrganizationsController < ApplicationController
     unless @org_user.nil?
       @user = @org_user.user
     end
-    respond_to do |format|
-      format.html
-      format.js {}
-      format.json {
-        render json: {:organization => @organization}
-      }
-    end
   end
 
   private

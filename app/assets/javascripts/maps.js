@@ -77,15 +77,6 @@ $(document).ready(function () {
         }
     }
 
-    function organizationMap(map, data) {
-        var org = data.organization;
-        var org_id = data.organization.id;
-        if(org.latitude && org.longitude){
-            var orgCoordinate = new L.latLng(parseFloat(org.latitude), parseFloat(org.longitude));
-            var marker = L.marker(orgCoordinate).addTo(map);
-        }
-    }
-
     // Карта на странице формы
     if (document.getElementById("map")!=null){
         var fieldLatitude  = document.getElementById('latitude');
@@ -116,21 +107,17 @@ $(document).ready(function () {
 
     // Карта на странице организации
     if (document.getElementById("org-map")!=null){
-
-        var orgMap = L.map('org-map').setView(defaultCoordinate, 13);
+        var orgLongitude = document.getElementById("org-longitude").innerHTML;
+        var orgLatitude = document.getElementById("org-latitude").innerHTML;
+        console.log(orgLongitude);
+        console.log(orgLatitude);
+        var coordinate = new L.latLng(parseFloat(orgLatitude), parseFloat(orgLongitude));
+        var orgMap = L.map('org-map').setView(coordinate, 13);
         L.tileLayer(leafletURL, {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18
         }).addTo(orgMap);
-
-        $.ajax({
-            type: "GET",
-            url: '/organizations/show/' + org_id,
-            dataType: "json",
-            success: function(data) {
-                organizationMap(orgMap, data);
-            }
-        });
+        var marker = L.marker(coordinate).addTo(orgMap);
 
     }
 
