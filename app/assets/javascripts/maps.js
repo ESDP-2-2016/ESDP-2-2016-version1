@@ -77,7 +77,7 @@ $(document).ready(function () {
         }
     }
 
-    // Карта на странице формы
+    // Карта на странице формы регистрации(organizations/new)
     if (document.getElementById("map")!=null){
         var fieldLatitude  = document.getElementById('latitude');
         var fieldLongitude = document.getElementById('longitude');
@@ -109,16 +109,12 @@ $(document).ready(function () {
 
         mymap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
-            console.log(e);
-            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
-            L.marker(e.latlng).addTo(mymap);
-            // call moveMarker
+            moveMarker(e)
         }
-
     }
 
 
-    // Карта на странице организации
+    // Карта на странице просмотра организации (organizations/show)
     if (document.getElementById("org-map")!=null){
         var orgLongitude = document.getElementById("org-longitude").innerHTML;
         var orgLatitude = document.getElementById("org-latitude").innerHTML;
@@ -136,10 +132,7 @@ $(document).ready(function () {
 
         orgMap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
-            console.log(e);
-            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
             L.marker(e.latlng).addTo(orgMap);
-            // call moveMarker
         }
     }
 
@@ -157,11 +150,9 @@ $(document).ready(function () {
 
         indexMap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
-            console.log(e);
-            // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed.
             L.marker(e.latlng).addTo(indexMap);
-            // call moveMarker
-        }
+
+        };
 
         $.ajax({
             type: "GET",
