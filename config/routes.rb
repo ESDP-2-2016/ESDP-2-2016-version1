@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'organizations#index'
 
   get 'about/index'
+  get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
@@ -13,9 +14,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  scope '(/:locale)', locale: /en|ru/, defaults: { locale: I18n.locale } do
+  # scope '(/:locale)', locale: /ru/, defaults: { locale: I18n.locale } do
     ActiveAdmin.routes(self)
-  end
+  # end
 
 
   resources :organizations,  only: [:new, :create, :edit, :update, :destroy]

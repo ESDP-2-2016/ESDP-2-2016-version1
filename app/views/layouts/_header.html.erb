@@ -7,6 +7,14 @@
         <li><%= link_to "Организации", organizations_list_path %></li>
         <li><%= link_to "Все посты", posts_path %></li>
         <li><%= link_to "О нас", about_index_path %></li>
+        <% if I18n.locale == I18n.default_locale %>
+            <%= link_to "English", change_locale_path(:en) %>
+
+        <% else %>
+            <%= link_to "Russian", change_locale_path(:ru) %>
+
+        <%end%>
+        <%= I18n.locale %>
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
