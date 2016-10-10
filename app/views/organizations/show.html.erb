@@ -10,15 +10,21 @@
         <li>Телефон: <%= @organization.phone %></li>
       </ul>
     </div>
+
     <div class="col-md-6">
-      <h4>Организация на карте:</h4>
+      <h4>Расположение организации на карте:</h4>
+      <% unless @organization.latitude.empty? || @organization.longitude.empty? %>
       <div class="org-coordinate">
         <div id="org-latitude"><%= @organization.latitude %></div>
         <div id="org-longitude"><%= @organization.longitude %></div>
       </div>
       <div id="org-map"></div>
       <br><br>
+      <% else %>
+      <p>Для данной организации нет информации о ее расположении на карте!</p>
+      <% end %>
     </div>
+
     <% if user_signed_in? && (current_user == @user) %>
       <%= link_to 'Редактировать', edit_organization_path(@organization) %>
     <% end  %>

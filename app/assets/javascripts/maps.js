@@ -109,8 +109,6 @@ $(document).ready(function () {
     if (document.getElementById("org-map")!=null){
         var orgLongitude = document.getElementById("org-longitude").innerHTML;
         var orgLatitude = document.getElementById("org-latitude").innerHTML;
-        console.log(orgLongitude);
-        console.log(orgLatitude);
         var coordinate = new L.latLng(parseFloat(orgLatitude), parseFloat(orgLongitude));
         var orgMap = L.map('org-map').setView(coordinate, 13);
         L.tileLayer(leafletURL, {
@@ -120,7 +118,6 @@ $(document).ready(function () {
         var marker = L.marker(coordinate).addTo(orgMap);
 
     }
-
 
     // Карта на главной странице
     if (document.getElementById("index-map")!=null){
