@@ -13,6 +13,9 @@
 
     <div class="col-md-6">
       <h4>Расположение организации на карте:</h4>
+      <div id="leafletmap"></div>
+      <i class="fa fa-map-marker"></i>
+      <button class="pure-button pure-button-primary">Моё местоположение</button>
       <% unless @organization.latitude.empty? || @organization.longitude.empty? %>
       <div class="org-coordinate">
         <div id="org-latitude"><%= @organization.latitude %></div>
