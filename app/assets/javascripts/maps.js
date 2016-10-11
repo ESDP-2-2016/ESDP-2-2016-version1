@@ -77,7 +77,7 @@ $(document).ready(function () {
         }
     }
 
-    // Карта на странице формы регистрации(organizations/new)
+    // Карта на странице формы регистрации(organizations/new, edit)
     if (document.getElementById("map")!=null){
         var fieldLatitude  = document.getElementById('latitude');
         var fieldLongitude = document.getElementById('longitude');
@@ -110,6 +110,7 @@ $(document).ready(function () {
         mymap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
             moveMarker(e)
+            updateFields()
         }
     }
 
