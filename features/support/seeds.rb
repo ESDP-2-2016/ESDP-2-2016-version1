@@ -17,6 +17,8 @@ user5 = User.create!(name: 'User_5', phone: '0-556-19-00-10', email: 'user5@exam
 
 users = User.all
 
+about = About.create!(description: 'Эта страничка О нас. Она создается из админки.')
+
 organization_category_1 = OrganizationCategory.create!(
     name: 'Активисты',
     description: 'Necessitatibus a nam dolorum, adipisci nesciunt reprehenderit.',
@@ -130,8 +132,8 @@ organizations = Organization.create!([
                                              organization_category_id: organization_category_2.id,
                                              url: '',
                                              active: true,
-                                             latitude: '43.835947266683796',
-                                             longitude: '71.60609436035156'
+                                             latitude: '42.124115125125',
+                                             longitude: '75.1241215125'
                                          },
                                          {
                                              name: 'Специализированный дом ребёнка (СДР)',
