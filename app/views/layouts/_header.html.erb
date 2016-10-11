@@ -35,8 +35,8 @@
               </li>
             </ul>
         <% else  %>
-          <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-default navbar-btn'  %>
-          <%= link_to 'Вход', new_user_session_path, class: 'btn btn-default navbar-btn'  %>
+          <%= link_to t('.Registration'), new_user_registration_path, class: 'btn btn-default navbar-btn'  %>
+          <%= link_to t('.Sign in'), new_user_session_path, class: 'btn btn-default navbar-btn'  %>
         <% end %>
       </ul>
 

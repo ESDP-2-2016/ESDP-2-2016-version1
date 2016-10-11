@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   get 'about/index'
-
+  get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
   root 'organizations#index'
 
   get 'about/index'
-  get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
+
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
