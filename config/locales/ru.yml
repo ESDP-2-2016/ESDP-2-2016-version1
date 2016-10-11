@@ -1,4 +1,51 @@
 ru:
+  about:
+      _form:
+      index:
+  aids:
+      _form:
+      edit:
+        Save changes: 'Сохранить изменения'
+      new:
+        Reply: 'Откликнуться'
+  devise:
+      confirmations:
+          new:
+      mailer:
+      passwords:
+      registrations:
+      sessions:
+      shared:
+      unlocks:
+  layouts:
+      _header:
+        Registration: 'Регистрация'
+        Sign in: 'Вход'
+      application:
+      mailer:
+  organizations:
+      _form:
+      _organization:
+      donors:
+      edit:
+      index:
+      list:
+      new:
+      show:
+        Edit: 'Редактировать'
+  post_comments:
+      _form:
+      edit:
+  posts:
+      _form:
+      edit:
+      index:
+      new:
+      show:
+  registrations:
+      show:
+
+
   activerecord:
       attributes:
         organization:

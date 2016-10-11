@@ -29,7 +29,7 @@
     </div>
 
     <% if user_signed_in? && (current_user == @user) %>
-      <%= link_to 'Редактировать', edit_organization_path(@organization) %>
+      <%= link_to t('.Edit'), edit_organization_path(@organization) %>
     <% end  %>
     <hr>
     <div class="posts-all">
