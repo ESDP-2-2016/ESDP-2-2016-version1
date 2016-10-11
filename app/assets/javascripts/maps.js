@@ -109,7 +109,7 @@ $(document).ready(function () {
 
         mymap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
-            moveMarker(e)
+            moveMarker(e);
             updateFields()
         }
     }
@@ -133,7 +133,8 @@ $(document).ready(function () {
 
         orgMap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
-            L.marker(e.latlng).addTo(orgMap);
+            iconUrl = '/assets/my_location.svg';
+            L.marker(e.latlng, {icon: createIcon(iconUrl)}).addTo(orgMap);
         }
     }
 
@@ -612,17 +613,17 @@ $(document).ready(function () {
         var indexMap = L.map('index-map').setView([41.25, 74.60], 7);
         L.tileLayer(leafletURL, {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 14
+            maxZoom: 18
         }).addTo(indexMap);
 
         $('.pure-button').on('click', function(){
-            indexMap.locate({setView: true, maxZoom: 15});
+            indexMap.locate({setView: true, maxZoom: 14});
         });
 
         indexMap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
-            L.marker(e.latlng).addTo(indexMap);
-
+            iconUrl = '/assets/my_location.svg';
+            L.marker(e.latlng, {icon: createIcon(iconUrl)}).addTo(indexMap);
         };
 
         function style(feature) {
