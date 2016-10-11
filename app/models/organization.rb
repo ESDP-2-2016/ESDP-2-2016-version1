@@ -12,8 +12,8 @@ class Organization < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 250}
   validates :address, presence: true
-  # validates :longitude, presence: true
-  # validates :latitude, presence: true
+  validates :longitude, presence: true
+  validates :latitude, presence: true
   validates :oblast_id, presence: true
   validates :location, presence: true 
   validates :organization_category_id, presence: true
