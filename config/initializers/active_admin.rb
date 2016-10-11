@@ -20,7 +20,7 @@ ActiveAdmin.setup do |config|
       admin.add_logout_button_to_menu menu
     end
   end
-
+  config.before_filter :set_admin_locale
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

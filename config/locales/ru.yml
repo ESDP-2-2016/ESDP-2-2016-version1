@@ -19,6 +19,7 @@ ru:
       unlocks:
   layouts:
       _header:
+        logout: 'выход'
         Registration: 'Регистрация'
         Sign in: 'Вход'
       application:

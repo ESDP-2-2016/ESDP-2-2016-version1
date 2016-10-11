@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       end
     end
     I18n.locale = l
-  
+
   #   if cookies[:educator_locale] && I18n.available_locales.include?(cookies[:educator_locale].to_sym)
   #     l = cookies[:educator_locale].to_sym
   #   else
@@ -35,5 +35,8 @@ class ApplicationController < ActionController::Base
   #     cookies.permanent[:educator_locale] = l
   #   end
   #   I18n.locale = l
+  end
+  def set_admin_locale
+    I18n.locale = :ru
   end
 end

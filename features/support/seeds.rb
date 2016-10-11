@@ -130,8 +130,8 @@ organizations = Organization.create!([
                                              organization_category_id: organization_category_2.id,
                                              url: '',
                                              active: true,
-                                             latitude: '',
-                                             longitude: ''
+                                             latitude: '43.835947266683796',
+                                             longitude: '71.60609436035156'
                                          },
                                          {
                                              name: 'Специализированный дом ребёнка (СДР)',
