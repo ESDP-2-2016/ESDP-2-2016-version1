@@ -156,18 +156,12 @@ $(document).ready(function () {
             L.marker(e.latlng, {icon: createIcon(iconUrl)}).addTo(indexMap);
         };
 
-        function style(feature) {
-            return {
-                fillColor: '#FD8D3C',
-                weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        }
-
-        L.geoJson(placeData).addTo(indexMap);
+        L.geoJson(placeData,{
+            style: {
+                "color": "#2EFE64",
+                "opacity": 0.65
+            }
+        }).addTo(indexMap);
 
         $.ajax({
             type: "GET",
