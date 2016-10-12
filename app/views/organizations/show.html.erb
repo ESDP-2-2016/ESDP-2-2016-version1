@@ -1,3 +1,8 @@
+<% content_for :title, @organization.name %>
+
+<% meta_tag :keywords, "#{@organization.name}, #{@organization.location}, #{@organization.oblast.name}" %>
+
+
 <div class="container">
   <div class="row">
     <h1><%= @organization.name %></h1>

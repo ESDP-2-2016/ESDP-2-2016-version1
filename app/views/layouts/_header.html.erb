@@ -15,6 +15,7 @@
 
         <%end%>
         <%= I18n.locale %>
+        <%= request.location.country_code %>
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
