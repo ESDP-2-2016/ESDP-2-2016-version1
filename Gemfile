@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "recaptcha", require: "recaptcha/rails"
 gem 'devise'
 gem 'paperclip'
 gem 'geocoder'
@@ -31,7 +31,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Leaflet is a map display library
 gem 'leaflet-rails'
-
+gem 'font-awesome-sass'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

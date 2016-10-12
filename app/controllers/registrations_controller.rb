@@ -9,10 +9,14 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    if verify_recaptcha
     super
       role = 2
       o_user = @user.id
       organization = 1
       @user_organization = UserOrganization.create!(role: role, user_id: o_user, organization_id: organization)
+    else
+      redirect_to :back
+      end
   end
 end

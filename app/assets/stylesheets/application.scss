@@ -1,3 +1,4 @@
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "style";
@@ -21,4 +22,20 @@
 }
 .org-coordinate{
   display: none;
+}
+.pure-button{
+  border: none;
+  background: url(my_icon.png) 0 0 no-repeat;
+  display: inline-block;
+  position: absolute;
+  top:80px;
+  left:7px;
+  background-size:30px 30px;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+.pure-button:focus{
+  border:none;
+  outline:none;
 }
