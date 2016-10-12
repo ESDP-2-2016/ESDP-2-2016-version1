@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
         if country_code
           country_code = country_code.downcase.to_sym
           # use russian for CIS countries, english for others
-          [:ru, :kz, :ua, :by, :tj, :uz, :md, :az, :am, :kg, :tm].include?(country_code) ? l = :ru : l = :en
+          [:ru, :kz, :ua, :by, :tj, :uz, :md, :az, :am, :kg, :tm,:rd].include?(country_code) ? l = :ru : l = :en
         else
           l = I18n.default_locale # use default locale if cannot retrieve this info
         end
@@ -28,13 +28,13 @@ class ApplicationController < ActionController::Base
     end
     I18n.locale = l
 
-  #   if cookies[:educator_locale] && I18n.available_locales.include?(cookies[:educator_locale].to_sym)
-  #     l = cookies[:educator_locale].to_sym
-  #   else
-  #     l = I18n.default_locale
-  #     cookies.permanent[:educator_locale] = l
-  #   end
-  #   I18n.locale = l
+    # if cookies[:educator_locale] && I18n.available_locales.include?(cookies[:educator_locale].to_sym)
+    #   l = cookies[:educator_locale].to_sym
+    # else
+    #   l = I18n.default_locale
+    #   cookies.permanent[:educator_locale] = l
+    # end
+    # I18n.locale = l
   end
   def set_admin_locale
     I18n.locale = :ru
