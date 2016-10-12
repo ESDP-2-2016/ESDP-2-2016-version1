@@ -11,9 +11,19 @@ class ApplicationController < ActionController::Base
     if cookies[:educator_locale] && I18n.available_locales.include?(cookies[:educator_locale].to_sym)
       l = cookies[:educator_locale].to_sym
     else
-      I18n.locale = extract_locale_from_accept_language_header
+      begin
+        browserlang = extract_locale_from_accept_language_header
+        if  browserlang
+          browserlang = browserlang.downcase.to_sym
+          [:ru, :kz, :ua, :by, :tj, :uz, :md, :az, :am, :kg, :tm].exclude?(browserlang) ? l=:en :l = :ru
+        else
+          l = I18n.default_locale
+        end
+      rescue
+        l = I18n.default_locale
+      ensure
         cookies.permanent[:educator_locale] = l
-
+      end
     end
     I18n.locale = l
   end

@@ -15,6 +15,7 @@
 
         <%end%>
         </li>
+        <li><%= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first %></li>
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
