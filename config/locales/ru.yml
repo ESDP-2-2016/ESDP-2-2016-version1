@@ -19,9 +19,12 @@ ru:
       unlocks:
   layouts:
       _header:
-        logout: 'выход'
-        Registration: 'Регистрация'
-        Sign in: 'Вход'
+          Donors: 'Доноры'
+          Organizations: 'Организации'
+          All Posts: 'Все посты'
+          About: 'О нас'
+          Registration: 'Регистрация'
+          Sign in: 'Вход'
       application:
       mailer:
   organizations:

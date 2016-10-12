@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   resources :organizations,  only: [:new, :create, :edit, :update, :destroy]
 
 
-
-
   get 'organizations/show/:id' => 'organizations#show', as: 'organization_show'
 
   get 'organizations/edit/:id' => 'organizations#edit', as: 'organization_edit'
