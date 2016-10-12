@@ -7,15 +7,14 @@
         <li><%= link_to t("layouts._header.Organizations"), organizations_list_path %></li>
         <li><%= link_to t("layouts._header.All Posts"), posts_path %></li>
         <li><%= link_to t("layouts._header.About"), about_index_path %></li>
-        <% if I18n.locale == I18n.default_locale %>
+        <li><% if I18n.locale == I18n.default_locale %>
             <%= link_to "English", change_locale_path(:en) %>
 
         <% else %>
             <%= link_to "Russian", change_locale_path(:ru) %>
 
         <%end%>
-        <%= I18n.locale %>
-        <%= request.location.country_code %>
+        </li>
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
