@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "recaptcha", require: "recaptcha/rails"
 gem 'devise'
 gem 'paperclip'
 gem 'geocoder'
