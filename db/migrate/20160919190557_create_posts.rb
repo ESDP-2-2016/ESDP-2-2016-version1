@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.references :organization, foreign_key: true
       t.references :post_category, foreign_key: true
       t.references :user, foreign_key: true
+      t.boolean :active, default: true
 
       t.timestamps
     end

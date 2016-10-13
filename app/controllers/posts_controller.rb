@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.where(active: true)
   end
 
   def new
@@ -40,18 +40,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
+  def deactivate
     @post = Post.find(params[:id])
-    if @post.delete
-      redirect_to root_path
-    else
-      render @post
-    end
+    @post.update_attribute(:active, false)
+    redirect_to posts_path
   end
 
   private
   def post_params
-      params.require(:post).permit(:title, :body, :post_category_id, :organization_id, :user_id)
+      params.require(:post).permit(:title, :body, :post_category_id, :organization_id, :user_id, :active)
   end
 
   def correct_user
