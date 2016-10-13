@@ -1,3 +1,4 @@
+<%= csrf_meta_tags %>
 <header>
   <nav class="navbar navbar-fixed-top">
     <div class="container">
@@ -8,10 +9,10 @@
         <li><%= link_to t("layouts._header.All Posts"), posts_path %></li>
         <li><%= link_to t("layouts._header.About"), about_index_path %></li>
         <li><% if I18n.locale == I18n.default_locale %>
-            <%= link_to "English", change_locale_path(:en) %>
+              <%= link_to "English", change_locale_path(:en) %>
 
         <% else %>
-            <%= link_to "Russian", change_locale_path(:ru) %>
+              <%= link_to "Russian", change_locale_path(:ru) %>
 
         <%end%>
         </li>
@@ -30,7 +31,6 @@
                   </li>
                   <li>
                     <hr></li>
-
                   <li><%= link_to 'Выход', destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>
