@@ -65,11 +65,11 @@ $(document).ready(function () {
                 if(post)
                 {
                     iconUrl = '/assets/marker-important.svg';
-                    popupContent = "<h5>" + org.name + "</h5><a href='/posts/"+ post.id +"'>"+ post.title +"</a>";
+                    popupContent = "<h5>" + org.name + "</h5><p>" + post.title + "</p><a href='/posts/"+ post.id +"'>"+ "Details" +"</a>";
                 } else
                 {
                     iconUrl = '/assets/marker-default.svg';
-                    popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p>";
+                    popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p><a href='/organizations/show/"+org.id+"'>" + "Details" + "</a>";
                 }
                 var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
                 marker.bindPopup(popupContent);
