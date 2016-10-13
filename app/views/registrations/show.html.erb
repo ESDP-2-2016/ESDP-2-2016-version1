@@ -3,9 +3,9 @@
   <h1><%= t(".Profile") %>: <% @user.name  %></h1>
   <p>Номер телефона: <%= @user.phone  %></p>
   <p>Почта: <%= @user.email  %></p>
-  <p><%= link_to 'Зарегистрировать организацию',  new_organization_path, class: 'btn btn-primary' %></p>
-  <p><%= link_to 'Создать новую тему', new_post_path, class: 'btn btn-primary' %></p>
-  <h2>Организации, в которых вы являетесь администратором: </h2>
+  <p><%= link_to t('.Registration organization'),  new_organization_path, class: 'btn btn-primary' %></p>
+  <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary' %></p>
+  <h2><%= t('.Organizations in which you owner') %>: </h2>
   <ul>
   <% @owner_organizations.each do |item| %>
     <% if item.organization.active == true %>
@@ -16,7 +16,7 @@
     <% end %>
   <% end %>
   </ul>
-  <h2>Организации, в которых вы являетесь участником: </h2>
+  <h2><%= t(".Organizations in which you participant") %>: </h2>
   <ul>
     <% @participant_organizations.each do |item| %>
       <% if item.organization.active == true %>
@@ -25,7 +25,7 @@
     <% end %>
   </ul>
   <div class="aids-block">
-  <h2>Ваши отклики на запросы о помощи:</h2>
+  <h2><%= t(".Your responses to the requests for assistance") %>:</h2>
   <% @aids.each do |aid| %>
       <div class="aid-item">
         <div class="aid-author">

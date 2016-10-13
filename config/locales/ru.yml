@@ -55,7 +55,12 @@ ru:
       show:
   registrations:
       show:
-
+            Profile: "Профиль"
+            Registration organization: "Регистрация организации"
+            Create new post: "Создать новую тему"
+            Organizations in which you owner: "Организации, в которой вы являетесь администратором"
+            Organizations in which you participant: "Организации, в которых вы являетесь участником"
+            Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
 
 
 
