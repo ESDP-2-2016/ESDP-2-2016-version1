@@ -20,7 +20,7 @@ ActiveAdmin.setup do |config|
   #     admin.add_logout_button_to_menu menu
   #   end
   # end
-  config.before_filter :set_admin_locale
+  config.before_action :set_admin_locale
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -160,7 +160,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_action :do_something_awesome
 
   # == Localize Date/Time Format
   #
