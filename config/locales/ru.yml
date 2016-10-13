@@ -45,32 +45,40 @@ ru:
       _form:
       edit:
       index:
+            Read: 'Читать'
+            All posts: 'Все темы'
+            Category: "Категория"
+            Organization: "Организация"
+            Author: "Автор"
+            Published: "Опубликовано"
       new:
       show:
   registrations:
       show:
 
 
+
+
   activerecord:
       attributes:
         organization:
             name: 'Имя'
-            organization_category: 'категория организации'
+            organization_category: 'Категории организаций'
             oblast: 'Область'
             user_organizations: 'юзерорганизашнс'
             posts: 'Темы'
             users: 'Пользователи'
-            aids: 'помощи'
-            location: 'местоположение'
-            address: 'адрес'
-            phone: 'телефон'
-            longitude: 'долгота'
-            latitude: 'широта'
-            contact_person: 'контактные данные'
-            active: 'статус'
-            url: 'сылка'
-            created_at: 'создано'
-            updated_at: 'обновлено'
+            aids: 'Помощи'
+            location: 'Местоположение'
+            address: 'Адрес'
+            phone: 'Телефон'
+            longitude: 'Долгота'
+            latitude: 'Широта'
+            contact_person: 'Контактные данные'
+            active: 'Статус'
+            url: 'Ссылка'
+            created_at: 'Создано'
+            updated_at: 'Обновлено'
       models:
         organization: 'Организация'
 #          one: 'Организация'
@@ -83,8 +91,8 @@ ru:
 #          other: 'Темы  '
         post_category: 'Категория тем'
         about: ' О нас'
-        admin_user: ' админы'
-        comment: 'коммент'
+        admin_user: ' Админы'
+        comment: 'Комментарий'
   active_admin:
     dashboard: "Панель управления"
     dashboard_welcome:
@@ -115,8 +123,8 @@ ru:
         equals: "Равно"
         starts_with: "Начинается с"
         ends_with: "Заканчивается"
-        greater_than: "больше"
-        less_than: "меньше"
+        greater_than: "Больше"
+        less_than: "Меньше"
     search_status:
       headline: "Статус поиска:"
       current_scope: "Область:"

@@ -1,6 +1,6 @@
 <% content_for :title, @user.name %>
 <div class="container">
-  <h1>Профиль: <% @user.name  %></h1>
+  <h1><%= t(".Profile") %>: <% @user.name  %></h1>
   <p>Номер телефона: <%= @user.phone  %></p>
   <p>Почта: <%= @user.email  %></p>
   <p><%= link_to 'Зарегистрировать организацию',  new_organization_path, class: 'btn btn-primary' %></p>
