@@ -18,6 +18,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
+      flash[:success] = 'Вы создали организацию!'
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
                                                     user_id: current_user.id, role: 1)
       redirect_to root_path
@@ -42,6 +43,8 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization = Organization.find(params[:id])
     @organization.destroy
+
+    flash[:success] = 'Вы удалили организацию!'
     redirect_to root_path
   end
 

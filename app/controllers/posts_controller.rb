@@ -14,6 +14,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+
+      flash[:success] = 'Вы создали пост!'
       redirect_to @post
     else
       render 'new'
@@ -43,6 +45,8 @@ class PostsController < ApplicationController
   def deactivate
     @post = Post.find(params[:id])
     @post.update_attribute(:active, false)
+
+    flash[:success] = 'Вы удалили пост!'
     redirect_to posts_path
   end
 
