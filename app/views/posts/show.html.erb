@@ -1,10 +1,11 @@
+<% if @post.active == true %>
 <h1><%= @post.title %></h1>
 <% content_for :title, "Пост" %>
 
 <div>
   <% if user_signed_in? && (current_user == @post.user) %>
     <%= link_to 'Редактировать', edit_post_path(@post) %>
-    <%= link_to 'Удалить', post_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+    <%= link_to 'Удалить', post_deactivate_path(@post), method: :put, data: { confirm: 'Are you sure?'} %>
   <% end  %>
 </div>
 <p>Категория: <%= @post.post_category.name %></p>
@@ -52,3 +53,8 @@
   </script>
   <!--<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>-->
 </div>
+<% else %>
+    <div class="message-post-deleted">
+      Cтраница не найдена, пост был удален!
+    </div>
+<% end %>

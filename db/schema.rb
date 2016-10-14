@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20161004165145) do
     t.integer  "organization_id"
     t.integer  "post_category_id"
     t.integer  "user_id"
+    t.boolean  "active",           default: true
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["organization_id"], name: "index_posts_on_organization_id"

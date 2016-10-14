@@ -1,7 +1,8 @@
 ActiveAdmin.register Post do
 
   permit_params :title, :body, :open, :organization_id, :post_category_id,
-                :user_id
+                :user_id, :active
+
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

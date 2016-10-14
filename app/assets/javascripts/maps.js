@@ -65,11 +65,11 @@ $(document).ready(function () {
                 if(post)
                 {
                     iconUrl = '/assets/marker-important.svg';
-                    popupContent = "<h5>" + org.name + "</h5><a href='/posts/"+ post.id +"'>"+ post.title +"</a>";
+                    popupContent = "<h5>" + org.name + "</h5><p>" + post.title + "</p><a href='/posts/"+ post.id +"'>"+ "Details" +"</a>";
                 } else
                 {
                     iconUrl = '/assets/marker-default.svg';
-                    popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p>";
+                    popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p><a href='/organizations/show/"+org.id+"'>" + "Details" + "</a>";
                 }
                 var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
                 marker.bindPopup(popupContent);
@@ -156,18 +156,12 @@ $(document).ready(function () {
             L.marker(e.latlng, {icon: createIcon(iconUrl)}).addTo(indexMap);
         };
 
-        function style(feature) {
-            return {
-                fillColor: '#FD8D3C',
-                weight: 2,
-                opacity: 1,
-                color: 'white',
-                dashArray: '3',
-                fillOpacity: 0.7
-            };
-        }
-
-        L.geoJson(placeData).addTo(indexMap);
+        L.geoJson(placeData,{
+            style: {
+                "color": "#2EFE64",
+                "opacity": 0.65
+            }
+        }).addTo(indexMap);
 
         $.ajax({
             type: "GET",

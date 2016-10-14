@@ -1,22 +1,22 @@
 <% content_for :title, @user.name %>
 <div class="container">
-  <h1>Профиль: <% @user.name  %></h1>
-  <p>Номер телефона: <%= @user.phone  %></p>
-  <p>Почта: <%= @user.email  %></p>
-  <p><%= link_to 'Зарегистрировать организацию',  new_organization_path, class: 'btn btn-primary' %></p>
-  <p><%= link_to 'Создать новую тему', new_post_path, class: 'btn btn-primary' %></p>
-  <h2>Организации, в которых вы являетесь администратором: </h2>
+  <h1><%= t(".Profile") %>: <% @user.name  %></h1>
+  <p><%= t(".Phone") %>: <%= @user.phone  %></p>
+  <p><%= t(".Email") %>: <%= @user.email  %></p>
+  <p><%= link_to t('.Registration organization'),  new_organization_path, class: 'btn btn-primary' %></p>
+  <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary' %></p>
+  <h2><%= t('.Organizations in which you owner') %>: </h2>
   <ul>
   <% @owner_organizations.each do |item| %>
     <% if item.organization.active == true %>
       <li><%= item.organization.name %></li>
       <% id=item.organization_id %>
-                <%= link_to 'Редактировать', edit_organization_path(id) %>
+                <%= link_to t(".Edit"), edit_organization_path(id) %>
 
     <% end %>
   <% end %>
   </ul>
-  <h2>Организации, в которых вы являетесь участником: </h2>
+  <h2><%= t(".Organizations in which you participant") %>: </h2>
   <ul>
     <% @participant_organizations.each do |item| %>
       <% if item.organization.active == true %>
@@ -25,23 +25,23 @@
     <% end %>
   </ul>
   <div class="aids-block">
-  <h2>Ваши отклики на запросы о помощи:</h2>
+  <h2><%= t(".Your responses to the requests for assistance") %>:</h2>
   <% @aids.each do |aid| %>
       <div class="aid-item">
         <div class="aid-author">
-          <div><b>Опубликовано от имени организации:</b> <%= aid.organization.name %>, <em>дата публикации:</em> <%= aid.created_at %></div>
+          <div><b><%= t(".Published from name organization") %>:</b> <%= aid.organization.name %>, <em>дата публикации:</em> <%= aid.created_at %></div>
         </div>
         <p><%= aid.description %></p>
         <% if aid.status == 0 %>
-            <div class="aid-status"><b>Статус:</b> Вы откликнулись.</div>
+            <div class="aid-status"><b>Статус:</b><%= t(".You responded") %></div>
             <div>
               <%= link_to 'Редактировать', edit_aid_path(respond_post: aid.post) %>
               <%= link_to 'Удалить', aid_path, method: :delete, data: { confirm: 'Are you sure?'} %>
             </div>
         <% elsif aid.status == 1 %>
-            <div class="aid-status"><b>Статус:</b> Вы оказали помощь, по данному запросу. Благодарим за отклик!!!</div>
+            <div class="aid-status"><b>Статус:</b><%= t(".You are assisted, on the request. Thank you for your response") %>!!!</div>
         <% else %>
-            <div class="aid-status"><b>Статус:</b> Вы откликнулись, но помощь не оказали.</div>
+            <div class="aid-status"><b>Статус:</b><%= t(".You responded, but aid does not have") %></div>
         <% end %>
       </div>
   <% end %>
