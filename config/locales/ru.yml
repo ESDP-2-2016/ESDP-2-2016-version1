@@ -29,13 +29,32 @@ ru:
       mailer:
   organizations:
       _form:
-      _organization:
+      _organizations:
+            Category: "Категория"
+            Location: "Местоположение"
+            Adress: "Адрес"
+            Phone: "Телефон"
       donors:
       edit:
       index:
-        My location: 'Мое местоположение'
+            Category: "Категория"
+            Organization: "Организация"
+            Author: "Автор"
+            Published: "Опубликовано"
+            Request about help: "Просьба о помощи"
+            Read: "Читать"
+            New organizations: "Новые организации"
+            Location: "Местоположение"
+            Region: "Область"
+            Adress: "Адрес"
+            Phone: "Телефон"
+      donors:
+            Organizations Aids: "Организации доноры"
       list:
+            List of all organizations: "Список всех организаций"
       new:
+            Register your organization: "Зарегистрировать организацию"
+            Map for register organization: "Карта для регистрации организации"
       show:
         Edit: 'Редактировать'
   post_comments:
@@ -56,11 +75,18 @@ ru:
   registrations:
       show:
             Profile: "Профиль"
+            Phone: "Телефон"
+            Email: "Почта"
+            Edit: "Редактировать"
             Registration organization: "Регистрация организации"
             Create new post: "Создать новую тему"
             Organizations in which you owner: "Организации, в которой вы являетесь администратором"
             Organizations in which you participant: "Организации, в которых вы являетесь участником"
             Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
+            Published from name organization: "Опубликовано от имени организации"
+            You responded: "Вы откликнулись"
+            You are assisted, on the request. Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
+            You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
 
 
 
