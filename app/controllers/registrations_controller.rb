@@ -15,6 +15,8 @@ class RegistrationsController < Devise::RegistrationsController
       o_user = @user.id
       organization = 1
       @user_organization = UserOrganization.create!(role: role, user_id: o_user, organization_id: organization)
+
+    flash[:success] = 'Вы успешно зарегистрировались!'
     else
       redirect_to :back
       end
