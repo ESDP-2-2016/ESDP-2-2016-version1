@@ -25,6 +25,10 @@ ru:
           About: 'О нас'
           Registration: 'Регистрация'
           Sign in: 'Вход'
+          Edit profile: 'Редактировать профиль'
+          Register the organization: 'Зарегистрировать организацию'
+          Create new post: 'Создать новую тему'
+          Exit: 'Выход'
       application:
       mailer:
   organizations:
@@ -54,7 +58,10 @@ ru:
             List of all organizations: "Список всех организаций"
       new:
             Register your organization: "Зарегистрировать организацию"
-            Map for register organization: "Карта для регистрации организации"
+            Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
+      edit:
+            Edit organization: "Редактировать организацию"
+            Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
       show:
         Edit: 'Редактировать'
   post_comments:
