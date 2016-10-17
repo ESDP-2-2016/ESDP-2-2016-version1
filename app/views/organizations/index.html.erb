@@ -16,7 +16,7 @@
    Дом-престарелых, Специализированный дом ребёнка' %>
 
     <div class="block_needhelp">
-      <h2>Просьба о помощи</h2>
+      <h2><%= t(".Request about help") %></h2>
       <hr>
       <% @posts.each do |post| %>
           <div class="post col-md-4">
@@ -25,12 +25,12 @@
                 <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
               </div>
               <div class="panel-body">
-                <p>Категория: <%= post.post_category.name %> </p>
-                <p>Организация: <%= post.organization.name %></p>
-                <p>Автор: <%= post.user.name %></p>
-                <p>Опубликовано: <%= post.created_at.strftime("%d %b. %Y") %></p>
+                <p><%= t(".Category") %>: <%= post.post_category.name %> </p>
+                <p><%= t(".Organization") %>: <%= post.organization.name %></p>
+                <p<%= t(".Author") %>: <%= post.user.name %></p>
+                <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
                 <div class="text-right">
-                  <%= link_to "Читать", post_path(post), class: "btn btn-default" %>
+                  <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
                 </div>
               </div>
             </div>
@@ -40,16 +40,16 @@
     </div>
 
     <div class="new_organization col-md-12">
-      <h2>Новые организации</h2>
+      <h2><%= t(".New organizations") %></h2>
       <hr>
          <% @organizations.each do |organization| %>
             <div class="col-md-4">
                   <h4><%= link_to organization.name, organization_show_path(organization) %></h4>
                   <ul>
-                    <li>Местоположение: <%= organization.location %></li>
-                    <li>Область: <%= organization.oblast.name %></li>
-                    <li>Адрес: <%= organization.address %></li>
-                    <li>Телефон: <%= organization.phone %></li>
+                    <li><%= t(".Location") %>: <%= organization.location %></li>
+                    <li><%= t(".Region") %>: <%= organization.oblast.name %></li>
+                    <li><%= t(".Adress") %>: <%= organization.address %></li>
+                    <li><%= t(".Phone") %>: <%= organization.phone %></li>
                   </ul>
             </div>
         <% end %>

@@ -1,16 +1,16 @@
 <div class="container">
-  <h1 class="al-center">Зарегистрировать организацию</h1>
+  <h1 class="al-center"><%= t(".Register your organization") %></h1>
   <div class="row">
     <div class="col-md-6 form-block">
       <%=  render 'form' %>
     </div>
     <div class="col-md-6">
-      <p>Карта для страницы регистрации организации</p>
-      <i class="fa fa-map-marker"></i>
-      <button class="pure-button pure-button-primary">Моё местоположение</button>
+      <p><%= t(".Specify the location of the organization on the map") %>:</p>
       <button id="map-reset">Reset Map</button>
       <br><br>
-      <div id="map"></div>
+      <div id="map">
+        <button class="pure-button pure-button-primary"></button>
+      </div>
       <br><br><br>
     </div>
   </div>
