@@ -22,7 +22,7 @@ ru:
           Donors: 'Доноры'
           Organizations: 'Организации'
           All Posts: 'Все посты'
-          About: 'О нас'
+          About Project: 'О проекте'
           Registration: 'Регистрация'
           Sign in: 'Вход'
           Edit profile: 'Редактировать профиль'
@@ -128,7 +128,7 @@ ru:
 #          one: 'Тема'
 #          other: 'Темы  '
         post_category: 'Категория тем'
-        about: ' О нас'
+        aboutп: 'О проекте'
         admin_user: ' Админы'
         comment: 'Комментарий'
   active_admin:

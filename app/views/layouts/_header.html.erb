@@ -7,7 +7,7 @@
         <li><%= link_to t("layouts._header.Donors"), donors_path %></li>
         <li><%= link_to t("layouts._header.Organizations"), organizations_list_path %></li>
         <li><%= link_to t("layouts._header.All Posts"), posts_path %></li>
-        <li><%= link_to t("layouts._header.About"), about_index_path %></li>
+        <li><%= link_to t("layouts._header.About Project"), about_index_path %></li>
         <li><% if I18n.locale == I18n.default_locale %>
               <%= link_to "English", change_locale_path(:en) %>
 
