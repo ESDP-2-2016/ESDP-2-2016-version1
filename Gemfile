@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'devise'
+gem 'devise-i18n'
 gem 'paperclip'
 gem 'geocoder'
 gem 'activeadmin', '~> 1.0.0.pre4'
