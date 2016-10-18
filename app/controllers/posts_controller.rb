@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def index
-    @posts = Post.all.where(active: true)
+    @posts = Post.all.where(active: true).order('id DESC')
   end
 
   def new

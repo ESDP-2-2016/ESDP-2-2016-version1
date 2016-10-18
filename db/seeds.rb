@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'ffaker'
 
-AdminUser.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456')
+AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
 
 user1 = User.create!(name: 'User_1', phone: '0-700-62-00-00', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
 user2 = User.create!(name: 'User_2', phone: '0-555-67-12-14', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
