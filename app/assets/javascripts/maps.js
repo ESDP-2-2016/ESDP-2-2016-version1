@@ -110,7 +110,8 @@ $(document).ready(function () {
         mymap.on('locationfound', onLocationFound);
         function onLocationFound(e) {
             moveMarker(e);
-            updateFields()
+            marker.bindPopup("Вы находитесь тут").openPopup();
+            updateFields();
         }
     }
 

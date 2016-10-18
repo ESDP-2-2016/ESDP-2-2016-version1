@@ -16,7 +16,8 @@ ActiveAdmin.register About do
 
   form do |f|
     f.inputs do
-
+      f.input :title
+      f.input :keywords
       f.input :description, :input_html => { :class => "ckeditor" }
     end
     f.actions

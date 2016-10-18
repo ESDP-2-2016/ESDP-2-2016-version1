@@ -22,13 +22,15 @@ ru:
           Donors: 'Доноры'
           Organizations: 'Организации'
           All Posts: 'Все посты'
-          About: 'О нас'
+          About Project: 'О проекте'
           Registration: 'Регистрация'
           Sign in: 'Вход'
           Edit profile: 'Редактировать профиль'
           Register the organization: 'Зарегистрировать организацию'
           Create new post: 'Создать новую тему'
           Exit: 'Выход'
+          View profile: 'Личный кабинет'
+          Account: 'Мой профиль'
       application:
       mailer:
   organizations:
@@ -128,7 +130,7 @@ ru:
 #          one: 'Тема'
 #          other: 'Темы  '
         post_category: 'Категория тем'
-        about: ' О нас'
+        aboutп: 'О проекте'
         admin_user: ' Админы'
         comment: 'Комментарий'
   active_admin:

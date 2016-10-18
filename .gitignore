@@ -23,3 +23,6 @@
 
 # Ignore local Selenium config
 /features/support/webdriver.rb
+
+# Ignore test/ directory if someone creates it again
+/test/**/*
