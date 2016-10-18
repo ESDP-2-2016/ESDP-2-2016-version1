@@ -29,6 +29,8 @@ ru:
           Register the organization: 'Зарегистрировать организацию'
           Create new post: 'Создать новую тему'
           Exit: 'Выход'
+          View profile: 'Личный кабинет'
+          Account: 'Мой профиль'
       application:
       mailer:
   organizations:

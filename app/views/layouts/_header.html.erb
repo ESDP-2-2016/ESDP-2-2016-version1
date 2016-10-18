@@ -20,19 +20,16 @@
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
-            <span class="navbar-text">
-              Привет, <%= link_to current_user.name, user_profile_path(current_user), class: 'navbar-link' %>
-            </span>
+
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('layouts._header.View profile') %><span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to t('layouts._header.Edit profile'), edit_user_registration_path(current_user) %>
-                  </li>
+                  <li><%= link_to t('layouts._header.View profile'), user_profile_path(current_user)  %></li>
+                  <li><%= link_to t('layouts._header.Edit profile'), edit_user_registration_path(current_user) %></li>
                   <li><%= link_to t('layouts._header.Register the organization'), new_organization_path %></li>
-                  <li>
                   <li><%= link_to t('layouts._header.Create new post'), new_post_path %></li>
-                  <hr>
+                  <li role="separator" class="divider"></li>
                   <li><%= link_to t('layouts._header.Exit'), destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>
