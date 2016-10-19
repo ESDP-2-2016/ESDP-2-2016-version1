@@ -41,9 +41,9 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  def destroy
+  def deactivate
     @organization = Organization.find(params[:id])
-    @organization.destroy
+    @organization.update_attribute(:active, false)
 
     flash[:success] = 'Вы удалили организацию!'
     redirect_to root_path
