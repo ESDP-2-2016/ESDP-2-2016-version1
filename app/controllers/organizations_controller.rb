@@ -50,7 +50,7 @@ class OrganizationsController < ApplicationController
   end
 
   def list
-    @organization_categories = OrganizationCategory.all.where(active: true)
+    @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Доноры')
     @organizations_all = Organization.all.where(active: true)
     @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :address])
     @help_requests = Post.where(post_category_id: 1).select([:id, :title, :organization_id]).order('created_at desc')
@@ -64,8 +64,8 @@ class OrganizationsController < ApplicationController
   end
 
   def donors
-    # @donor = OrganizationCategory.find_by(name: 'Донорская помощь')
-    # @organizations = Organization.all.where(active: true).where(organization_category_id: @donor.id)
+    @donor = OrganizationCategory.find_by(name: 'Доноры')
+    @organizations = Organization.all.where(active: true).where(organization_category_id: @donor.id)
   end
 
   def show
