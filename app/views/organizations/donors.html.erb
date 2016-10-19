@@ -1,4 +1,13 @@
 <div class="container">
   <h1><%= t(".Organizations Aids") %>:</h1>
+  <% @organizations.each do |organization| %>
+      <h4><%= link_to organization.name, organization_show_path(organization) %></h4>
+      <ul>
+        <li><%= t(".Location") %>: <%= organization.location %></li>
+        <li><%= t(".Region") %>: <%= organization.oblast.name %></li>
+        <li><%= t(".Adress") %>: <%= organization.address %></li>
+        <li><%= t(".Phone") %>: <%= organization.phone %></li>
+      </ul>
+  <% end %>
 
 </div>
