@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :aids
 
   put 'posts/deactivate/:id' => 'posts#deactivate', as: 'post_deactivate'
+  put 'organizations/deactivate/:id' => 'organizations#deactivate', as: 'organization_deactivate'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

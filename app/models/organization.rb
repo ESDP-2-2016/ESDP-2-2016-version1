@@ -6,7 +6,7 @@ class Organization < ApplicationRecord
   belongs_to :oblast
 
   has_many :user_organizations
-  has_many :posts, dependent: :destroy
+  has_many :posts
   has_many :users, :through => :user_organizations,dependent: :destroy
   has_many :aids
   validates :phone, phone: true
