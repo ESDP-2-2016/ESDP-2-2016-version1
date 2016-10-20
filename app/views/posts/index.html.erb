@@ -1,6 +1,7 @@
 <div class="container">
   <% content_for :title, "Все Посты" %>
   <h1><%= t(".All posts") %></h1>
+  <%= paginate @posts %>
   <div class="posts-all">
     <% @posts.each do |post| %>
         <% if post.organization.active == true %>
@@ -21,6 +22,7 @@
           </div>
         </div>
       <% end %>
-    <% end %>
+  <% end %>
   </div>
 </div>
+

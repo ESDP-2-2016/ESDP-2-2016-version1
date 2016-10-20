@@ -1,5 +1,6 @@
 <% content_for :title, "Все организации" %>
 <div class="container">
   <h1><%= t(".List of all organizations") %></h1>
+  <%= paginate @organizations_all %>
   <%=  render 'organizations' %>
 </div>

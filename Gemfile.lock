@@ -360,6 +360,7 @@ DEPENDENCIES
   inherited_resources!
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   launchy
   leaflet-rails
   listen (~> 3.0.5)
