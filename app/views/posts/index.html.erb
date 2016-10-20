@@ -3,6 +3,7 @@
   <h1><%= t(".All posts") %></h1>
   <div class="posts-all">
     <% @posts.each do |post| %>
+        <% if post.organization.active == true %>
         <div class="post col-md-4">
           <div class="panel panel-success">
             <div class="panel-heading">
@@ -15,7 +16,8 @@
               <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
               <div class="text-right">
               <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
-              </div>
+        <% end %>
+        </div>
             </div>
           </div>
         </div>
