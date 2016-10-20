@@ -19,7 +19,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     if @organization.save
       UserMailer.welcome_email(AdminUser.first,@organization.id,@organization.name,current_user).deliver_now
-      flash[:success] = 'Вы создали организацию!'
+      flash[:success] = 'Ваш запрос о рассмотрении организации отправлен администратору!'
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
                                                     user_id: current_user.id, role: 1)
       redirect_to root_path
