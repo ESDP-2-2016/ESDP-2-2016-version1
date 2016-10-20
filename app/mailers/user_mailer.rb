@@ -7,8 +7,8 @@ class UserMailer < ApplicationMailer
     # @admin = AdminUser.first
     @org = org
     @id = id
-    @url  = 'http://http://46.101.108.2/admin/organizations/' + @id.to_s + '/edit'
-    @url1  = 'http://http://localhost:3000/admin/organizations/' + @id.to_s + '/edit'
+    @url  = 'http:46.101.108.2/admin/organizations/' + @id.to_s + '/edit'
+    @url1  = 'http:localhost:3000/admin/organizations/' + @id.to_s + '/edit'
     mail(to: user.email, subject: 'Welcome to My Awesome Site')
   end
   def notification(user,id,org)
