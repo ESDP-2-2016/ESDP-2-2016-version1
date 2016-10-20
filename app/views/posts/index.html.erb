@@ -13,7 +13,7 @@
               <p><%= t(".Category") %>: <%= post.post_category.name %> </p>
               <p><%= t(".Organization") %>: <%= post.organization.name %></p>
               <p><%= t(".Author") %>: <%= post.user.name %></p>
-              <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
+              <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b %Y" ) %></p>
               <div class="text-right">
               <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
         <% end %>

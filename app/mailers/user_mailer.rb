@@ -1,7 +1,8 @@
 class UserMailer < ApplicationMailer
   default from: 'socialhubs2016@gmail.com'
 
-  def welcome_email(user,id,org)
+  def welcome_email(user,id,org,author)
+    @author=author
     @user = user
     # @admin = AdminUser.first
     @org = org
