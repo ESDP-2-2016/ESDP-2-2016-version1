@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'phonelib'
-
+gem 'kaminari'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'devise'
 gem 'devise-i18n'
