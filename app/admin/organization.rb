@@ -2,6 +2,17 @@ ActiveAdmin.register Organization do
 
   permit_params :name, :location, :phone, :address, :contact_person,
                 :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active
+  controller do
+    def update
+      if update!
+        arr = UserOrganization.where(organization_id:@organization.id, role:1)
+        if arr.size>=1
+        user=arr[0].user
+        UserMailer.notification(user,@organization.id,@organization.name).deliver_now
+        end
+      end
+    end
+  end
 
   form do |f|
     f.inputs do
@@ -16,6 +27,7 @@ ActiveAdmin.register Organization do
       f.input :active, :as => :radio
     end
     f.actions
+
   end
 
 

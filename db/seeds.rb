@@ -9,11 +9,11 @@ require 'ffaker'
 
 AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
 
-user1 = User.create!(name: FFaker::NameRU.name, phone: '0-700-62-00-00', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
-user2 = User.create!(name: FFaker::NameRU.name, phone: '0-555-67-12-14', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
-user3 = User.create!(name: FFaker::NameRU.name, phone: '0-777-68-10-00', email: 'user3@example.com', password: '123456', password_confirmation: '123456')
-user4 = User.create!(name: FFaker::NameRU.name, phone: '0-556-63-12-14', email: 'user4@example.com', password: '123456', password_confirmation: '123456')
-user5 = User.create!(name: FFaker::NameRU.name, phone: '0-556-19-00-10', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
+user1 = User.create!(name: FFaker::NameRU.name, phone: '0700620000', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
+user2 = User.create!(name: FFaker::NameRU.name, phone: '0555671214', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
+user3 = User.create!(name: FFaker::NameRU.name, phone: '0777681000', email: 'user3@example.com', password: '123456', password_confirmation: '123456')
+user4 = User.create!(name: FFaker::NameRU.name, phone: '0556631214', email: 'user4@example.com', password: '123456', password_confirmation: '123456')
+user5 = User.create!(name: FFaker::NameRU.name, phone: '0556190010', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
 
 users = User.all
 
@@ -74,7 +74,7 @@ organizations = Organization.create!([
     oblast_id: oblast_1.id,
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, г. Бишкек',
-    phone: '+996 (3134) 33172',
+    phone: '0555333344',
     organization_category_id: organization_category_1.id,
     active: true,
     latitude: '42.87596410238256',
@@ -85,7 +85,7 @@ organizations = Organization.create!([
     oblast_id: oblast_9.id,
     location: 'с. Военно-Антоновка',
     address: 'Кыргызстан, Чуйская область, Сокулукский район, с. Военно-Антоновка, ул. Фрунзе, 118',
-    phone: '+996 (3134) 33172',
+    phone: '0700887766',
     organization_category_id: organization_category_2.id,
     url: 'www.v-adetdom.kg',
     active: true,
@@ -97,7 +97,7 @@ organizations = Organization.create!([
     oblast_id: oblast_5.id,
     location: 'с. Теплоключенка',
     address: 'Кыргызстан, Иссык-Кульская область, Ак-Суйский район, с. Теплоключенка, ул. Ленина, 152',
-    phone: '+996 (3948) 91109',
+    phone: '0555891109',
     organization_category_id: organization_category_2.id,
     url: '',
     active: true,
@@ -109,7 +109,7 @@ organizations = Organization.create!([
     oblast_id: oblast_9.id,
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, Первомайский район, г. Бишкек, ул. Абая, 57',
-    phone: '+996 (312) 540305',
+    phone: '0555009988',
     organization_category_id: organization_category_3.id,
     url: ' www.dominter.biz',
     active: true,
@@ -121,7 +121,7 @@ organizations = Organization.create!([
     oblast_id: oblast_9.id,
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, Ленинский район, г. Бишкек, ул. Интергельпо, 8',
-    phone: '+996 (312) 653711',
+    phone: '0777232323',
     organization_category_id: organization_category_3.id,
     url: '',
     active: true,
@@ -133,7 +133,7 @@ organizations = Organization.create!([
     oblast_id: oblast_9.id,
     location: 'пгт. Орловка',
     address: 'Кыргызстан, Чуйская область, Кеминский район, пгт. Орловка, ул. Победы, 16',
-    phone: '+996 (3137) 23459',
+    phone: '0702454545',
     organization_category_id: organization_category_2.id,
     url: '',
     active: true,
@@ -145,7 +145,7 @@ organizations = Organization.create!([
     oblast_id: oblast_9.id,
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, Октябрьский район, г. Бишкек, ул. Белорусская, 121',
-    phone: '+996 (3138) 62971',
+    phone: '0772020202',
     organization_category_id: organization_category_2.id,
     url: '',
     active: true,
@@ -157,7 +157,7 @@ organizations = Organization.create!([
     oblast_id: oblast_9.id,
     location: 'г. Бишкек',
     address: 'Кыргызстан, Чуйская область, Октябрьский район, г. Бишкек, ул. Солнечная, 121',
-    phone: '+996(312)345678',
+    phone: '0558232323',
     organization_category_id: organization_category_4.id,
     url: '',
     active: true,
