@@ -16,11 +16,11 @@
               <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
               <div class="text-right">
               <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
-        <% end %>
-        </div>
+              </div>
             </div>
           </div>
         </div>
+      <% end %>
     <% end %>
   </div>
 </div>
