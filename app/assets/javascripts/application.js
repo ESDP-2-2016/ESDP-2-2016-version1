@@ -15,5 +15,6 @@
 //= require active_admin
 //= require bootstrap-sprockets
 //= require leaflet
+//= require ckeditor/init
 //= require_tree .
 
