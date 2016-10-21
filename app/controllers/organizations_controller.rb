@@ -79,7 +79,7 @@ class OrganizationsController < ApplicationController
 
   private
   def organization_params
-    params.require(:organization).permit(:name, :location, :phone, :address, :contact_person,
+    params.require(:organization).permit(:name, :description, :location, :phone, :address, :contact_person,
       :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active)
   end
 
