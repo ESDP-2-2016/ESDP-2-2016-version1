@@ -17,5 +17,6 @@
 //= require leaflet
 //= require map-coordinates
 //= require map-init
+//= require ckeditor/init
 //= require_tree .
 

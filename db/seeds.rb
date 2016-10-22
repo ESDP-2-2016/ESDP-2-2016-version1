@@ -13,7 +13,7 @@ user1 = User.create!(name: FFaker::NameRU.name, phone: '0700620000', email: 'use
 user2 = User.create!(name: FFaker::NameRU.name, phone: '0555671214', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
 user3 = User.create!(name: FFaker::NameRU.name, phone: '0777681000', email: 'user3@example.com', password: '123456', password_confirmation: '123456')
 user4 = User.create!(name: FFaker::NameRU.name, phone: '0556631214', email: 'user4@example.com', password: '123456', password_confirmation: '123456')
-user5 = User.create!(name: FFaker::NameRU.name, phone: '0556190010', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
+user5 = User.create!(name: "User_5", phone: '0556190010', email: 'user5@example.com', password: '123456', password_confirmation: '123456')
 
 users = User.all
 

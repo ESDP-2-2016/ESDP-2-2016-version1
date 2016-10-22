@@ -17,9 +17,11 @@ ActiveAdmin.register Organization do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :description, :input_html => { :class => "ckeditor" }
       f.input :oblast_id,  :as => :select,      :collection => Oblast.all
       f.input :location
       f.input :address
+      f.input :phone
       f.input :url
       f.input :longitude
       f.input :latitude

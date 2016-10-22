@@ -18,8 +18,8 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      UserMailer.welcome_email(AdminUser.first,@organization.id,@organization.name).deliver_now
-      flash[:success] = 'Вы создали организацию!'
+      UserMailer.welcome_email(AdminUser.first,@organization.id,@organization.name,current_user).deliver_now
+      flash[:success] = 'Ваш запрос о регистрации организации отправлен на рассмотрение администратору!'
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
                                                     user_id: current_user.id, role: 1)
       redirect_to root_path
@@ -51,7 +51,7 @@ class OrganizationsController < ApplicationController
 
   def list
     @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Доноры')
-    @organizations_all = Organization.all.where(active: true)
+    @organizations_all = Organization.all.where(active: true).page(params[:page]).per(3).order('created_at desc')
     @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :address])
     @help_requests = Post.where(post_category_id: 1).select([:id, :title, :organization_id]).order('created_at desc')
     respond_to do |format|
@@ -79,7 +79,7 @@ class OrganizationsController < ApplicationController
 
   private
   def organization_params
-    params.require(:organization).permit(:name, :location, :phone, :address, :contact_person,
+    params.require(:organization).permit(:name, :description, :location, :phone, :address, :contact_person,
       :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active)
   end
 

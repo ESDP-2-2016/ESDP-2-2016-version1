@@ -61,7 +61,7 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 Before('@login') do
   visit new_user_session_path
   fill_in "Email", with:"user1@example.com"
-  fill_in "Password",with: "123456"
+  fill_in "Пароль",with: "123456"
   click_button "Log in"
 end
 
@@ -74,8 +74,8 @@ end
 
 Before('@logadmin') do
   visit new_admin_user_session_path
-  fill_in "Эл. почта", with:"admin@example.com"
-  fill_in "Пароль",with: "123456"
+  fill_in "Эл. почта", with:"socialhubs2016@gmail.com"
+  fill_in "Пароль",with: "bishkek2016"
   click_button "Войти"
 end
 

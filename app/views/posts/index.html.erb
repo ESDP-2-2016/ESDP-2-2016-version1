@@ -1,6 +1,7 @@
 <div class="container">
   <% content_for :title, "Все Посты" %>
   <h1><%= t(".All posts") %></h1>
+  <%= paginate @posts %>
   <div class="posts-all">
     <% @posts.each do |post| %>
         <% if post.organization.active == true %>
@@ -13,14 +14,15 @@
               <p><%= t(".Category") %>: <%= post.post_category.name %> </p>
               <p><%= t(".Organization") %>: <%= post.organization.name %></p>
               <p><%= t(".Author") %>: <%= post.user.name %></p>
-              <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
+              <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b %Y" ) %></p>
               <div class="text-right">
               <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
-        <% end %>
-        </div>
+              </div>
             </div>
           </div>
         </div>
-    <% end %>
+      <% end %>
+  <% end %>
   </div>
 </div>
+

@@ -11,7 +11,7 @@
 <p>Категория: <%= @post.post_category.name %></p>
 <p>Автор: <%= @post.user.name %></p>
 <p>Организация: <%= @post.organization.name %></p>
-<p>Опубликовано: <%= @post.created_at %></p>
+<p>Опубликовано: <%= @post.created_at.strftime("%d %b %Y %H %M %S" ) %></p>
 
 <p><%= @post.body %></p>
 <% if user_signed_in? && (@post.post_category.id == 1 ) && (current_user != @post.user) %>
