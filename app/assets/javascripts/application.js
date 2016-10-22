@@ -15,5 +15,7 @@
 //= require active_admin
 //= require bootstrap-sprockets
 //= require leaflet
+//= require map-coordinates
+//= require map-init
 //= require_tree .
 

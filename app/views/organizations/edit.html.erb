@@ -5,13 +5,7 @@
         <%=  render 'form' %>
       </div>
       <div class="col-md-6">
-        <p><%= t(".Specify the location of the organization on the map") %>:</p>
-        <button id="map-reset">Reset Map</button>
-        <br><br>
-        <div id="map">
-          <button class="pure-button pure-button-primary"></button>
-        </div>
-        <br><br><br>
+        <%= render 'map_for_form' %>
       </div>
   </div>
 </div>
