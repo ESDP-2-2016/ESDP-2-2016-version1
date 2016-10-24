@@ -16,5 +16,9 @@
 //= require bootstrap-sprockets
 //= require leaflet
 //= require ckeditor/init
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions
 //= require_tree .
 
