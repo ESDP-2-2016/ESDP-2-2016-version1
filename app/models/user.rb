@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :post_comments
   has_many :aids
-  validates :phone, presence: true
+  validates :phone, phone: true
   validates :name, presence: true, length: {maximum: 60}
 end
