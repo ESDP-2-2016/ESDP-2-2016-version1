@@ -5,6 +5,11 @@ $(document).ready(function () {
     var leafletURL = 'https://api.mapbox.com/styles/v1/tsvetkovamariia/cited6yv400an2hrzaezesxtn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHN2ZXRrb3ZhbWFyaWlhIiwiYSI6ImNpdGU4dnhvMTAwY2EyeW1qM216aDN3aHgifQ.D-AjvTmNye975Riw4LfT2A';
     var defaultZoom = 13;
 
+    var userIcon = '/assets/map/icon-marker-user.svg';
+    var organizationIcon = '/assets/map/icon-marker-ok.svg';
+    var organizationAlertIcon = '/assets/map/icon-marker-alert.svg';
+
+
     function initializeMap(mapId, coordinate, zoom) {
         var mapZoom = zoom || defaultZoom;
         var mapCoordinate = coordinate || defaultCoordinate;
@@ -85,10 +90,10 @@ $(document).ready(function () {
                 var popupContent = "";
                 var post = organizationHasPosts(org.id, posts);
                 if (post) {
-                    iconUrl = '/assets/marker-important.svg';
+                    iconUrl = organizationAlertIcon;
                     popupContent = "<h5>" + org.name + "</h5><p>" + post.title + "</p><a href='/posts/" + post.id + "'>" + "Details" + "</a>";
                 } else {
-                    iconUrl = '/assets/marker-default.svg';
+                    iconUrl = organizationIcon;
                     popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p><a href='/organizations/show/" + org.id + "'>" + "Details" + "</a>";
                 }
                 var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
@@ -118,8 +123,8 @@ $(document).ready(function () {
         };
 
         options.map.on('locationfound', function(e) {
-            iconUrl = '/assets/my_location.svg';
-            L.marker(e.latlng, {icon: createIcon(iconUrl)}).addTo(options.map);
+            var marker = L.marker(e.latlng, {icon: createIcon(userIcon)}).addTo(options.map);
+            marker.bindPopup("Вы тут").openPopup();
         });
     }
 
@@ -155,7 +160,7 @@ $(document).ready(function () {
 
     if (document.getElementById("new-organization-map")!=null){
         var map = initializeMap("new-organization-map");
-        var marker = L.marker(defaultCoordinate).addTo(map);
+        var marker = L.marker(defaultCoordinate, {icon: createIcon(organizationIcon)}).addTo(map);
 
         var mapOptions = {
             map: map,
@@ -182,13 +187,13 @@ $(document).ready(function () {
         var coordinate = new L.latLng(orgLatitude, orgLongitude);
         // создать карту и маркер для организации
         var orgMap = initializeMap('organization-map', coordinate);
-        var marker = L.marker(coordinate).addTo(orgMap);
+        var marker = L.marker(coordinate, {icon: createIcon(organizationIcon)}).addTo(orgMap);
         orgMap.panTo(coordinate);
 
         var orgMapOptions = {
-          marker: marker,
-          map: orgMap,
-          userLocationButton: document.getElementById('btn-locate-user')
+            marker: marker,
+            map: orgMap,
+            userLocationButton: document.getElementById('btn-locate-user')
         };
 
         enableAddMarkerToUserLocation(orgMapOptions, 13);
