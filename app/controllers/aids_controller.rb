@@ -1,11 +1,6 @@
 class AidsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :edit]
-
-  def new
-    @aid = Aid.new
-    @respond_post = Post.find(params[:respond_post])
-  end
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def create
     @aid = Aid.new(aid_params)

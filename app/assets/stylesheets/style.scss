@@ -34,4 +34,15 @@ body{
   color: #337ab7;
   font-size: 16px;
 }
+.pseudolink{
+  color: #2e6da4;
+  border-bottom: 1px dashed #2e6da4;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.aids-form{
+  display: none;
+  padding: 10px;
+  border: 1px dotted #ccc;
+}
 

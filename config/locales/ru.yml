@@ -4,10 +4,6 @@ ru:
       index:
   aids:
       _form:
-      edit:
-        Save changes: 'Сохранить изменения'
-      new:
-        Reply: 'Откликнуться'
   devise:
       confirmations:
           new:
@@ -81,6 +77,8 @@ ru:
             Published: "Опубликовано"
       new:
       show:
+        Reply: 'Откликнуться'
+        Save changes: 'Сохранить изменения'
   registrations:
       show:
             Profile: "Профиль"

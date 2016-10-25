@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  posts:
+        show:
+          Reply: 'Reply'
+          Save changes: 'Save changes'

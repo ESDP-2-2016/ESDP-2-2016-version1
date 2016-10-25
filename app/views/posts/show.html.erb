@@ -12,10 +12,19 @@
 <p>Автор: <%= @post.user.name %></p>
 <p>Организация: <%= @post.organization.name %></p>
 <p>Опубликовано: <%= @post.created_at.strftime("%d %b %Y %H %M %S" ) %></p>
-
 <p><%= @post.body %></p>
 <% if user_signed_in? && (@post.post_category.id == 1 ) && (current_user != @post.user) %>
-<p><%= link_to 'Откликнуться', new_aid_path(respond_post: @post.id), class: "btn btn-primary" %></p>
+  <div class="aids-form-block row">
+    <div class="col-md-6">
+    <div><span class="pseudolink" id="show-hide-aids-form">Я хочу помочь!</span></div>
+    <div class="aids-form" id="aids-form">
+      <p>Если Вы хотите оказать помощь, по данному запросу, заполните, пожалуста, данную форму!</p>
+      <div class="form-block">
+        <%= render 'aids/form', btn_txt: t('.Reply') %>
+      </div>
+    </div>
+  </div>
+  </div>
 <% end %>
 
 <% unless @aids.empty? %>
