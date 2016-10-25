@@ -91,10 +91,15 @@ $(document).ready(function () {
                 var post = organizationHasPosts(org.id, posts);
                 if (post) {
                     iconUrl = organizationAlertIcon;
-                    popupContent = "<h5>" + org.name + "</h5><p>" + post.title + "</p><a href='/posts/" + post.id + "'>" + "Details" + "</a>";
+                    popupContent = "<h5><a href='/posts/"+ post.id + "'>" +  post.title+ "</a></h5>" +
+                        "<p class='marker-post'>"+ post.body +"</p>" +
+                        "<p>Опубликовал <a href='organizations/show/"+ org.id +"'>" + org.name  + "</a></p>"  +
+                        "<a href='/posts/" + post.id + "' class='btn btn-success'>Details</a>";
                 } else {
                     iconUrl = organizationIcon;
-                    popupContent = "<h5>" + org.name + "</h5><p>" + org.address + "</p><a href='/organizations/show/" + org.id + "'>" + "Details" + "</a>";
+                    popupContent = "<h5>" + org.name + "</h5>" +
+                                    "<p>" + org.address + "</p>" +
+                                    "<a href='/organizations/show/" + org.id + "'>Details</a>";
                 }
                 var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
                 marker.bindPopup(popupContent);

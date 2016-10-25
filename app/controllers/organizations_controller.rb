@@ -53,7 +53,7 @@ class OrganizationsController < ApplicationController
     @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Доноры')
     @organizations_all = Organization.all.where(active: true).page(params[:page]).per(3).order('created_at desc')
     @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :address])
-    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :organization_id]).order('created_at desc')
+    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :body, :organization_id]).order('created_at desc')
     respond_to do |format|
       format.html
       format.js {}
