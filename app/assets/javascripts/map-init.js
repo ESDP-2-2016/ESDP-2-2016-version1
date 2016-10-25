@@ -4,6 +4,7 @@ $(document).ready(function () {
     var defaultCoordinateKyrgyzstan = [41.25, 74.60];
     var leafletURL = 'https://api.mapbox.com/styles/v1/tsvetkovamariia/cited6yv400an2hrzaezesxtn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidHN2ZXRrb3ZhbWFyaWlhIiwiYSI6ImNpdGU4dnhvMTAwY2EyeW1qM216aDN3aHgifQ.D-AjvTmNye975Riw4LfT2A';
     var defaultZoom = 13;
+    var MAX_POST_TEASER_SIZE = 350;
 
     var userIcon = '/assets/map/icon-marker-user.svg';
     var organizationIcon = '/assets/map/icon-marker-ok.svg';
@@ -90,9 +91,10 @@ $(document).ready(function () {
                 var popupContent = "";
                 var post = organizationHasPosts(org.id, posts);
                 if (post) {
+                    var postTeaser = post.body.substring(0, MAX_POST_TEASER_SIZE);
                     iconUrl = organizationAlertIcon;
                     popupContent = "<h5><a href='/posts/"+ post.id + "'>" +  post.title+ "</a></h5>" +
-                        "<p class='marker-post'>"+ post.body +"</p>" +
+                        "<p class='marker-post'>"+ postTeaser +"</p>" +
                         "<p>Опубликовал <a href='organizations/show/"+ org.id +"'>" + org.name  + "</a></p>"  +
                         "<a href='/posts/" + post.id + "' class='btn btn-success'>Details</a>";
                 } else {
