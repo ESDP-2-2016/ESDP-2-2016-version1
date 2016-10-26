@@ -5,9 +5,11 @@ class AidsController < ApplicationController
   def create
     @aid = Aid.new(aid_params)
     if @aid.save
-    redirect_to post_path(params[:aid][:post_id])
+    redirect_to :back
+    flash[:success] = 'Ваше сообщение отправлено! Мы свяжемся с Вами в ближайшее время!'
     else
-      render 'new'
+      flash[:error] = 'Произошел сбой! Ваше сообщение не отправлено!'
+      redirect_to :back
     end
   end
 

@@ -39,10 +39,17 @@ body{
   border-bottom: 1px dashed #2e6da4;
   display: inline-block;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .aids-form{
   display: none;
   padding: 10px;
   border: 1px dotted #ccc;
+}
+.alert.alert-error{
+  background: rgba(204, 31, 4, 0.5);
+  color: #170401;
+  padding: 15px 20px;
+  text-align: center;
 }
 
