@@ -17,6 +17,13 @@
 .posts-all .post:nth-child(3n+1){
   clear:left;
 }
+.marker-post {
+  max-height: 98px;
+  overflow: hidden;
+}
+.leaflet-container .btn{
+  color: #ffffff;
+}
 .org-coordinate{
   display: none;
 }

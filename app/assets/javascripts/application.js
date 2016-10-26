@@ -16,7 +16,7 @@
 //= require bootstrap-sprockets
 //= require leaflet
 //= require map-coordinates
-//= require map-init
+//= require map-init.js
 //= require ckeditor/init
 //= require jquery.inputmask
 //= require jquery.inputmask.extensions
