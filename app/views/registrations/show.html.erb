@@ -12,7 +12,7 @@
       <li><%= item.organization.name %></li>
       <% id=item.organization.id %>
             <%= link_to t(".Edit"), edit_organization_path(id) %>
-            <%= link_to 'Удалить', organization_deactivate_path(id), method: :put, data: { confirm: 'Вы уверены, что хотите удалить организацию?'} %>
+            <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: 'Вы уверены, что хотите удалить организацию?'} %>
 
     <% end %>
   <% end %>
@@ -31,7 +31,7 @@
         <li><%= item.organization.name %></li>
     <% end %>
   </ul>
-  <h2><%= 'requests to joining to your organization' %></h2>
+  <h2><%= t(".requests to joining to your organization") %></h2>
   <ul>
 
       <% @requests.each do |item| %>
@@ -39,6 +39,7 @@
         <li>
         <%pol= User.find_by(id:qw) %>
         <%= pol.name %>
+          <%= t(".wants to join your organization") %>
         <%orgid= item.organization_id %>
         <% org=Organization.find_by(id:orgid) %>
         <%= org.name %>
