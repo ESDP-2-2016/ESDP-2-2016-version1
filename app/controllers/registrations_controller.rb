@@ -3,10 +3,28 @@ class RegistrationsController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @owner_organizations = UserOrganization.where(user_id: @user.id, role: 1)
-    @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2)
+    @massiv=[]
+
+    @owner_organizations.each do |item|
+      qw=item.organization_id
+      @massiv.push qw
+    end
+
+    @requests=[]
+    @massiv.each do |id|
+      @request= UserOrganization.where(organization_id:id,role:2,approved:false)
+        @request.each do |item|
+          @requests.push item
+        end
+    end
+
+    @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2, approved: true)
+    @waiting_for_approval = UserOrganization.where(user_id: @user.id, role: 2, approved: false)
     @aids = Aid.where(user_id: @user.id)
-    @organization = UserOrganization.find(@user)
   end
+  #<UserOrganization id: 19, role: 2, user_id: 1, organization_id: 7, created_at:
+  # "2016-10-26 09:53:03", updated_at: "2016-10-26 09:53:03", approved: false>
+
 
   def create
     if verify_recaptcha
