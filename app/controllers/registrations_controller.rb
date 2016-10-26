@@ -6,6 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2)
     @aids = Aid.where(user_id: @user.id)
     @organization = UserOrganization.find(@user)
+    @opened_posts = Post.where(user_id: @user.id, post_category_id: 1, active: true, open: true)
   end
 
   def create
