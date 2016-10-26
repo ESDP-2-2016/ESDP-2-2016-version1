@@ -35,14 +35,16 @@
   <ul>
 
       <% @requests.each do |item| %>
-        <%qw=item.user_id%>
+        <% qw=item.user_id%>
         <li>
-        <%pol= User.find_by(id:qw) %>
+        <% pol= User.find_by(id:qw) %>
         <%= pol.name %>
           <%= t(".wants to join your organization") %>
-        <%orgid= item.organization_id %>
+        <% orgid= item.organization_id %>
         <% org=Organization.find_by(id:orgid) %>
         <%= org.name %>
+          <%= link_to 'Approve', organization_approved_path(item), method: :put %>
+
         </li>
     <%end %>
   </ul>

@@ -3,22 +3,33 @@ class RegistrationsController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @owner_organizations = UserOrganization.where(user_id: @user.id, role: 1)
-    @massiv=[]
-
-    @owner_organizations.each do |item|
-      qw=item.organization_id
-      @massiv.push qw
-    end
+    # @massiv=[]
+    #
+    # @owner_organizations.each do |item|
+    #   qw=item.organization_id
+    #   @massiv.push qw
+    # end
 
     @requests=[]
-    @massiv.each do |id|
-      @request= UserOrganization.where(organization_id:id,role:2,approved:false)
-        @request.each do |item|
-          @requests.push item
-        end
+    # @massiv.each do |id|
+    #   @request= UserOrganization.where(organization_id:id,role:2,approved:false)
+    #     @request.each do |item|
+    #       @requests.push item
+    #     end
+    # end
+    #
+
+    @owner_organizations.each do |test|
+      @request= UserOrganization.where(organization_id:test.organization_id,role:2,approved:false)
+      @request.each do |item|
+        @requests.push item
+      end
     end
 
-    @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2, approved: true)
+
+
+
+      @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2, approved: true)
     @waiting_for_approval = UserOrganization.where(user_id: @user.id, role: 2, approved: false)
     @aids = Aid.where(user_id: @user.id)
   end

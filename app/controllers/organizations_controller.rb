@@ -39,6 +39,14 @@ class OrganizationsController < ApplicationController
 
   end
 
+  def approved
+    @user_organization = UserOrganization.find(params[:id])
+    @user_organization.update(approved: true)
+    flash[:success] = "заявка одобрена"
+    redirect_to root_path
+
+  end
+
   def edit
     @organization = Organization.find(params[:id])
   end
