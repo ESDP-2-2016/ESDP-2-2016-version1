@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021095537) do
+ActiveRecord::Schema.define(version: 20161025104640) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "description"
@@ -132,8 +132,9 @@ ActiveRecord::Schema.define(version: 20161021095537) do
     t.integer  "role"
     t.integer  "user_id"
     t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "approved",        default: false
     t.index ["organization_id"], name: "index_user_organizations_on_organization_id"
     t.index ["user_id"], name: "index_user_organizations_on_user_id"
   end

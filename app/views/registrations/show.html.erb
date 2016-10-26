@@ -7,12 +7,12 @@
   <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary' %></p>
   <h2><%= t('.Organizations in which you owner') %>: </h2>
   <ul>
-  <% @owner_organizations.each do |item| %>
+  <% UserOrganization.where(user_id:@user,role:1).each do |item| %>
     <% if item.organization.active == true %>
       <li><%= item.organization.name %></li>
-      <% id=item.organization_id %>
-            <%= link_to t(".Edit"), edit_organization_path(id) %>
-            <%= link_to 'Удалить', organization_deactivate_path(id), method: :put, data: { confirm: 'Вы уверены, что хотите удалить организацию?'} %>
+      <% id=item.organization.id %>
+        <%= link_to t(".Edit"), edit_organization_path(id) %>
+        <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: 'Вы уверены, что хотите удалить организацию?'} %>
     <% end %>
   <% end %>
   </ul>
@@ -23,6 +23,27 @@
         <li><%= item.organization.name %></li>
       <% end %>
     <% end %>
+  </ul>
+  <h2><%= t(".Your organization participation request") %>: </h2>
+  <ul>
+    <% @waiting_for_approval.each do |item| %>
+        <li><%= item.organization.name %></li>
+    <% end %>
+  </ul>
+  <h2><%= t(".requests to joining to your organization") %></h2>
+  <ul>
+
+      <% @requests.each do |item| %>
+        <%qw=item.user_id%>
+        <li>
+        <%pol= User.find_by(id:qw) %>
+        <%= pol.name %>
+          <%= t(".wants to join your organization") %>
+        <%orgid= item.organization_id %>
+        <% org=Organization.find_by(id:orgid) %>
+        <%= org.name %>
+        </li>
+    <%end %>
   </ul>
   <div class="aids-block">
     <h2>Ваши незакрытые темы с просьбой о помощи:</h2>

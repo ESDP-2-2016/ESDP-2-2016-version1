@@ -36,6 +36,6 @@ Rails.application.routes.draw do
 
   put 'posts/deactivate/:id' => 'posts#deactivate', as: 'post_deactivate'
   put 'organizations/deactivate/:id' => 'organizations#deactivate', as: 'organization_deactivate'
-
+  post 'organizations/participation_request/:id' => 'organizations#participation_request', as: 'organization_participation_request'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

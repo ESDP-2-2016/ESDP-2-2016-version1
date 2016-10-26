@@ -38,6 +38,8 @@
 
     <% if user_signed_in? && (current_user == @user) %>
       <%= link_to t('.Edit'), edit_organization_path(@organization) %>
+    <%else %>
+        <%= link_to 'join to organization', organization_participation_request_path(@organization), method: :post %>
     <% end  %>
     <hr>
     <div class="posts-all">

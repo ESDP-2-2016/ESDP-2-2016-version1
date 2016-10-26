@@ -21,11 +21,22 @@ class OrganizationsController < ApplicationController
       UserMailer.welcome_email(AdminUser.first,@organization.id,@organization.name,current_user).deliver_now
       flash[:success] = 'Ваш запрос о регистрации организации отправлен на рассмотрение администратору!'
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
-                                                    user_id: current_user.id, role: 1)
+                                                    user_id: current_user.id, role: 1,approved: true)
       redirect_to root_path
     else
       render 'new'
     end
+  end
+
+  def participation_request
+    @organization = Organization.find(params[:id])
+    @user_organization = UserOrganization.new(organization_id: @organization.id,
+                                              user_id: current_user.id, role: 2,approved: false)
+    if @user_organization.save
+      flash[:success] = "ваш запрос отправлен"
+      redirect_to root_path
+    end
+
   end
 
   def edit
@@ -87,7 +98,7 @@ class OrganizationsController < ApplicationController
   end
 
   def user_organization_params
-    params.require(:user_organization).permit(:role, :organization_id, :user_id, :post)
+    params.require(:user_organization).permit(:role, :organization_id, :user_id, :post,:approved)
   end
 
 end

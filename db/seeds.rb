@@ -170,27 +170,27 @@ UserOrganization.create!([
   {
     user_id: user1.id,
     organization_id: organizations[0].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user2.id,
     organization_id: organizations[0].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user3.id,
     organization_id: organizations[0].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user4.id,
     organization_id: organizations[0].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user5.id,
     organization_id: organizations[0].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user1.id,
@@ -205,12 +205,12 @@ UserOrganization.create!([
   {
     user_id: user1.id,
     organization_id: organizations[5].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user2.id,
     organization_id: organizations[3].id,
-    role: 2
+    role: 2, approved: true
   },
   {
     user_id: user2.id,
