@@ -25,6 +25,7 @@ ru:
           Register the organization: 'Зарегистрировать организацию'
           Create new post: 'Создать новую тему'
           Exit: 'Выход'
+          select language: 'Выбрать язык'
           View profile: 'Личный кабинет'
           Account: 'Мой профиль'
       application:

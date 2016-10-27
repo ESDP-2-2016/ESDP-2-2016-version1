@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
     @user_organization = UserOrganization.new(organization_id: @organization.id,
                                               user_id: current_user.id, role: 2,approved: false)
     if @user_organization.save
-      flash[:success] = "ваш запрос отправлен"
+      flash[:success] = "Ваша заявка отправлена на рассмотрение владельцу организации"
       redirect_to root_path
     end
 

@@ -8,15 +8,14 @@
         <li><%= link_to t("layouts._header.Organizations"), organizations_list_path %></li>
         <li><%= link_to t("layouts._header.All Posts"), posts_path %></li>
         <li><%= link_to t("layouts._header.About Project"), about_index_path %></li>
-        <li><% if I18n.locale == I18n.default_locale %>
-              <%= link_to "English", change_locale_path(:en) %>
-
-        <% else %>
-              <%= link_to "Russian", change_locale_path(:ru) %>
-
-        <%end%>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('layouts._header.select language') %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <%= link_to "English", change_locale_path(:en) %>
+            <li role="separator" class="divider"></li>
+            <%= link_to "Russian", change_locale_path(:ru) %>
+          </ul>
         </li>
-        <li><%= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first %></li>
       </ul>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
