@@ -27,7 +27,10 @@ class PostsController < ApplicationController
     @aids = Aid.where(post_id: @post.id, status: 1)
     @aid = Aid.new
     @respond_post = @post
-    # @aid_user = Aid.find_by(user_id: current_user.id, post_id: @post.id)
+    @user_already_helped
+    unless current_user.nil?
+      @user_already_helped = Aid.find_by(user_id: current_user.id, post_id: @post.id)
+    end
   end
 
   def edit
