@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025104640) do
+ActiveRecord::Schema.define(version: 20161004165145) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.string   "title"
     t.string   "keywords"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20161025104640) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
     t.string   "location"
     t.string   "address"
     t.string   "phone"
@@ -92,7 +93,6 @@ ActiveRecord::Schema.define(version: 20161025104640) do
     t.integer  "oblast_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.text     "description"
     t.index ["oblast_id"], name: "index_organizations_on_oblast_id"
     t.index ["organization_category_id"], name: "index_organizations_on_organization_category_id"
   end
@@ -130,11 +130,11 @@ ActiveRecord::Schema.define(version: 20161025104640) do
 
   create_table "user_organizations", force: :cascade do |t|
     t.integer  "role"
+    t.boolean  "approved",        default: false
     t.integer  "user_id"
     t.integer  "organization_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.boolean  "approved",        default: false
     t.index ["organization_id"], name: "index_user_organizations_on_organization_id"
     t.index ["user_id"], name: "index_user_organizations_on_user_id"
   end
