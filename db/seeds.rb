@@ -26,7 +26,7 @@ organization_category_1 = OrganizationCategory.create!(
 )
 organization_category_2= OrganizationCategory.create!(   
   name: 'Детский дом', 
-  description: 'Детскиое учреждение',
+  description: 'Детские учреждение',
   active: true    
 )
 organization_category_3 = OrganizationCategory.create!(   
@@ -78,7 +78,8 @@ organizations = Organization.create!([
     organization_category_id: organization_category_1.id,
     active: true,
     latitude: '42.87596410238256',
-    longitude: '74.54360961914062'
+    longitude: '74.54360961914062',
+    description: 'Волонтеры, неравнодушные, активные жители'
   },
   {
     name: 'Военно-Антоновский детский дом',
@@ -90,7 +91,8 @@ organizations = Organization.create!([
     url: 'www.v-adetdom.kg',
     active: true,
     latitude: '42.9008671451945',
-    longitude: '74.64300155639648'
+    longitude: '74.64300155639648',
+    description: 'Детский дом семейного типа'
   },
   {
     name: 'Ак-Суйский детский дом',
@@ -102,7 +104,8 @@ organizations = Organization.create!([
     url: '',
     active: true,
     latitude: '42.91155476081381',
-    longitude: '74.59613800048828'
+    longitude: '74.59613800048828',
+    description: 'Детский дом семейного типа'
   },
   {
     name: 'Бишкекский городской дом-интернат общего типа для престарелых',
@@ -114,7 +117,8 @@ organizations = Organization.create!([
     url: ' www.dominter.biz',
     active: true,
     latitude: '42.86413792617463',
-    longitude: '74.58824157714844'
+    longitude: '74.58824157714844',
+    description: 'Дом-интернат общего типа для престарелых'
   },
   {
     name: 'Дом-интернат для пожилых людей Ленинского района мэрии г. Бишкек',
@@ -126,7 +130,8 @@ organizations = Organization.create!([
     url: '',
     active: true,
     latitude: '42.850799307092515',
-    longitude: '74.6407699584961'
+    longitude: '74.6407699584961',
+    description: 'Дом-интернат общего типа для престарелых'
   },
   {
     name: 'Орловский детский дом',
@@ -138,7 +143,8 @@ organizations = Organization.create!([
     url: '',
     active: true,
     latitude: '42.124115125125',
-    longitude: '75.1241215125'
+    longitude: '75.1241215125',
+    description: 'Детский дом'
   },
   {
     name: 'Специализированный дом ребёнка (СДР)',
@@ -150,7 +156,8 @@ organizations = Organization.create!([
     url: '',
     active: true,
     latitude: '42.835947266683796',
-    longitude: '74.60609436035156'
+    longitude: '74.60609436035156',
+    description: 'Дом ребенка'
   },
   {
     name: 'Rotary club',
@@ -162,7 +169,8 @@ organizations = Organization.create!([
     url: '',
     active: true,
     latitude: '42.435947266683796',
-    longitude: '74.20609436035156'
+    longitude: '74.20609436035156',
+    description: 'Благотворительная организация'
   }
 ])
 

@@ -99,8 +99,9 @@ $(document).ready(function () {
                         "<a href='/posts/" + post.id + "' class='btn btn-success'>Details</a>";
                 } else {
                     iconUrl = organizationIcon;
-                    popupContent = "<h5>" + org.name + "</h5>" +
-                                    "<p>" + org.address + "</p>" +
+                    var descriptionText = org.description||org.address;
+                    popupContent = "<h5><a href='organizations/show/'"+org.id+"></a>" + org.name + "</h5>" +
+                                    "<p>" + descriptionText + "</p>" +
                                     "<a href='/organizations/show/" + org.id + "'>Details</a>";
                 }
                 var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
