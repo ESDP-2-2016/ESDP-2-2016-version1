@@ -9,6 +9,8 @@ require 'ffaker'
 
 AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
 
+MetaTag.create!(title: 'Помомщь социально уязвимым слоям населения', keywords: 'благотворительность, помощь, кыргызстан', description: 'проект для общественного контроля и помощи организациям социальной направленности')
+
 user1 = User.create!(name: FFaker::NameRU.name, phone: '0700620000', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
 user2 = User.create!(name: FFaker::NameRU.name, phone: '0555671214', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
 user3 = User.create!(name: FFaker::NameRU.name, phone: '0777681000', email: 'user3@example.com', password: '123456', password_confirmation: '123456')

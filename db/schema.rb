@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004165145) do
+ActiveRecord::Schema.define(version: 20161028105455) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "description"
@@ -62,6 +62,14 @@ ActiveRecord::Schema.define(version: 20161004165145) do
     t.index ["organization_id"], name: "index_aids_on_organization_id"
     t.index ["post_id"], name: "index_aids_on_post_id"
     t.index ["user_id"], name: "index_aids_on_user_id"
+  end
+
+  create_table "meta_tags", force: :cascade do |t|
+    t.string   "title"
+    t.string   "keywords"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "oblasts", force: :cascade do |t|
@@ -116,6 +124,7 @@ ActiveRecord::Schema.define(version: 20161004165145) do
   create_table "posts", force: :cascade do |t|
     t.string   "title",                           null: false
     t.text     "body",                            null: false
+    t.string   "keywords"
     t.boolean  "open",             default: true
     t.integer  "organization_id"
     t.integer  "post_category_id"
