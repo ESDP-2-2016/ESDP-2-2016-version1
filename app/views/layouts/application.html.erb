@@ -6,12 +6,11 @@
     <%= if content_for?(:title) then yield(:title) + ' | ' end %>
     Social hubs
   </title>
+  <meta name='title' content='<%= yield_meta_tag(:title, MetaTag.last.title) %>' />
   <meta name='description'
-        content='<%= yield_meta_tag(:description, '<Организации, помощь, волонтеры, активисты, детский дом, дом престарелых, дом-интернат, Кыргызстан, Бишкек') %>' />
+        content='<%= yield_meta_tag(:description, MetaTag.last.description) %>' />
   <meta name='keywords'
-        content='<%= yield_meta_tag(:keywords, 'Кыргызстан, Бишкек, Десткий-дом, Дом-интернат,
-   Дом-престарелых, Специализированный дом ребёнка') %>' />
-
+        content='<%= yield_meta_tag(:keywords, MetaTag.last.keywords ) %>' />
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

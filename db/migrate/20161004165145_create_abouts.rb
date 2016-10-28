@@ -3,7 +3,10 @@ class CreateAbouts < ActiveRecord::Migration[5.0]
     create_table :abouts do |t|
       t.text :description
       t.string :title
-      t.string :keywords
+      t.string :meta_title
+      t.string :meta_description
+      t.string :meta_keywords
+
 
       t.timestamps
     end

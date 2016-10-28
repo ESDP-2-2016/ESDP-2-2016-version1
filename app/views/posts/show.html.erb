@@ -1,71 +1,76 @@
 <% if @post.active == true %>
-<h1><%= @post.title %></h1>
-<% content_for :title, "Пост" %>
+    <h1><%= @post.title %></h1>
+    <% content_for :title, @post.title %>
+    <% meta_tag :title, @post.title %>
+    <% meta_tag :keywords, @post.keywords %>
 
-<div>
-  <% if user_signed_in? && (current_user == @post.user) %>
-    <%= link_to 'Редактировать', edit_post_path(@post) %>
-    <%= link_to 'Удалить', post_deactivate_path(@post), method: :put, data: { confirm: 'Are you sure?'} %>
-  <% end  %>
-</div>
-<p>Категория: <%= @post.post_category.name %></p>
-<p>Автор: <%= @post.user.name %></p>
-<p>Организация: <%= @post.organization.name %></p>
-<p>Опубликовано: <%= @post.created_at.strftime("%d %b %Y %H %M %S" ) %></p>
-<p><%= @post.body %></p>
-<% if user_signed_in? && (@post.post_category.id == 1 ) && (current_user != @post.user) %>
-  <div class="aids-form-block row">
-    <div class="col-md-6">
-      <% if @aid_user == nil %>
-      <div><span class="aid-pseudolink" id="show-hide-aids-form">Я хочу помочь!</span></div>
-      <div class="aids-form" id="aids-form">
-        <p>Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы свяжемся с Вами по телефону или по e-mail!</p>
-        <div class="form-block">
-          <%= render 'aids/form', btn_txt: t('.Reply') %>
-        </div>
-      </div>
-      <% else %>
-         <div><span class="aid-response">Вы откликнулись на данный запрос о помощи!</span></div>
+    <div>
+      <% if user_signed_in? && (current_user == @post.user) %>
+          <%= link_to 'Редактировать', edit_post_path(@post) %>
+          <%= link_to 'Удалить', post_deactivate_path(@post), method: :put, data: {confirm: 'Are you sure?'} %>
       <% end %>
     </div>
-  </div>
-<% end %>
-
-<% unless @aids.empty? %>
-<div class="aids-block">
-  <h2>На запрос о помощи окликнулись:</h2>
-  <% @aids.each do |aid| %>
-    <% if aid.status == 1 %>
-    <div class="aid-item post">
-      <div class="aid-author">
-        <div>Автор: <b><%= aid.user.name %></b></div>
-        <div>Помощь оказана от имени организации: <b><%= aid.organization.name %></b></div>
-      </div>
-    </div>
+    <p>Категория: <%= @post.post_category.name %></p>
+    <p>Автор: <%= @post.user.name %></p>
+    <p>Организация: <%= @post.organization.name %></p>
+    <p>Опубликовано: <%= @post.created_at.strftime("%d %b %Y %H %M %S") %></p>
+    <p><%= @post.body %></p>
+    <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
+        <div class="aids-form-block row">
+          <div class="col-md-6">
+            <% if @aid_user == nil %>
+                <div><span class="aid-pseudolink" id="show-hide-aids-form">Я хочу помочь!</span></div>
+                <div class="aids-form" id="aids-form">
+                  <p>Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы
+                    свяжемся с Вами по телефону или по e-mail!</p>
+                  <div class="form-block">
+                    <%= render 'aids/form', btn_txt: t('.Reply') %>
+                  </div>
+                </div>
+            <% else %>
+                <div><span class="aid-response">Вы откликнулись на данный запрос о помощи!</span></div>
+            <% end %>
+          </div>
+        </div>
     <% end %>
-  <% end %>
-  <h4>Благодарим, Всех, кто окликнулся на данный запрос о помощи!!!</h4>
-</div>
-<% end %>
 
-<div class="comments-list">
-  <h2>Комментарии:</h2>
-  <div id="hypercomments_widget"></div>
-  <script type="text/javascript">
-    _hcwp = window._hcwp || [];
-    _hcwp.push({widget:"Stream", widget_id: 81181});
-    (function() {
-      if("HC_LOAD_INIT" in window)return;
-      HC_LOAD_INIT = true;
-      var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-      var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-      hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/81181/"+lang+"/widget.js";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hcc, s.nextSibling);
-    })();
-  </script>
-  <!--<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>-->
-</div>
+    <% unless @aids.empty? %>
+        <div class="aids-block">
+          <h2>На запрос о помощи окликнулись:</h2>
+          <% @aids.each do |aid| %>
+              <% if aid.status == 1 %>
+                  <div class="aid-item post">
+                    <div class="aid-author">
+                      <div>Автор: <b><%= aid.user.name %></b></div>
+                      <div>Помощь оказана от имени организации: <b><%= aid.organization.name %></b></div>
+                    </div>
+                  </div>
+              <% end %>
+          <% end %>
+          <h4>Благодарим, Всех, кто окликнулся на данный запрос о помощи!!!</h4>
+        </div>
+    <% end %>
+
+    <div class="comments-list">
+      <h2>Комментарии:</h2>
+      <div id="hypercomments_widget"></div>
+      <script type="text/javascript">
+        _hcwp = window._hcwp || [];
+        _hcwp.push({widget: "Stream", widget_id: 81181});
+        (function () {
+          if ("HC_LOAD_INIT" in window)return;
+          HC_LOAD_INIT = true;
+          var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+          var hcc = document.createElement("script");
+          hcc.type = "text/javascript";
+          hcc.async = true;
+          hcc.src = ("https:" == document.location.protocol ? "https" : "http") + "://w.hypercomments.com/widget/hc/81181/" + lang + "/widget.js";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hcc, s.nextSibling);
+        })();
+      </script>
+      <!--<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>-->
+    </div>
 <% else %>
     <div class="message-post-deleted">
       Cтраница не найдена, пост был удален!

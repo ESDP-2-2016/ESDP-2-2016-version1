@@ -1,6 +1,6 @@
 ActiveAdmin.register Post do
 
-  permit_params :title, :body, :open, :organization_id, :post_category_id,
+  permit_params :title, :body, :keywords, :open, :organization_id, :post_category_id,
                 :user_id, :active
 
 

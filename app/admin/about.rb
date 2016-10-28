@@ -12,13 +12,15 @@ ActiveAdmin.register About do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :description
+  permit_params :title, :description, :meta_title, :meta_description, :meta_keywords
 
   form do |f|
     f.inputs do
       f.input :title
-      f.input :keywords
+      f.input :meta_title
       f.input :description, :input_html => { :class => "ckeditor" }
+      f.input :meta_description
+      f.input :meta_keywords
     end
     f.actions
   end

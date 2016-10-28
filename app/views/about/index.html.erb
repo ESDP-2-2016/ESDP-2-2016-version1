@@ -1,9 +1,9 @@
-<% content_for :title, "О Проекте" %>
-<% meta_tag :title, @about.title %>
-<% meta_tag :description, @about.description %>
-<% meta_tag :keywords, @about.keywords %>
+<% content_for :title, 'О Проекте' %>
+<% meta_tag :title, @about.meta_title %>
+<% meta_tag :description, @about.meta_description %>
+<% meta_tag :keywords, @about.meta_keywords %>
 
 <div class="htmlpage">
-  <%= @about.title %>
-  <%= @about.description.html_safe %>
+  <h1><%= @about.title %></h1>
+  <div><%= @about.description.html_safe %></div>
 </div>
