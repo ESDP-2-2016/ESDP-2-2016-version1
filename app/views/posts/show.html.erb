@@ -17,20 +17,20 @@
     <p><%= @post.body %></p>
     <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
         <div class="aids-form-block row">
-          <div class="col-md-6">
-            <% if @aid_user == nil %>
-                <div><span class="aid-pseudolink" id="show-hide-aids-form">Я хочу помочь!</span></div>
-                <div class="aids-form" id="aids-form">
-                  <p>Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы
-                    свяжемся с Вами по телефону или по e-mail!</p>
-                  <div class="form-block">
-                    <%= render 'aids/form', btn_txt: t('.Reply') %>
+            <div class="col-md-6">
+              <% if @aids.include?(Aid.where(user_id: current_user.id)) %>
+                  <div><span class="aid-response">Вы откликнулись на данный запрос о помощи!</span></div>
+              <% else %>
+                  <div><span class="aid-pseudolink" id="show-hide-aids-form">Я хочу помочь!</span></div>
+                  <div class="aids-form" id="aids-form">
+                    <p>Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы
+                      свяжемся с Вами по телефону или по e-mail!</p>
+                    <div class="form-block">
+                      <%= render 'aids/form', btn_txt: t('.Reply') %>
+                    </div>
                   </div>
-                </div>
-            <% else %>
-                <div><span class="aid-response">Вы откликнулись на данный запрос о помощи!</span></div>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
         </div>
     <% end %>
 
