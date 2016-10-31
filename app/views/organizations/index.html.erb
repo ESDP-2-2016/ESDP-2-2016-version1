@@ -1,6 +1,26 @@
 <div id="main-map" class="main-map">
   <button class="pure-button" id="btn-locate-user"></button>
 </div>
+<div class="row">
+ <div class="col-md-6 image-size">
+   <div>
+     <%= image_tag '/assets/map/icon-marker-alert.svg' %>
+     <%= t(".Organizations that needs help") %>
+   </div>
+   <div>
+    <%= image_tag '/assets/map/icon-marker-ok.svg' %>
+    <%= t(".Social organizations") %>
+   </div>
+   <div>
+    <%= image_tag '/assets/map/icon-marker-user.svg' %>
+    <%= t(".Your location") %>
+   </div>
+   <div>
+    <%= image_tag '/assets/my_icon.png' %>
+    <%= t(".My location") %>
+   </div>
+ </div>
+</div>
 <br><br>
 <ul id="result"></ul>
 <div class="container">

@@ -51,6 +51,10 @@ ru:
             Region: "Область"
             Adress: "Адрес"
             Phone: "Телефон"
+            Organizations that needs help: "Социальные учреждения которым нужна ваша помощь"
+            Social organizations: "Социальные учреждения"
+            Your location: "Вы находитесь здесь"
+            My location: "Мое местоположение"
       donors:
             Organizations Aids: "Организации доноры"
       list:
