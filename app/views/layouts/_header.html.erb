@@ -28,6 +28,7 @@
                   <li><%= link_to t('layouts._header.Edit profile'), edit_user_registration_path(current_user) %></li>
                   <li><%= link_to t('layouts._header.Register the organization'), new_organization_path %></li>
                   <li><%= link_to t('layouts._header.Create new post'), new_post_path %></li>
+                  <li><%= link_to t('layouts._header.Help'), help_index_path %></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to t('layouts._header.Exit'), destroy_user_session_path, method: :delete %></li>
                 </ul>

@@ -28,6 +28,7 @@ ru:
           select language: 'Выбрать язык'
           View profile: 'Личный кабинет'
           Account: 'Мой профиль'
+          Help: 'Помощь'
       application:
       mailer:
   organizations:
