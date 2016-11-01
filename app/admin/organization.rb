@@ -1,7 +1,7 @@
 ActiveAdmin.register Organization do
 
   permit_params :name, :location, :phone, :address, :contact_person,
-                :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active
+                :longitude, :latitude, :keywords, :organization_category_id, :oblast_id, :url, :active
   controller do
     def update
       if update!
@@ -25,6 +25,7 @@ ActiveAdmin.register Organization do
       f.input :url
       f.input :longitude
       f.input :latitude
+      f.input :keywords
       f.input :organization_category_id,  :as => :select,  :collection => OrganizationCategory.all
       f.input :active, :as => :radio
     end
