@@ -3,21 +3,29 @@
 </div>
 <div class="row">
  <div class="col-md-6 image-size">
-   <div>
+   <div class="imagebox">
+     <div class="wrap">
      <%= image_tag '/assets/map/icon-marker-alert.svg' %>
-     <%= t(".Organizations that needs help") %>
+     </div>
+    <p> <%= t(".Organizations that needs help") %></p>
    </div>
-   <div>
+   <div class="imagebox">
+     <div class="wrap">
     <%= image_tag '/assets/map/icon-marker-ok.svg' %>
-    <%= t(".Social organizations") %>
+     </div>
+     <p><%= t(".Social organizations") %></p>
    </div>
-   <div>
-    <%= image_tag '/assets/map/icon-marker-user.svg' %>
-    <%= t(".Your location") %>
+   <div class="imagebox">
+     <div class="wrap">
+       <%= image_tag '/assets/map/icon-marker-user.svg' %>
+     </div>
+     <p><%= t(".Your location") %></p>
    </div>
-   <div>
+   <div class="imagebox">
+     <div class="wrap">
     <%= image_tag '/assets/my_icon.png' %>
-    <%= t(".My location") %>
+     </div>
+     <p><%= t(".My location") %></p>
    </div>
  </div>
 </div>

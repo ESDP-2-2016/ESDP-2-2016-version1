@@ -7,9 +7,17 @@
 .new-organization-map {
   height: 300px;
 }
-.image-size img {
+.imagebox {
+  max-width: 100px;
+  max-height: auto;
+}
+.wrap{
   max-width: 30px;
-  max-height: 30px;
+  height: auto;
+}
+.wrap img {
+  width: 100%;
+  height:auto;
 }
 .main-map {
   height: 550px;
