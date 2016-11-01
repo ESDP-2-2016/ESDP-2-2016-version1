@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  get 'posts/nonactiveposts'
+  get 'posts/non_active_post/:id' =>'posts#non_active_post', as: 'non_active'
   get 'about/index'
   get 'help/index'
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale

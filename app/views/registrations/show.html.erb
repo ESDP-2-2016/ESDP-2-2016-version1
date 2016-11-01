@@ -1,10 +1,20 @@
 <% content_for :title, @user.name %>
 <div class="container">
-  <h1><%= t(".Profile") %>: <% @user.name  %></h1>
-  <p><%= t(".Phone") %>: <%= @user.phone  %></p>
-  <p><%= t(".Email") %>: <%= @user.email  %></p>
-  <p><%= link_to t('.Registration organization'),  new_organization_path, class: 'btn btn-primary' %></p>
-  <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary' %></p>
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= t(".Profile") %>: <% @user.name  %></h1>
+      <p><%= t(".Phone") %>: <%= @user.phone  %></p>
+      <p><%= t(".Email") %>: <%= @user.email  %></p>
+      <p><%= link_to t('.Registration organization'),  new_organization_path, class: 'btn btn-primary' %></p>
+      <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary' %></p>
+    </div>
+    <div class="col-md-6">
+      <br>
+      <br>
+      <br>
+      <p><%= link_to "my non active posts",posts_nonactiveposts_path,class: 'btn btn-primary' %></p>
+    </div>
+  </div>
   <h2><%= t('.Organizations in which you owner') %>: </h2>
   <ul>
   <% UserOrganization.where(user_id:@user,role:1).each do |item| %>
