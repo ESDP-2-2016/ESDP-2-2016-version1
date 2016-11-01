@@ -1,0 +1,7 @@
+<% @post_history.each do |item|%>
+<ul>
+  <li>
+    <%= link_to item.title, non_active_path(item) %>
+  </li>
+</ul>
+<% end %>

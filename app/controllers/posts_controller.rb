@@ -53,6 +53,12 @@ class PostsController < ApplicationController
     flash[:success] = 'Вы удалили пост!'
     redirect_to posts_path
   end
+  def nonactiveposts
+    @post_history = Post.all.where(active: false, user_id: current_user.id)
+  end
+  def non_active_post
+    @nonactivepost = Post.find(params[:id])
+  end
 
   private
   def post_params
