@@ -223,18 +223,14 @@ $(document).ready(function () {
         var orgLatitude = parseFloat(document.getElementById("org-latitude").innerHTML);
         var coordinate = new L.latLng(orgLatitude, orgLongitude);
         // создать карту и маркер для организации
-        var orgMap = initializeMap('organization-map', coordinate);
+        var orgMap = initializeMap('organization-map', coordinate, 16);
         var marker = L.marker(coordinate, {icon: createIcon(organizationIcon)}).addTo(orgMap);
         orgMap.panTo(coordinate);
 
         var orgMapOptions = {
             marker: marker,
-            map: orgMap,
-            userLocationButton: document.getElementById('btn-locate-user')
+            map: orgMap
         };
-
-        enableAddMarkerToUserLocation(orgMapOptions, 13);
-
     }
 
 

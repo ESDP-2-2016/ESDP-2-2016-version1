@@ -123,8 +123,8 @@ organizations = Organization.create!([
     organization_category_id: organization_category_2.id,
     url: '',
     active: true,
-    latitude: '42.91155476081381',
-    longitude: '74.59613800048828',
+    latitude: '42.4991874040583',
+    longitude: '78.52306365966797',
     description: 'Детский дом семейного типа'
   },
   {
@@ -162,8 +162,8 @@ organizations = Organization.create!([
     organization_category_id: organization_category_2.id,
     url: '',
     active: true,
-    latitude: '42.124115125125',
-    longitude: '75.1241215125',
+    latitude: '42.74679156623176',
+    longitude: '75.58990716934204',
     description: 'Детский дом'
   },
   {
