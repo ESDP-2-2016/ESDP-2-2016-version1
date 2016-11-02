@@ -10,7 +10,6 @@ $(document).ready(function () {
     var organizationIcon = '/assets/map/icon-marker-ok.svg';
     var organizationAlertIcon = '/assets/map/icon-marker-alert.svg';
 
-
     function initializeMap(mapId, coordinate, zoom) {
         var mapZoom = zoom || defaultZoom;
         var mapCoordinate = coordinate || defaultCoordinate;
@@ -147,16 +146,12 @@ $(document).ready(function () {
         options.fieldLatitude.oninput = function() {updateMarker(options)};
     }
 
-
-
     function enableResetMap(options){
         options.resetMapButton.onclick = function() {
             resetMarker(options);
             updateFields(options);
         };
     }
-
-
 
     //////////////////////////////////////////////////////////////
     ///////  Настройки для каждой карты на страницах /////////////
@@ -169,6 +164,9 @@ $(document).ready(function () {
     if (document.getElementById("new-organization-map")!=null){
         var map = initializeMap("new-organization-map");
         var marker = L.marker(defaultCoordinate, {icon: createIcon(organizationIcon)}).addTo(map);
+        var obl = document.getElementById('organization_oblast_id');
+        var oblIndex = obl.selectedIndex;
+        var oblSelected = obl.options[oblIndex].value;
 
         var mapOptions = {
             map: map,
@@ -183,6 +181,37 @@ $(document).ready(function () {
         enableMarkerMoves(mapOptions);
         enableResetMap(mapOptions);
         enableMoveMarkerToUserLocation(mapOptions);
+
+        function changeObl(e){
+            oblSelected = parseFloat(e.target.value);
+            var result = 0;
+            for (var i = 0; i <= oblast_coorginates.length; i++) {
+                if(i == oblSelected){
+                    result = i - 1;
+                }
+            }
+            centerCoordinate = oblast_coorginates[result].center;
+            oblastCoordinate = oblast_coorginates[result].place;
+
+            var newOptions = {
+                map: map,
+                marker: marker.setLatLng(centerCoordinate),
+                fieldLatitude: document.getElementById('latitude'),
+                fieldLongitude: document.getElementById('longitude')
+            };
+
+            enableMarkerMoves(newOptions);
+            updateFields(newOptions);
+
+            if(oblast_coorginates[result].city){
+                map.setView(oblastCoordinate,13);
+            }else{
+                map.setView(oblastCoordinate,8);
+            }
+        }
+
+        obl.addEventListener("change", changeObl);
+
     }
 
     ////////////////////////////////////////////////////////////////////
@@ -232,4 +261,5 @@ $(document).ready(function () {
             }
         });
     }
+
 });
