@@ -1,4 +1,4 @@
-<div class="form-block">
+<div class="form-block" id="organization_form">
   <%= form_for @organization, class: "form-horizontal" do |f| %>
 
       <div class="form-group  row">
@@ -11,12 +11,6 @@
         <%= f.label :name, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :name, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group row">
-        <%= f.label :description, class: "col-sm-4 control-label" %>
-        <div class="col-sm-6">
-          <%= f.cktext_area :description, class: "form-control" %>
         </div>
       </div>
       <div class="form-group row">
@@ -67,7 +61,12 @@
           <%= f.text_field :url, class: "form-control" %>
         </div>
       </div>
-
+      <div class="form-group row">
+        <%= f.label :description, class: "col-sm-4 control-label" %>
+        <div class="col-sm-6">
+          <%= f.cktext_area :description, class: "form-control" %>
+        </div>
+      </div>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="form-group move-right col-sm-offset-4">
         <%= f.submit( class: "btn btn-primary") %>
