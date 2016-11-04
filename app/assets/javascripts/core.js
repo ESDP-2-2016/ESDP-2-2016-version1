@@ -15,7 +15,6 @@ $(document).ready(function () {
             '<li>'+ org.location +'</li>' +
             '<li>'+ org.address +'</li>' +
             '<li>'+ org.phone +'</li>' +
-            '<li>'+ org.oblast_id.name +'</li>' +
             '</ul></div>';
         return htmlOrg;
     }
