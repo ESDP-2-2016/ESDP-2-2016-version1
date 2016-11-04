@@ -1,18 +1,15 @@
-<div class="organizations"> 
-<% @organization_categories.each do |organization_category| %>      
-  <h2><%= t(".Category") %>: <%= organization_category.name %></h2>
+<div class="organizations">
   <% @organizations_all.each do |organization| %>
   <div>
-    <% if organization.organization_category_id == organization_category.id %>  
-    <h4><%= link_to organization.name, organization_show_path(organization) %></h4>                 
+    <h4><%= link_to organization.name, organization_show_path(organization)%>,
+        <em>(категория: <%= organization.organization_category.name %>)</em></h4>
     <ul>
       <li><%= t(".Location") %>: <%= organization.location %></li>
       <li><%= t(".Region") %>: <%= organization.oblast.name %></li>
       <li><%= t(".Adress") %>: <%= organization.address %></li>
       <li><%= t(".Phone") %>: <%= organization.phone %></li>
-    </ul>  
-    <% end %>
+    </ul>
   </div>
   <% end %>
-<% end %>   
 </div>
+

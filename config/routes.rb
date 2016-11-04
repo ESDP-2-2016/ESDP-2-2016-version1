@@ -41,5 +41,8 @@ Rails.application.routes.draw do
   post 'organizations/participation_request/:id' => 'organizations#participation_request', as: 'organization_participation_request'
   put 'organizations/approved/:id' => 'organizations#approved', as: 'organization_approved'
 
+  get 'organizations/filter_organizations/:id' => 'organizations#filter_organizations', as: 'filter_organizations'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
