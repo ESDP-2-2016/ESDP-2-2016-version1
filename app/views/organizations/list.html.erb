@@ -4,10 +4,9 @@
   <div class="category_filter">
     <p>Выбрать организации одной категори:</p>
     <div class="form-group">
-      <%= select_tag "organization_category_id", options_from_collection_for_select(@organization_categories, "id", "name"), :prompt => "Выберите категорию", id: "filter_org" %>
+      <%= select_tag "organization_category_id", options_from_collection_for_select(@organization_categories, "id", "name"), :prompt => "Все организации", id: "filter_org" %>
     </div>
   </div>
-
 
   <div id="organization-list">
     <%= paginate @organizations_all %>

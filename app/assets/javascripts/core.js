@@ -9,6 +9,8 @@ $(document).ready(function () {
         $(this).next('.post-item-body').slideToggle();
     });
 
+    var all_org = $("#organization-list").html();
+
     function renderOneOrg(org){
         var htmlOrg = '<div><h4><a href="/organizations/show/'+ org.id +'">'+ org.name+'</a></h4>' +
             '<ul>' +
@@ -43,7 +45,11 @@ $(document).ready(function () {
     }
 
     $("#filter_org").change(function(e){
-        filter_organizations(e.currentTarget.selectedIndex);
+        if(e.currentTarget.selectedIndex != 0) {
+            filter_organizations(e.currentTarget.selectedIndex);
+        }else{
+            $("#organization-list").html(all_org);
+        }
     });
 
 });
