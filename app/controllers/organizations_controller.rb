@@ -85,6 +85,20 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def filter_organizations
+    @organization_category = OrganizationCategory.find(params[:id])
+    @organization_by_category = Organization.where(organization_category_id: @organization_category)
+    respond_to do |format|
+      format.html
+      format.js {}
+      format.json {
+        render json: {
+            :organizations => @organization_by_category
+        }
+      }
+    end
+  end
+
   def donors
     @donor = OrganizationCategory.find_by(name: 'Доноры')
     @organizations = Organization.all.where(active: true).where(organization_category_id: @donor.id)

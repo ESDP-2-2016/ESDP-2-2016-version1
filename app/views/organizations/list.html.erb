@@ -1,6 +1,16 @@
 <% content_for :title, "Все организации" %>
 <div class="container">
   <h1><%= t(".List of all organizations") %></h1>
-  <%= paginate @organizations_all %>
-  <%=  render 'organizations' %>
+  <div class="category_filter">
+    <p>Выбрать организации одной категори:</p>
+    <div class="form-group">
+      <%= select_tag "organization_category_id", options_from_collection_for_select(@organization_categories, "id", "name"), :prompt => "Все организации", id: "filter_org" %>
+    </div>
+  </div>
+
+  <div id="organization-list">
+    <%= paginate @organizations_all %>
+    <%= render :partial => 'organizations', :object => @organizations_all %>
+  </div>
+
 </div>
