@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
     @owner_organizations = UserOrganization.where(user_id: @user.id, role: 1)
     @requests=[]
     @owner_organizations.each do |test|

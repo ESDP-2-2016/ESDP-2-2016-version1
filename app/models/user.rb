@@ -12,4 +12,8 @@ class User < ApplicationRecord
   has_many :aids
   validates :phone, phone: true
   validates :name, presence: true, length: {maximum: 60}
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end
+
