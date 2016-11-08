@@ -5,4 +5,6 @@ class Post < ApplicationRecord
   has_many :post_comments,dependent: :destroy
   has_many :aids
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end

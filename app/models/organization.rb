@@ -22,4 +22,6 @@ class Organization < ApplicationRecord
     self.active = false if self.active.nil?
   end
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(slug: params[:id])
     @aids = Aid.where(post_id: @post.id, status: 1)
     @aid = Aid.new
     @respond_post = @post

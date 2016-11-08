@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'organizations/donors' => 'organizations#donors', as: 'donors'
 
   resources :posts
+
   resources :post_comments, only: [:create, :edit, :update, :destroy]
   resources :aids
 

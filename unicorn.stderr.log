@@ -1,0 +1,12 @@
+I, [2016-11-04T14:30:36.731810 #5661]  INFO -- : Refreshing Gem list
+/home/hosting_candidus/projects/social-hubs/vendor/gems/ruby/2.2.0/gems/activesupport-3.1.1/lib/active_support/values/time_zone.rb:268: warning: circular argument reference - now
+        SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+        This poses a security threat. It is strongly recommended that you
+        provide a secret to prevent exploits that may be possible from crafted
+        cookies. This will not be supported in future versions of Rack, and
+        future versions will even invalidate your existing user cookies.
+
+        Called from: /home/hosting_candidus/projects/social-hubs/vendor/gems/ruby/2.2.0/gems/actionpack-3.1.1/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+I, [2016-11-04T14:30:37.756838 #5661]  INFO -- : listening on addr=/var/sockets/hosting_candidus/social-hubs.candidus.sock fd=11
+I, [2016-11-04T14:30:37.759291 #5661]  INFO -- : master process ready
+I, [2016-11-04T14:30:37.901948 #5674]  INFO -- : worker=0 ready

@@ -4,7 +4,7 @@
   <% @organizations_all.each do |organization| %>
   <div>
     <% if organization.organization_category_id == organization_category.id %>  
-    <h4><%= link_to organization.name, organization_show_path(organization) %></h4>                 
+    <h4><%= link_to organization.name, organization_show_path(organization) %></h4>
     <ul>
       <li><%= t(".Location") %>: <%= organization.location %></li>
       <li><%= t(".Region") %>: <%= organization.oblast.name %></li>

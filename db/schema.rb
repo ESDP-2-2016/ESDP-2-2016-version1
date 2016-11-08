@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028105455) do
+ActiveRecord::Schema.define(version: 20161108154445) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "description"
@@ -66,6 +66,18 @@ ActiveRecord::Schema.define(version: 20161028105455) do
     t.index ["user_id"], name: "index_aids_on_user_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
   create_table "meta_tags", force: :cascade do |t|
     t.string   "title"
     t.string   "keywords"
@@ -104,8 +116,10 @@ ActiveRecord::Schema.define(version: 20161028105455) do
     t.integer  "oblast_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "slug"
     t.index ["oblast_id"], name: "index_organizations_on_oblast_id"
     t.index ["organization_category_id"], name: "index_organizations_on_organization_category_id"
+    t.index ["slug"], name: "index_organizations_on_slug", unique: true
   end
 
   create_table "post_categories", force: :cascade do |t|
@@ -135,8 +149,10 @@ ActiveRecord::Schema.define(version: 20161028105455) do
     t.boolean  "active",           default: true
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "slug"
     t.index ["organization_id"], name: "index_posts_on_organization_id"
     t.index ["post_category_id"], name: "index_posts_on_post_category_id"
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
