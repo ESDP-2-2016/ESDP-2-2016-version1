@@ -1,4 +1,7 @@
 class OrganizationsController < ApplicationController
+  before_filter :only => [:show, :edit, :update, :destroy, :participation_request] do
+    @organization = Organization.find_by_slug!(params[:id])
+  end
 
   def index   
     # @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Донорская помощь')
@@ -29,7 +32,7 @@ class OrganizationsController < ApplicationController
   end
 
   def participation_request
-    @organization = Organization.find(params[:id])
+    # @organization = Organization.find(params[:id])
     @user_organization = UserOrganization.new(organization_id: @organization.id,
                                               user_id: current_user.id, role: 2,approved: false)
     if @user_organization.save
@@ -48,11 +51,11 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:id])
+    # @organization = Organization.find(params[:id])
   end
 
   def update
-    @organization = Organization.find(params[:id])
+    # @organization = Organization.find(params[:id])
     if @organization.update(organization_params)
       redirect_to organizations_list_path
     else
@@ -105,7 +108,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @organization = Organization.find_by(slug: params[:id])
+    # @organization = Organization.find_by(slug: params[:id])
     @org_user = @organization.user_organizations.find_by(organization_id: @organization.id,role:1)
     @post = Post.where(organization_id: @organization.id)
     unless @org_user.nil?
