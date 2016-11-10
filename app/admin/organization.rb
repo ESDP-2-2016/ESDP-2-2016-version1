@@ -2,7 +2,12 @@ ActiveAdmin.register Organization do
 
   permit_params :name, :location, :phone, :address, :contact_person,
                 :longitude, :latitude, :keywords, :organization_category_id, :oblast_id, :url, :active
+  before_filter :only => [:show, :edit, :update, :destroy] do
+    @organization = Organization.find_by_slug!(params[:id])
+  end
   controller do
+    # before_action :global, except: [:index]
+    # defaults :finder => :find_by_slug
     def update
       if update!
         arr = UserOrganization.where(organization_id:@organization.id, role:1)
@@ -12,7 +17,14 @@ ActiveAdmin.register Organization do
         end
       end
     end
+  # private
+  #   def global
+  #     @organization=Organization.friendly.find(params[:id])
+  #   end
   end
+
+
+
 
   form do |f|
     f.inputs do
