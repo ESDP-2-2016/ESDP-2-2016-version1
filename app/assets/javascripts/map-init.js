@@ -92,16 +92,17 @@ $(document).ready(function () {
                 if (post) {
                     var postTeaser = post.body.substring(0, MAX_POST_TEASER_SIZE);
                     iconUrl = organizationAlertIcon;
-                    popupContent = "<h5><a href='/posts/"+ post.id + "'>" +  post.title+ "</a></h5>" +
+                    popupContent = "<h5><a href='/posts/"+ post.slug + "'>" +  post.title+ "</a></h5>" +
                         "<p class='marker-post'>"+ postTeaser +"</p>" +
-                        "<p>Опубликовал <a href='organizations/show/"+ org.id +"'>" + org.name  + "</a></p>"  +
-                        "<a href='/posts/" + post.id + "' class='btn btn-success'>Details</a>";
+                        "<p>Опубликовал <a href='organizations/show/"+ org.slug +"'>" + org.name  + "</a></p>"  +
+                        "<a href='/posts/" + post.slug + "' class='btn btn-success'>Details</a>";
                 } else {
                     iconUrl = organizationIcon;
                     var descriptionText = org.description||org.address;
-                    popupContent = "<h5><a href='organizations/show/'"+org.id+"></a>" + org.name + "</h5>" +
+                    popupContent = "<h5><a href='organizations/show/'"+org.slug+"></a>" + org.name + "</h5>" +
                                     "<p>" + descriptionText + "</p>" +
-                                    "<a href='/organizations/show/" + org.id + "'>Details</a>";
+                        "<a href='/organizations/show/" + org.slug + "'>Details1</a>";
+
                 }
                 var marker = L.marker(orgCoordinate, {icon: createIcon(iconUrl)}).addTo(map);
                 marker.bindPopup(popupContent);

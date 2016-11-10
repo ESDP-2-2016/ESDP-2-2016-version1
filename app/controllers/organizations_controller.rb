@@ -2,6 +2,9 @@ class OrganizationsController < ApplicationController
   before_filter :only => [:show, :edit, :update, :destroy, :participation_request] do
     @organization = Organization.find_by_slug!(params[:id])
   end
+  # def to_param
+  #   "#{id}-#{title.parameterize}"
+  # end
 
   def index   
     # @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Донорская помощь')
@@ -74,8 +77,8 @@ class OrganizationsController < ApplicationController
   def list
     @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Доноры')
     @organizations_all = Organization.all.where(active: true).page(params[:page]).per(3).order('created_at desc')
-    @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :description, :address])
-    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :body, :organization_id]).group(:organization_id).order('created_at desc')
+    @organizations = Organization.where(active: true).select([:id, :name, :latitude, :longitude, :description, :address, :slug])
+    @help_requests = Post.where(post_category_id: 1).select([:id, :title, :body, :organization_id,:slug]).group(:organization_id).order('created_at desc')
     respond_to do |format|
       format.html
       format.js {}
@@ -86,6 +89,17 @@ class OrganizationsController < ApplicationController
         }
       }
     end
+  end
+  def destroy
+    @organization=Organization.find(params[:id])
+    @organization.destroy
+    redirect_to :back
+    # @organization.destroy
+    # if @organization.delete
+    #   flash[:success] ='organization has been deleted'
+    # else
+    #   render @organization
+    # end
   end
 
   def filter_organizations
@@ -119,7 +133,7 @@ class OrganizationsController < ApplicationController
   private
   def organization_params
     params.require(:organization).permit(:name, :description, :location, :phone, :address, :contact_person,
-      :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active)
+      :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active, :slug)
   end
 
   def user_organization_params

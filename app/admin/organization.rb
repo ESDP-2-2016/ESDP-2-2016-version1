@@ -1,6 +1,6 @@
 ActiveAdmin.register Organization do
 
-  permit_params :name, :location, :phone, :address, :contact_person,
+  permit_params :name, :location, :phone, :address, :contact_person, :description,
                 :longitude, :latitude, :keywords, :organization_category_id, :oblast_id, :url, :active
   before_filter :only => [:show, :edit, :update, :destroy] do
     @organization = Organization.find_by_slug!(params[:id])
