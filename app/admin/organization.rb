@@ -7,8 +7,8 @@ ActiveAdmin.register Organization do
       if update!
         arr = UserOrganization.where(organization_id:@organization.id, role:1)
         if arr.size>=1
-        user=arr[0].user
-        UserMailer.notification(user,@organization.id,@organization.name).deliver_now
+          user=arr[0].user
+          UserMailer.notification(user,@organization.id,@organization.name).deliver_now
         end
       end
     end
