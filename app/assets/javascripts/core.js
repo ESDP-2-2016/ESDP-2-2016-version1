@@ -12,7 +12,7 @@ $(document).ready(function () {
     var all_org = $("#organization-list").html();
 
     function renderOneOrg(org){
-        var htmlOrg = '<div><h4><a href="/organizations/show/'+ org.id +'">'+ org.name+'</a></h4>' +
+        var htmlOrg = '<div><h4><a href="/organizations/show/'+ org.slug +'">'+ org.name+'</a></h4>' +
             '<ul>' +
             '<li>'+ org.location +'</li>' +
             '<li>'+ org.address +'</li>' +

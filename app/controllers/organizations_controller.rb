@@ -91,7 +91,7 @@ class OrganizationsController < ApplicationController
     end
   end
   def destroy
-    @organization=Organization.find(params[:id])
+    # @organization=Organization.find(params[:id])
     @organization.destroy
     redirect_to :back
     # @organization.destroy
