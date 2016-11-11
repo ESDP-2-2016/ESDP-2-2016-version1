@@ -117,8 +117,12 @@ class OrganizationsController < ApplicationController
   end
 
   def donors
-    @donor = OrganizationCategory.find_by(name: 'Доноры')
-    @organizations = Organization.all.where(active: true).where(organization_category_id: @donor.id)
+    if OrganizationCategory.exists?
+      @donor = OrganizationCategory.find_by(name: 'Доноры')
+      @organizations = Organization.all.where(active: true).where(organization_category_id: @donor.id)
+    else
+      render file: 'public/404', status: 404, formats: [:html]
+    end
   end
 
   def show
