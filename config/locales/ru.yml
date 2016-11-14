@@ -95,6 +95,19 @@ ru:
             Published: "Опубликовано"
       new:
       show:
+            category: "Категория"
+            author: "Автор"
+            organization: "Организация"
+            published: "Опубликовано"
+            i want to help: "Я хочу помочь!"
+            Comments: "Комментарии"
+            On the request for assistance called: "На запрос о помощи окликнулись"
+            Page not found, the post has been deleted!: "Cтраница не найдена, пост был удален!"
+            Thank you, everyone who called on this request for help !!!: "Благодарим, Всех, кто окликнулся на данный запрос о помощи!!! "
+            Assistance provided on behalf of the organization: "Помощь оказана от имени организации"
+            You have responded to the request for help!: "Вы откликнулись на данный запрос о помощи!"
+            We are pleased that you want to help us! Please, please, about your desire to help, and we will contact you by phone or e-mail!: "Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы
+                                                                                                                                                                    свяжемся с Вами по телефону или по e-mail!"
             edit: 'Редактировать'
             delete: 'Удалить'
             Reply: 'Откликнуться'

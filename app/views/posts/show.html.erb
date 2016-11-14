@@ -10,21 +10,21 @@
           <%= link_to t(".delete"), post_deactivate_path(@post), method: :put, data: { confirm: t(".confirm_delete")}%>
       <% end %>
     </div>
-    <p>Категория: <%= @post.post_category.name %></p>
-    <p>Автор: <%= @post.user.name %></p>
-    <p>Организация: <%= @post.organization.name %></p>
-    <p>Опубликовано: <%= @post.created_at.strftime("%d %b %Y %H %M %S") %></p>
+    <p><%= t(".category") %>: <%= @post.post_category.name %></p>
+    <p><%= t(".author") %>: <%= @post.user.name %></p>
+    <p><%= t(".organization") %>: <%= @post.organization.name %></p>
+    <p><%= t(".published") %>: <%= @post.created_at.strftime("%d %b %Y %H %M %S") %></p>
     <p><%= @post.body %></p>
     <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
         <div class="aids-form-block row">
             <div class="col-md-6">
               <% if @user_already_helped %>
-                  <div><span class="aid-response">Вы откликнулись на данный запрос о помощи!</span></div>
+                  <div><span class="aid-response"><%= t(".You have responded to the request for help!") %></span></div>
               <% else %>
-                  <div><span class="aid-pseudolink" id="show-hide-aids-form">Я хочу помочь!</span></div>
+                  <div><span class="aid-pseudolink" id="show-hide-aids-form"><%= t(".i want to help") %></span></div>
                   <div class="aids-form" id="aids-form">
-                    <p>Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы
-                      свяжемся с Вами по телефону или по e-mail!</p>
+                    <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we
+                       will contact you by phone or e-mail!") %></p>
                     <div class="form-block">
                       <%= render 'aids/form', btn_txt: t('.Reply') %>
                     </div>
@@ -36,23 +36,23 @@
 
     <% unless @aids.empty? %>
         <div class="aids-block">
-          <h2>На запрос о помощи окликнулись:</h2>
+          <h2><%= t(".On the request for assistance called") %>:</h2>
           <% @aids.each do |aid| %>
               <% if aid.status == 1 %>
                   <div class="aid-item post">
                     <div class="aid-author">
-                      <div>Автор: <b><%= aid.user.name %></b></div>
-                      <div>Помощь оказана от имени организации: <b><%= aid.organization.name %></b></div>
+                      <div><%= t(".author") %>: <b><%= aid.user.name %></b></div>
+                      <div><%= t(".Assistance provided on behalf of the organization") %>: <b><%= aid.organization.name %></b></div>
                     </div>
                   </div>
               <% end %>
           <% end %>
-          <h4>Благодарим, Всех, кто окликнулся на данный запрос о помощи!!!</h4>
+          <h4><%= t(".Thank you, everyone who called on this request for help !!!") %></h4>
         </div>
     <% end %>
 
     <div class="comments-list">
-      <h2>Комментарии:</h2>
+      <h2><%= t(".Comments") %>:</h2>
       <div id="hypercomments_widget"></div>
       <script type="text/javascript">
         _hcwp = window._hcwp || [];
@@ -73,6 +73,6 @@
     </div>
 <% else %>
     <div class="message-post-deleted">
-      Cтраница не найдена, пост был удален!
+      <%= t(".Page not found, the post has been deleted!") %>
     </div>
 <% end %>
