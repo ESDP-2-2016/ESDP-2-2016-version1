@@ -20,8 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  organizations:
+        participation_request:
+              success: "Your request sent successfully!"
+        approved:
+              success: "Your request approved"
+        create:
+              create: "your organization create request sent to admin"
+        deactivate:
+              deactivate: "your organization deleted"
+  registrations:
+        show:
+            confirm_delete: "are you sure you want to delete?"
   posts:
         show:
-          Reply: 'Reply'
-          Save changes: 'Save changes'
+              Reply: 'Reply'
+              Save changes: 'Save changes'
+              confirm_delete: "are you sure you want to delete?"
+
+  hello: "Hello world"
+

@@ -25,7 +25,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     if @organization.save
       UserMailer.welcome_email(AdminUser.first,@organization.id,@organization.name,current_user).deliver_now
-      flash[:success] = 'Ваш запрос о регистрации организации отправлен на рассмотрение администратору!'
+      flash[:success] = t(".create")
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
                                                     user_id: current_user.id, role: 1,approved: true)
       redirect_to root_path
@@ -39,7 +39,7 @@ class OrganizationsController < ApplicationController
     @user_organization = UserOrganization.new(organization_id: @organization.id,
                                               user_id: current_user.id, role: 2,approved: false)
     if @user_organization.save
-      flash[:success] = "Ваша заявка отправлена на рассмотрение владельцу организации"
+      flash[:success] = t(".success")
       redirect_to root_path
     end
 
@@ -48,7 +48,7 @@ class OrganizationsController < ApplicationController
   def approved
     @user_organization = UserOrganization.find(params[:id])
     @user_organization.update(approved: true)
-    flash[:success] = "заявка одобрена"
+    flash[:success] = t(".success")
     redirect_to root_path
 
   end
@@ -70,7 +70,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @organization.update_attribute(:active, false)
 
-    flash[:success] = 'Вы удалили организацию!'
+    flash[:success] = t(".deactivate")
     redirect_to root_path
   end
 

@@ -12,7 +12,7 @@
       <br>
       <br>
       <br>
-      <p><%= link_to "my non active posts",posts_nonactiveposts_path,class: 'btn btn-primary' %></p>
+      <p><%= link_to t(".My_non_active_posts"),posts_nonactiveposts_path,class: 'btn btn-primary' %></p>
     </div>
   </div>
   <h2><%= t('.Organizations in which you owner') %>: </h2>
@@ -22,7 +22,7 @@
       <li><%= item.organization.name %></li>
       <% id=item.organization.id %>
         <%= link_to t(".Edit"), edit_organization_path(id) %>
-        <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: 'Вы уверены, что хотите удалить организацию?'} %>
+        <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: t(".confirm_delete")} %>
     <% end %>
   <% end %>
   </ul>
@@ -52,7 +52,7 @@
         <% orgid= item.organization_id %>
         <% org=Organization.find_by(id:orgid) %>
         <%= org.name %>
-          <%= link_to 'Approve', organization_approved_path(item), method: :put %>
+          <%= link_to t('.Approve'), organization_approved_path(item), method: :put %>
 
         </li>
     <%end %>

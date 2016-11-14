@@ -6,8 +6,8 @@
 
     <div>
       <% if user_signed_in? && (current_user == @post.user) %>
-          <%= link_to 'Редактировать', edit_post_path(@post) %>
-          <%= link_to 'Удалить', post_deactivate_path(@post), method: :put, data: {confirm: 'Are you sure?'} %>
+          <%= link_to t(".edit"), edit_post_path(@post) %>
+          <%= link_to t(".delete"), post_deactivate_path(@post), method: :put, data: { confirm: t(".confirm_delete")}%>
       <% end %>
     </div>
     <p>Категория: <%= @post.post_category.name %></p>

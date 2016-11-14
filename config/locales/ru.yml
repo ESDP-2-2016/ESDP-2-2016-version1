@@ -40,7 +40,16 @@ ru:
             Phone: "Телефон"
       donors:
       edit:
+      participation_request:
+            success: "Ваша заявка отправлена на рассмотрение владельцу организации"
+      approved:
+            success: "заявка одобрена"
+      create:
+            create: 'Ваш запрос о регистрации организации отправлен на рассмотрение администратору!'
+      deactivate:
+            deactivate: 'Вы удалили организацию!'
       index:
+            All posts: "Посмотреть все посты"
             Category: "Категория"
             Organization: "Организация"
             Author: "Автор"
@@ -59,6 +68,7 @@ ru:
       donors:
             Organizations Aids: "Организации доноры"
       list:
+            All organizations: "Все организации"
             List of all organizations: "Список всех организаций"
       new:
             Register your organization: "Зарегистрировать организацию"
@@ -68,6 +78,8 @@ ru:
             Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
       show:
         Edit: 'Редактировать'
+        join to organization: "присоединиться к организации"
+
   post_comments:
       _form:
       edit:
@@ -83,10 +95,16 @@ ru:
             Published: "Опубликовано"
       new:
       show:
-        Reply: 'Откликнуться'
-        Save changes: 'Сохранить изменения'
+            edit: 'Редактировать'
+            delete: 'Удалить'
+            Reply: 'Откликнуться'
+            Save changes: 'Сохранить изменения'
+            confirm_delete: 'Вы уверены?'
   registrations:
       show:
+            My_non_active_posts: "Мои неактивные темы"
+            Approve: "Одобрить"
+            confirm_delete: 'Вы уверены, что хотите удалить организацию?'
             Profile: "Профиль"
             Phone: "Телефон"
             Email: "Почта"
