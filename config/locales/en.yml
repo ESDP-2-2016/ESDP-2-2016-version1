@@ -29,6 +29,8 @@ en:
               create: "your organization create request sent to admin"
         deactivate:
               deactivate: "your organization deleted"
+        index:
+              details: "details"
   registrations:
         show:
             confirm_delete: "are you sure you want to delete?"

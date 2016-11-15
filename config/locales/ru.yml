@@ -52,6 +52,7 @@ ru:
       deactivate:
             deactivate: 'Вы удалили организацию!'
       index:
+            details: "подробно"
             All posts: "Посмотреть все посты"
             Category: "Категория"
             Organization: "Организация"
@@ -152,6 +153,7 @@ ru:
             create: "Вы создали пост!"
   registrations:
       show:
+            Status: "Статус"
             Your pending posts of help request: "Ваши незакрытые темы с просьбой о помощи"
             At the request for assistance responded: "На данный запрос о помощи откликнулись"
             My_non_active_posts: "Мои неактивные темы"
@@ -172,7 +174,7 @@ ru:
             Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
             Published from name organization: "Опубликовано от имени организации"
             You responded: "Вы откликнулись"
-            You are assisted, on the request. Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
+            You are assisted, on the request, Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
             You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
 
 
