@@ -13,12 +13,12 @@
   </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <% if current_user.organizations.count == 1 %>
-      <p> Публикуется от имени <%=current_user.organizations.first.name %></p>
+      <p> <%= t(".Published by") %> <%=current_user.organizations.first.name %></p>
       <%= f.hidden_field :organization_id, :value => current_user.organizations.first.id %>
   <% elsif current_user.organizations.count > 1 %>
       <%= f.collection_select :organization_id, current_user.organizations, :id, :name, class: "form-select from-control"  %>
   <% end %>
   <div class="form-group">
-    <%= f.submit "Опубликовать" %>
+    <%= f.submit t(".Publish") %>
   </div>
 <% end %>

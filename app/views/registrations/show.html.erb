@@ -58,7 +58,7 @@
     <%end %>
   </ul>
   <div class="aids-block">
-    <h2>Ваши незакрытые темы с просьбой о помощи:</h2>
+    <h2><%= t(".Your pending posts of help request") %>:</h2>
     <% @opened_posts.each do |post| %>
       <div class="post-item">
         <h3 class="post-item-pseudolink"><%= post.title %></h3>
@@ -66,7 +66,7 @@
           <%= post.body %>
         </div>
         <div class="post-aids">
-          <h4>На данный запрос о помощи откликнулись:</h4>
+          <h4><%= t(".At the request for assistance responded") %>:</h4>
           <% post.aids.each do |post_aid| %>
             <div class="aid-item">
               <div class="aid-author">
@@ -91,8 +91,8 @@
         <% if aid.status == 0 %>
             <div class="aid-status"><b>Статус: </b><%= t(".You responded") %></div>
             <div>
-              <%= link_to 'Редактировать', edit_aid_path(respond_post: aid.post) %>
-              <%= link_to 'Удалить', aid_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+              <%= link_to t(".Edit"), edit_aid_path(respond_post: aid.post) %>
+              <%= link_to t(".Delete"), aid_path, method: :delete, data: { confirm: t(".confirm_delete")} %>
             </div>
         <% elsif aid.status == 1 %>
             <div class="aid-status"><b>Статус: </b><%= t(".You are assisted, on the request. Thank you for your response") %>!!!</div>

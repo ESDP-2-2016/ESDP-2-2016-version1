@@ -83,9 +83,23 @@ ru:
   post_comments:
       _form:
       edit:
+  user_mailer:
+      welcome_email:
+          New organization has been created by: "Создана новая организация"
+          Welcome Admin: "Добро пожаловать админ"
+          To activate organization: "Чтобы активировать организацию"
+          click: "нажмите"
+          Thanks for help and have a great day!: "Спасибо за помощь, хорошего вам дня"
+      notification:
+          Hello: "Добрый день"
+          Your organization has been confirmed by Admin: "Ваша организация была одобрена админом"
+          Thanks for joining us and have a great day!: "Спасибо, что присоединились к нам доброго вам дня!"
   posts:
       _form:
+            Published by: "Публикуется от имени"
+            Publish: "Опубликовать"
       edit:
+            Editing post: "Редактирование поста"
       index:
             Read: 'Читать'
             All posts: 'Все темы'
@@ -94,6 +108,9 @@ ru:
             Author: "Автор"
             Published: "Опубликовано"
       new:
+          Add new post: "Добавить новый пост"
+      nonactiveposts:
+            Your nonactive posts: "ваши не активные темы"
       show:
             category: "Категория"
             author: "Автор"
@@ -115,6 +132,8 @@ ru:
             confirm_delete: 'Вы уверены?'
   registrations:
       show:
+            Your pending posts of help request: "Ваши незакрытые темы с просьбой о помощи"
+            At the request for assistance responded: "На данный запрос о помощи откликнулись"
             My_non_active_posts: "Мои неактивные темы"
             Approve: "Одобрить"
             confirm_delete: 'Вы уверены, что хотите удалить организацию?'
