@@ -19,6 +19,6 @@
       <%= f.collection_select :organization_id, current_user.organizations, :id, :name, class: "form-select from-control"  %>
   <% end %>
   <div class="form-group">
-    <%= f.submit t(".Publish") %>
+    <%= f.submit "#{t(".Publish")}" %>
   </div>
 <% end %>

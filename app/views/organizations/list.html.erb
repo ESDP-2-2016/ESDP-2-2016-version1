@@ -2,7 +2,7 @@
 <div class="container">
   <h1><%= t(".List of all organizations") %></h1>
   <div class="category_filter">
-    <p>Выбрать организации одной категори:</p>
+    <p><%= t(".Select a category") %>:</p>
     <div class="form-group">
       <%= select_tag "organization_category_id", options_from_collection_for_select(@organization_categories, "id", "name"), :prompt => t(".All organizations"), id: "filter_org" %>
     </div>

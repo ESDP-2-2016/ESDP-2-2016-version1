@@ -37,6 +37,11 @@ en:
               Reply: 'Reply'
               Save changes: 'Save changes'
               confirm_delete: "are you sure you want to delete?"
+        create:
+              create: "Your have created post!"
+        form:
+              Published by: "Published by"
+              Publish: "Publish"
 
   hello: "Hello world"
 

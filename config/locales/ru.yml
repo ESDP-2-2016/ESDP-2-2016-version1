@@ -70,6 +70,7 @@ ru:
       list:
             All organizations: "Все организации"
             List of all organizations: "Список всех организаций"
+            Select a category: "Выбрать организации одной категории"
       new:
             Register your organization: "Зарегистрировать организацию"
             Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
@@ -79,10 +80,24 @@ ru:
       show:
         Edit: 'Редактировать'
         join to organization: "присоединиться к организации"
+        General information about the organization: "Общая информация об организации"
+        Description: "Описание"
+        Location: "Местоположение"
+        Oblast: "Область"
+        Address: "Адрес"
+        Phone: "Телефон"
+        Category: "Категория"
+        Author: "Автор"
+        Organization: "Организация"
+        Published: "Опубликовано"
+        Read: "Читать"
+        Location of organization on the map: "Расположение организации на карте"
+        For the organization is no information on its location on the map!: "Для данной организации нет информации о ее расположении на карте!"
 
   post_comments:
       _form:
       edit:
+          Edit comment: "Редактировать комментарий"
   user_mailer:
       welcome_email:
           New organization has been created by: "Создана новая организация"
@@ -95,7 +110,7 @@ ru:
           Your organization has been confirmed by Admin: "Ваша организация была одобрена админом"
           Thanks for joining us and have a great day!: "Спасибо, что присоединились к нам доброго вам дня!"
   posts:
-      _form:
+      form:
             Published by: "Публикуется от имени"
             Publish: "Опубликовать"
       edit:
@@ -130,6 +145,8 @@ ru:
             Reply: 'Откликнуться'
             Save changes: 'Сохранить изменения'
             confirm_delete: 'Вы уверены?'
+      create:
+            create: "Вы создали пост!"
   registrations:
       show:
             Your pending posts of help request: "Ваши незакрытые темы с просьбой о помощи"
