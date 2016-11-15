@@ -32,8 +32,11 @@ ru:
       application:
       mailer:
   organizations:
-      _form:
-      _organizations:
+      map_for_form:
+            Reset Map: "сбросить карту"
+            Specify the location of the organization on the map: "Укажите расположение организации на карте"
+      form:
+      organizations:
             Category: "Категория"
             Location: "Местоположение"
             Adress: "Адрес"
@@ -178,8 +181,8 @@ ru:
       attributes:
         organization:
             name: 'Имя'
-            organization_category: 'Категории организаций'
-            oblast: 'Область'
+            organization_category_id: 'Категории организаций'
+            oblast_id: 'Область'
             user_organizations: 'юзерорганизашнс'
             posts: 'Темы'
             users: 'Пользователи'
@@ -189,11 +192,16 @@ ru:
             phone: 'Телефон'
             longitude: 'Долгота'
             latitude: 'Широта'
+            description: "Описание"
             contact_person: 'Контактные данные'
             active: 'Статус'
             url: 'Ссылка'
             created_at: 'Создано'
             updated_at: 'Обновлено'
+        post:
+            title: "Тема"
+            post_category: "Категория темы"
+            body: "Текст"
       models:
         organization: 'Организация'
 #          one: 'Организация'
