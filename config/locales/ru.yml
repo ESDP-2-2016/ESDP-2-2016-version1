@@ -83,7 +83,7 @@ ru:
             Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
       show:
         Edit: 'Редактировать'
-        join to organization: "присоединиться к организации"
+        join to organization: "Присоединиться к организации"
         General information about the organization: "Общая информация об организации"
         Description: "Описание"
         Location: "Местоположение"
@@ -118,18 +118,18 @@ ru:
             Published by: "Публикуется от имени"
             Publish: "Опубликовать"
       edit:
-            Editing post: "Редактирование поста"
+            Editing post: "Редактирование публикации"
       index:
             Read: 'Читать'
-            All posts: 'Все темы'
+            All posts: 'Все публикации'
             Category: "Категория"
             Organization: "Организация"
             Author: "Автор"
             Published: "Опубликовано"
       new:
-          Add new post: "Добавить новый пост"
+          Add new post: "Добавить новую публикацию"
       nonactiveposts:
-            Your nonactive posts: "ваши не активные темы"
+            Your nonactive posts: "Ваши не активные публикации"
       show:
             category: "Категория"
             author: "Автор"
@@ -137,8 +137,8 @@ ru:
             published: "Опубликовано"
             i want to help: "Я хочу помочь!"
             Comments: "Комментарии"
-            On the request for assistance called: "На запрос о помощи окликнулись"
-            Page not found, the post has been deleted!: "Cтраница не найдена, пост был удален!"
+            On the request for assistance called: "На запрос о помощи откликнулись"
+            Page not found, the post has been deleted!: "Cтраница не найдена, публикация была удалена!"
             Thank you, everyone who called on this request for help !!!: "Благодарим, Всех, кто окликнулся на данный запрос о помощи!!! "
             Assistance provided on behalf of the organization: "Помощь оказана от имени организации"
             You have responded to the request for help!: "Вы откликнулись на данный запрос о помощи!"
@@ -150,13 +150,13 @@ ru:
             Save changes: 'Сохранить изменения'
             confirm_delete: 'Вы уверены?'
       create:
-            create: "Вы создали пост!"
+            create: "Вы создали публикацию!"
   registrations:
       show:
             Status: "Статус"
-            Your pending posts of help request: "Ваши незакрытые темы с просьбой о помощи"
+            Your pending posts of help request: "Ваши незакрытые публикации с просьбой о помощи"
             At the request for assistance responded: "На данный запрос о помощи откликнулись"
-            My_non_active_posts: "Мои неактивные темы"
+            My_non_active_posts: "Мои неактивные публикации"
             Approve: "Одобрить"
             confirm_delete: 'Вы уверены, что хотите удалить организацию?'
             Profile: "Профиль"
@@ -164,11 +164,11 @@ ru:
             Email: "Почта"
             Edit: "Редактировать"
             Delete: "Удалить"
-            wants to join your organization: "Хочет присоединиться в организацию "
-            Your organization participation request: "ваши заявки на участие"
-            requests to joining to your organization: "заявки на добавление в вашу организацию"
+            wants to join your organization: "Хочет присоединиться к организации"
+            Your organization participation request: "Ваши заявки на участие"
+            requests to joining to your organization: "Заявки на добавление в вашу организацию"
             Registration organization: "Регистрация организации"
-            Create new post: "Создать новую тему"
+            Create new post: "Создать новую публикацию"
             Organizations in which you owner: "Организации, в которой вы являетесь администратором"
             Organizations in which you participant: "Организации, в которых вы являетесь участником"
             Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
@@ -202,7 +202,7 @@ ru:
             updated_at: 'Обновлено'
         post:
             title: "Тема"
-            post_category: "Категория темы"
+            post_category: "Категория публикации"
             body: "Текст"
       models:
         organization: 'Организация'
@@ -211,10 +211,10 @@ ru:
         organization_category: 'Категория организации'
 #          one: 'Категория организации'
 #          other: 'Категории организации'
-        post: 'Тема'
-#          one: 'Тема'
-#          other: 'Темы  '
-        post_category: 'Категория тем'
+        post: 'Публикация'
+#          one: 'публикация'
+#          other: 'Пцбликации'
+        post_category: 'Категория публикаций'
         aboutп: 'О проекте'
         admin_user: ' Админы'
         comment: 'Комментарий'
@@ -306,11 +306,11 @@ ru:
       delete: "Удалить Комментарий"
       delete_confirmation: "Вы уверены, что хотите удалить этот комментарий?"
       resource: "Ресурс"
-      no_comments_yet: "Пока нет комментариев."
+      no_comments_yet: "Пока нет комментариев"
       author_missing: "Аноним"
       title_content: "Комментарии (%{count})"
       errors:
-        empty_text: "Комментарий не сохранен, текст не должен быть пустым."
+        empty_text: "Комментарий не сохранен, текст не должен быть пустым"
     devise:
       username:
         title: "Имя пользователя"
