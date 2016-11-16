@@ -1,70 +1,81 @@
 <div class="form-block" id="organization_form">
   <%= form_for @organization, class: "form-horizontal" do |f| %>
 
-      <div class="form-group  row">
+      <div class="form-group  row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :organization_category_id, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.collection_select :organization_category_id, OrganizationCategory.all, :id, :name, class: "form-select form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :organization_category_id %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :name, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :name, class: "form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :name %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :oblast_id, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.collection_select :oblast_id, Oblast.all, :id, :name, class: "form-select form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :oblast_id %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :longitude, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :longitude, class: "form-control",id:"longitude" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :longitude %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :latitude, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :latitude, class: "form-control",id:"latitude" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :latitude %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :location, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :location, class: "form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :location %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :address, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :address, class: "form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :address %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :contact_person, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :contact_person, class: "form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :contact_person %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :phone, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :phone, class: "form-control phone", placeholder: "0XXXXXXXXX" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :phone %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :url, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :url, class: "form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :url %>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :description, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
           <%= f.cktext_area :description, class: "form-control" %>
+          <%= render 'shared/field_errors', object: @organization, field_name: :description %>
         </div>
       </div>
       <%= f.hidden_field :user_id, value: current_user.id %>

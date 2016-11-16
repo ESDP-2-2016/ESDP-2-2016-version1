@@ -32,8 +32,11 @@ ru:
       application:
       mailer:
   organizations:
-      _form:
-      _organizations:
+      map_for_form:
+            Reset Map: "сбросить карту"
+            Specify the location of the organization on the map: "Укажите расположение организации на карте"
+      form:
+      organizations:
             Category: "Категория"
             Location: "Местоположение"
             Adress: "Адрес"
@@ -49,6 +52,7 @@ ru:
       deactivate:
             deactivate: 'Вы удалили организацию!'
       index:
+            details: "подробно"
             All posts: "Посмотреть все посты"
             Category: "Категория"
             Organization: "Организация"
@@ -70,6 +74,7 @@ ru:
       list:
             All organizations: "Все организации"
             List of all organizations: "Список всех организаций"
+            Select a category: "Выбрать организации одной категории"
       new:
             Register your organization: "Зарегистрировать организацию"
             Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
@@ -79,13 +84,41 @@ ru:
       show:
         Edit: 'Редактировать'
         join to organization: "присоединиться к организации"
+        General information about the organization: "Общая информация об организации"
+        Description: "Описание"
+        Location: "Местоположение"
+        Oblast: "Область"
+        Address: "Адрес"
+        Phone: "Телефон"
+        Category: "Категория"
+        Author: "Автор"
+        Organization: "Организация"
+        Published: "Опубликовано"
+        Read: "Читать"
+        Location of organization on the map: "Расположение организации на карте"
+        For the organization is no information on its location on the map!: "Для данной организации нет информации о ее расположении на карте!"
 
   post_comments:
       _form:
       edit:
+          Edit comment: "Редактировать комментарий"
+  user_mailer:
+      welcome_email:
+          New organization has been created by: "Создана новая организация"
+          Welcome Admin: "Добро пожаловать админ"
+          To activate organization: "Чтобы активировать организацию"
+          click: "нажмите"
+          Thanks for help and have a great day!: "Спасибо за помощь, хорошего вам дня"
+      notification:
+          Hello: "Добрый день"
+          Your organization has been confirmed by Admin: "Ваша организация была одобрена админом"
+          Thanks for joining us and have a great day!: "Спасибо, что присоединились к нам доброго вам дня!"
   posts:
-      _form:
+      form:
+            Published by: "Публикуется от имени"
+            Publish: "Опубликовать"
       edit:
+            Editing post: "Редактирование поста"
       index:
             Read: 'Читать'
             All posts: 'Все темы'
@@ -94,6 +127,9 @@ ru:
             Author: "Автор"
             Published: "Опубликовано"
       new:
+          Add new post: "Добавить новый пост"
+      nonactiveposts:
+            Your nonactive posts: "ваши не активные темы"
       show:
             category: "Категория"
             author: "Автор"
@@ -113,8 +149,13 @@ ru:
             Reply: 'Откликнуться'
             Save changes: 'Сохранить изменения'
             confirm_delete: 'Вы уверены?'
+      create:
+            create: "Вы создали пост!"
   registrations:
       show:
+            Status: "Статус"
+            Your pending posts of help request: "Ваши незакрытые темы с просьбой о помощи"
+            At the request for assistance responded: "На данный запрос о помощи откликнулись"
             My_non_active_posts: "Мои неактивные темы"
             Approve: "Одобрить"
             confirm_delete: 'Вы уверены, что хотите удалить организацию?'
@@ -133,7 +174,7 @@ ru:
             Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
             Published from name organization: "Опубликовано от имени организации"
             You responded: "Вы откликнулись"
-            You are assisted, on the request. Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
+            You are assisted, on the request, Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
             You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
 
 
@@ -142,8 +183,8 @@ ru:
       attributes:
         organization:
             name: 'Имя'
-            organization_category: 'Категории организаций'
-            oblast: 'Область'
+            organization_category_id: 'Категории организаций'
+            oblast_id: 'Область'
             user_organizations: 'юзерорганизашнс'
             posts: 'Темы'
             users: 'Пользователи'
@@ -153,11 +194,16 @@ ru:
             phone: 'Телефон'
             longitude: 'Долгота'
             latitude: 'Широта'
+            description: "Описание"
             contact_person: 'Контактные данные'
             active: 'Статус'
             url: 'Ссылка'
             created_at: 'Создано'
             updated_at: 'Обновлено'
+        post:
+            title: "Тема"
+            post_category: "Категория темы"
+            body: "Текст"
       models:
         organization: 'Организация'
 #          one: 'Организация'

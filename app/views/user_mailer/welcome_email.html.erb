@@ -4,13 +4,13 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Welcome Admin, </h1>
+<h1><%= t(".Welcome Admin") %>, </h1>
 <p>
-  New organization has been created by <%=@author.name%> <br>
+  <%= t(".New organization has been created by") %> <%=@author.name%> <br>
 </p>
 <p>
-  To activate organization <%= @org%> , click: <%= @url %> <br> <%= @url1 %>
+  <%=  t(".To activate organization") %> <%= @org%> , <%= t(".click") %>: <%= @url %> <br> <%= @url1 %>
 </p>
-<p>Thanks for help and have a great day!</p>
+<p><%= t(".Thanks for help and have a great day!") %></p>
 </body>
 </html>
