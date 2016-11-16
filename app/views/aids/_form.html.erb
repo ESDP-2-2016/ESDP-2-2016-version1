@@ -1,8 +1,9 @@
 <div class="form-block">
   <%= form_for @aid, class: "form-horizontal" do |f| %>
-      <div class="form-group">
+      <div class="form-group <%= 'has-error' if @aid.errors[:name].any? %>">
         <%= f.label :description, class: "control-label" %>
         <div><%= f.text_area :description, autofocus: true, class: "form-control" %></div>
+        <%= render 'shared/field_errors', object: @aid, field_name: :description %>
       </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :post_id, :value => @respond_post.id %>
