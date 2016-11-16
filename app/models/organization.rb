@@ -10,7 +10,7 @@ class Organization < ApplicationRecord
   has_many :users, :through => :user_organizations,dependent: :destroy
   has_many :aids
   validates :phone, phone: true
-  validates :name, presence: true, length: {maximum: 250}
+  validates :name, uniqueness: true, presence: true, length: {maximum: 250}
   validates :address, presence: true
   validates :longitude, presence: true
   validates :latitude, presence: true
