@@ -56,7 +56,7 @@ group :development, :test do
 
 end
 
-gem 'faker'
+gem 'ffaker'
 
 group :development do
   gem 'capistrano', require:false
@@ -87,4 +87,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
-gem 'wdm'
+# gem 'wdm'
