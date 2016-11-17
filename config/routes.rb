@@ -21,8 +21,9 @@ Rails.application.routes.draw do
   # end
 
 
-  resources :organizations,  only: [:new, :create, :edit, :update, :destroy]
+  resources :organizations,  only: [ :new, :create, :edit, :update, :destroy]
 
+  post 'organizations/new'
 
   get 'organizations/show/:id' => 'organizations#show', as: 'organization_show'
 

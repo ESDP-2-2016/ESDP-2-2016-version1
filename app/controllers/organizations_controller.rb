@@ -18,7 +18,16 @@ class OrganizationsController < ApplicationController
   end
 
   def new
+    # @organization = Organization.new
+    if organization_params
+      # If data submitted already by the form we call the create method
+      create
+      return
+    end
+
     @organization = Organization.new
+
+    render 'new' # call it explicit
   end
 
   def create
@@ -136,8 +145,12 @@ class OrganizationsController < ApplicationController
 
   private
   def organization_params
-    params.require(:organization).permit(:name, :description, :location, :phone, :address, :contact_person,
+    if params[:organization].nil?  || params[:organization].empty?
+      return false
+    else
+    return params.require(:organization).permit(:name, :description, :location, :phone, :address, :contact_person,
       :longitude, :latitude, :organization_category_id, :oblast_id, :url, :active, :slug)
+    end
   end
 
   def user_organization_params

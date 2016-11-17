@@ -5,7 +5,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'friendly_id'
 gem 'phonelib'
 gem 'kaminari'
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'paperclip'
