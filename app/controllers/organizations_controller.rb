@@ -99,6 +99,7 @@ class OrganizationsController < ApplicationController
       }
     end
   end
+
   def destroy
     # @organization=Organization.find(params[:id])
     @organization.destroy
