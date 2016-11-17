@@ -23,7 +23,7 @@ ru:
           Sign in: 'Вход'
           Edit profile: 'Редактировать профиль'
           Register the organization: 'Зарегистрировать организацию'
-          Create new post: 'Создать новую тему'
+          Create new post: 'Создать новую публикацию'
           Exit: 'Выход'
           select language: 'Выбрать язык'
           View profile: 'Личный кабинет'
@@ -53,7 +53,7 @@ ru:
             deactivate: 'Вы удалили организацию!'
       index:
             details: "подробно"
-            All posts: "Посмотреть все посты"
+            All posts: "Посмотреть все публикации"
             Category: "Категория"
             Organization: "Организация"
             Author: "Автор"
