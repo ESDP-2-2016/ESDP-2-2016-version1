@@ -1,5 +1,5 @@
 <div class="form-block" id="organization_form">
-  <%= form_for @organization, :url => {:action => :new} ,class: "form-horizontal" do |f| %>
+  <%= form_for @organization, :url_for => {:action => :new} ,class: "form-horizontal" do |f| %>
 
       <div class="form-group  row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :organization_category_id, class: "col-sm-4 control-label" %>

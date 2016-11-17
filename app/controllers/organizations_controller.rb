@@ -1,12 +1,12 @@
 class OrganizationsController < ApplicationController
-  before_filter :only => [:show, :edit, :update, :destroy, :participation_request] do
+  before_filter :only => [:show, :edit, :update, :destroy, :participation_request, :deactivate] do
     @organization = Organization.find_by_slug!(params[:id])
   end
   # def to_param
   #   "#{id}-#{title.parameterize}"
   # end
 
-  def index   
+  def index
     # @organization_categories = OrganizationCategory.all.where(active: true).where.not(name: 'Донорская помощь')
     # @donor = OrganizationCategory.find_by(name: 'Донорская помощь')
     # @organizations = Organization.all.where(active: true).where.not(organization_category_id: @donor.id)
@@ -76,7 +76,7 @@ class OrganizationsController < ApplicationController
   end
 
   def deactivate
-    @organization = Organization.find(params[:id])
+    # @organization = Organization.find(params[:id])
     @organization.update_attribute(:active, false)
 
     flash[:success] = t(".deactivate")
