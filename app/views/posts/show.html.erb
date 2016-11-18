@@ -1,56 +1,66 @@
 <div class="container">
-  <div class="post-item">
-    <% if @post.active == true %>
-        <h1><%= @post.title %></h1>
-        <% content_for :title, @post.title %>
-        <% meta_tag :title, @post.title %>
-        <% meta_tag :keywords, @post.keywords %>
-        <div>
-          <% if user_signed_in? && (current_user == @post.user) %>
-              <%= link_to t(".edit"), edit_post_path(@post) %>
-              <%= link_to t(".delete"), post_deactivate_path(@post), method: :put, data: { confirm: t(".confirm_delete")}%>
-          <% end %>
-        </div>
-        <p><%= t(".category") %>: <%= @post.post_category.name %></p>
-        <p><%= t(".author") %>: <%= @post.user.name %></p>
-        <p><%= t(".organization") %>: <%= @post.organization.name %></p>
-        <p><%= t(".published") %>: <%= @post.created_at.strftime("%d %b %Y %H %M %S") %></p>
-        <p><%= @post.body %></p>
-        <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
-            <div class="aids-form-block row">
-                <div class="col-md-6">
-                  <% if @user_already_helped %>
-                      <div><span class="aid-response"><%= t(".You have responded to the request for help!") %></span></div>
-                  <% else %>
-                      <div><span class="aid-pseudolink" id="show-hide-aids-form"><%= t(".i want to help") %></span></div>
-                      <div class="aids-form" id="aids-form">
-                        <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we
-                           will contact you by phone or e-mail!") %></p>
-                        <div class="form-block">
-                          <%= render 'aids/form', btn_txt: t('.Reply') %>
-                        </div>
-                      </div>
-                  <% end %>
-                </div>
+  <div class="post-detail">
+    <div class="row">
+      <% if @post.active == true %>
+        <div class="post col-md-8">
+          <h1><%= @post.title %></h1>
+          <% content_for :title, @post.title %>
+          <% meta_tag :title, @post.title %>
+          <% meta_tag :keywords, @post.keywords %>
+          <div class="row">
+            <div class="post-info col-md-8">
+              <div><span class="glyphicon glyphicon-time"></span><%= @post.created_at.strftime("%d %b %Y") %></div>
+              <div><span class="glyphicon glyphicon-filter"></span><%= @post.post_category.name %></div>
+              <div><span class="glyphicon glyphicon-user"></span><%= @post.user.name %></div>
+              <div><span class="glyphicon glyphicon-map-marker"></span><small>Опубликовано от имени организации:</small><%= @post.organization.name %></div>
             </div>
-        <% end %>
-
-        <% unless @aids.empty? %>
+            <div class="post-action col-md-4">
+              <% if user_signed_in? && (current_user == @post.user) %>
+                  <%= link_to t(".edit"), edit_post_path(@post) %>
+                  <%= link_to t(".delete"), post_deactivate_path(@post), method: :put, data: { confirm: t(".confirm_delete")}%>
+              <% end %>
+            </div>
+          </div>
+          <div class="post-body">
+            <p><%= @post.body %></p>
+          </div>
+        </div>
+        <div class="sidebar col-md-4">
+          <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
+            <div class="aids-form-block">
+              <% if @user_already_helped %>
+                <div class="aid-message"><span class="aid-response"><%= t(".You have responded to the request for help!") %></span></div>
+              <% else %>
+                <div><span class="aid-pseudolink" id="show-hide-aids-form"><%= t(".i want to help") %></span></div>
+                <div class="aids-form" id="aids-form">
+                  <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we
+                       will contact you by phone or e-mail!") %></p>
+                  <div class="form-block">
+                    <%= render 'aids/form', btn_txt: t('.Reply') %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <% unless @aids.empty? %>
             <div class="aids-block">
-              <h2><%= t(".On the request for assistance called") %>:</h2>
+              <h2><%= t(".Already responded") %>:</h2>
               <% @aids.each do |aid| %>
-                  <% if aid.status == 1 %>
-                      <div class="aid-item post">
-                        <div class="aid-author">
-                          <div><%= t(".author") %>: <b><%= aid.user.name %></b></div>
-                          <div><%= t(".Assistance provided on behalf of the organization") %>: <b><%= aid.organization.name %></b></div>
-                        </div>
-                      </div>
-                  <% end %>
+                <% if aid.status == 1 %>
+                  <div class="aid-item post">
+                    <div class="aid-author">
+                      <div><span class="glyphicon glyphicon-user"></span><%= aid.user.name %></div>
+                      <div><%= t(".Organization") %>: <b><%= aid.organization.name %></b></div>
+                    </div>
+                  </div>
+                <% end %>
               <% end %>
               <h4><%= t(".Thank you, everyone who called on this request for help !!!") %></h4>
             </div>
-        <% end %>
+          <% end %>
+        </div><!--/sidebar-->
+      </div><!--/row-->
+
 
         <div class="comments-list">
           <h2><%= t(".Comments") %>:</h2>
@@ -77,5 +87,5 @@
           <%= t(".Page not found, the post has been deleted!") %>
         </div>
     <% end %>
-  </div>
-</div>
+  </div> <!--/post-detail-->
+</div><!--/container-->

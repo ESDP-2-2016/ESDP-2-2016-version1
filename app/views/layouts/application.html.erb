@@ -14,9 +14,10 @@
         content='<%= yield_meta_tag(:keywords, MetaTag.last.keywords ) %>' />
   <% end %>
   <%= csrf_meta_tags %>
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&amp;subset=cyrillic-ext" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %></head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 <body>
 
     <%= render 'layouts/header' %>
