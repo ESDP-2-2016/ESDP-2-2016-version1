@@ -2,8 +2,78 @@ body{
   padding-top: 70px;
 }
 .navbar{
-  background: #ccc;
+  background: #fff;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21);
+  z-index: 999;
 }
+.navbar-nav>li a{
+  text-transform: uppercase;
+  color: #32aae1;
+}
+.navbar-nav>li:hover a{
+  color: #fff;
+  transition: background .3s linear 0s,color .3s linear 0s;
+  -moz-transition: background .3s linear 0s,color .3s linear 0s;
+  -ms-transition: background .3s linear 0s,color .3s linear 0s;
+  -o-transition: background .3s linear 0s,color .3s linear 0s;
+  -webkit-transition: background .3s linear 0s,color .3s linear 0s;
+  background-color: #32aae1;
+}
+.navbar-nav>li:hover>a {
+  color: #fff;
+  transition: background .3s linear 0s,color .3s linear 0s;
+  -moz-transition: background .3s linear 0s,color .3s linear 0s;
+  -ms-transition: background .3s linear 0s,color .3s linear 0s;
+  -o-transition: background .3s linear 0s,color .3s linear 0s;
+  -webkit-transition: background .3s linear 0s,color .3s linear 0s;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #32aae1;
+  border-color: #ccc;
+  color: #fff;
+}
+.navbar-nav > li > .dropdown-menu{
+  background-color: #32aae1;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21);
+}
+.navbar-nav > li > .dropdown-menu a{
+  color: #fff;
+}
+.navbar-nav > li > .dropdown-menu a:hover{
+  text-decoration: underline;
+}
+.navbar-nav > li > .dropdown-menu a:hover,
+.navbar-nav > li > .dropdown-menu a:focus{
+  background-color: transparent;
+}
+.dropdown-menu.lang{
+  min-width: 200px;
+}
+.dropdown-menu.lang a{
+  display: block;
+  padding: 2px 20px 2px 14px;
+}
+.caret{
+  margin-left: 6px;
+}
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #ccc;
+}
+
+.btn-primary{
+  background-color: #32aae1;
+  border-color: #32aae1;
+}
+
+
+
 .aids-block{
   .aid-item{
     padding: 5px 10px;
