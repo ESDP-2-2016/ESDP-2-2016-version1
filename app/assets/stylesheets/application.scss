@@ -1,4 +1,3 @@
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "style";
@@ -13,21 +12,23 @@
 }
 .imagebox {
   max-width: 200px;
-  max-height: auto;
   float: left;
+  display: table;
+  margin-bottom: 5px;
+}
+.imagebox div{
+  display: table-cell;
+  font-size: 11px;
+  vertical-align: middle;
+  height: 50px;
 }
 .wrap{
-  float: left;
-  max-width: 30px;
+  width: 40px;
   height: auto;
 }
 .wrap img {
-  width: 100%;
-  height:auto;
-}
-.imagebox p{
-  float: left;
-  width: 200px;
+  width: 70%;
+  height: auto;
 }
 .main-map {
   height: 550px;
