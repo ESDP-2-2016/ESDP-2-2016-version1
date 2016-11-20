@@ -20,8 +20,8 @@
   <% UserOrganization.where(user_id:@user,role:1).each do |item| %>
     <% if item.organization.active == true %>
       <li><%= item.organization.name %></li>
-      <% id=item.organization.id %>
-        <%= link_to t(".Edit"), edit_organization_path(id) %>
+      <% id=item.organization.slug %>
+        <%= link_to t(".Edit"), organization_edit_path(id) %>
         <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: t(".confirm_delete")} %>
     <% end %>
   <% end %>
