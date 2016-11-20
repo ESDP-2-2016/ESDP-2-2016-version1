@@ -140,6 +140,7 @@ body{
   }
   .post-status {
     font-size: 14px;
+    margin: 0 0 12px;
     h3{
       margin: 17px 0 12px;
       font-size: 18px;
@@ -169,8 +170,23 @@ body{
         border-radius: 50%;
       }
     }
+    .closed{
+      span{
+        color: green;
+        margin-right: 5px;
+      }
+    }
   }
+}
 
+.post-aids-num{
+  padding: 0 0 10px;
+  span{
+    display: inline-block;
+    color: #32aae1;
+    font-weight: bold;
+    font-size: 15px;
+  }
 }
 
 /*aids-block*/

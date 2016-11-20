@@ -138,7 +138,7 @@ ru:
             i want to help: "Я хочу помочь!"
             Comments: "Комментарии"
             On the request for assistance called: "На запрос о помощи откликнулись"
-            Already responded: "Уже откликнулись"
+            Responded: "Откликнулись"
             Page not found, the post has been deleted!: "Cтраница не найдена, публикация была удалена!"
             Thank you, everyone who called on this request for help !!!: "Благодарим, Всех, кто окликнулся на данный запрос о помощи!!! "
             Organization: "Организация"
@@ -149,6 +149,7 @@ ru:
             Reply: 'Откликнуться'
             Save changes: 'Сохранить изменения'
             confirm_delete: 'Вы уверены?'
+            Assistance was: "Помощь оказали"
       create:
             create: "Вы создали публикацию!"
   registrations:

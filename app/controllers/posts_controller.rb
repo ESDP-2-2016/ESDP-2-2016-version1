@@ -27,7 +27,8 @@ class PostsController < ApplicationController
 
   def show
     # @post = Post.find_by(slug: params[:id])
-    @aids = Aid.where(post_id: @post.id, status: 1)
+    @aids_all = Aid.where(post_id: @post.id)
+    @aids = Aid.where(post_id: @post.id, status: 2)
     @aid = Aid.new
     @respond_post = @post
     @user_already_helped
