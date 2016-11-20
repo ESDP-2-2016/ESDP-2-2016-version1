@@ -3,8 +3,28 @@ body{
   font-family: 'Roboto', sans-serif;
   min-width: 980px;
 }
+h1{
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 17px 0;
+}
+h2, h3{
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+h4{
+  font-size: 16px;
+  margin: 0 0 10px;
+}
 .container{
   min-width: 980px;
+}
+.sidebar{
+  margin-top: 4px;
+  padding-left: 40px;
+}
+.al-right{
+  text-align: right;
 }
 .navbar{
   background: #fff;
@@ -80,6 +100,45 @@ body{
   border-color: #32aae1;
 }
 
+.user-info{
+  .user-info-main{
+    padding: 0 0 20px;
+    p{
+      margin: 0;
+    }
+  }
+  .user-organizations{
+    padding: 0 0 20px;
+  }
+  .user-organization{
+    padding: 0 210px 5px 0;
+    margin: 0 0 15px;
+    border-bottom: 1px dotted #ccc;
+    position: relative;
+    span{
+      margin: 0 10px;
+      font-size: 14px;
+      width: 200px;
+      text-align: right;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+}
+.not-active-post{
+  padding: 20px 0;
+}
+.user-order{
+  p, li{
+    font-size: 14px;
+    color: #888888;
+  }
+}
+
+
+
 .all_posts{
   position: absolute;
   top:0;
@@ -128,8 +187,6 @@ body{
     }
   }
   .sidebar{
-    margin-top: 4px;
-    padding-left: 40px;
     .inner{
       padding: 0 0 0 20px;
     }
@@ -229,8 +286,10 @@ body{
     display: inline-block;
     margin-bottom: 20px;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: normal;
   }
-  .post-item-body{
+  .post-item-content{
     display: none;
   }
 }

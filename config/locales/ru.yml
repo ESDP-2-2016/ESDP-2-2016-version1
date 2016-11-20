@@ -167,18 +167,19 @@ ru:
             Delete: "Удалить"
             wants to join your organization: "Хочет присоединиться к организации"
             Your organization participation request: "Ваши заявки на участие"
-            requests to joining to your organization: "Заявки на добавление в вашу организацию"
+            requests to joining to your organization: "Заявки на присоединение к вашей организации"
             Registration organization: "Регистрация организации"
+            Register a new organization: "Зарегистрировать новую организацию"
             Create new post: "Создать новую публикацию"
-            Organizations in which you owner: "Организации, в которой вы являетесь администратором"
+            Organizations in which you owner: "Организации, в которых Вы являетесь администратором"
             Organizations in which you participant: "Организации, в которых вы являетесь участником"
             Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
             Published from name organization: "Опубликовано от имени организации"
             You responded: "Вы откликнулись"
             You are assisted, on the request, Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
             You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
-
-
+            To become an administrator for your organization, you need to register it! If your organization is already registered, you can become a member!: Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!
+            No requests: "Заявок нет"
 
   activerecord:
       attributes:
