@@ -26,6 +26,34 @@
           </div>
         </div>
         <div class="sidebar col-md-4">
+          <div class="post-status">
+            <h3>Статус публикации:</h3>
+            <% if @post.post_category.id == 1 %>
+              <% if user_signed_in? %>
+                <% if current_user == @post.user %>
+                  <% if @post.open != false %>
+                    <p class="opened">Публикация актуальна! Eсли помощь уже оказана, рекомендуем Вам закрыть данную публикацию!</p>
+                    <div class="link"><%= link_to "Закрыть", post_closed_path(@post), method: :put %></div>
+                  <% else %>
+                    <p class="closed"><span class="glyphicon glyphicon-ok"></span>Публикация закрыта! Помощь оказана!</p>
+                  <% end %>
+                <% else %>
+                  <% if @post.open != false %>
+                    <p class="opened">Публикация актуальна!</p>
+                  <% else %>
+                    <p class="closed"><span class="glyphicon glyphicon-ok"></span>Публикация закрыта! Помощь оказана!</p>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if @post.open != false %>
+                    <p class="opened">Публикация актуальна!</p>
+                    <p>Ecли Вы хотите отклмкнуться на данный запрос о помощи, Вам необходимо авторизоваться!</p>
+                <% else %>
+                    <p class="closed"><span class="glyphicon glyphicon-ok"></span>Публикация закрыта! Помощь оказана!</p>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div><!--/post-status-->
           <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
             <div class="aids-form-block">
               <% if @user_already_helped %>
@@ -33,8 +61,7 @@
               <% else %>
                 <div><span class="aid-pseudolink" id="show-hide-aids-form"><%= t(".i want to help") %></span></div>
                 <div class="aids-form" id="aids-form">
-                  <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we
-                       will contact you by phone or e-mail!") %></p>
+                  <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we will contact you by phone or e-mail!") %></p>
                   <div class="form-block">
                     <%= render 'aids/form', btn_txt: t('.Reply') %>
                   </div>
@@ -44,7 +71,7 @@
           <% end %>
           <% unless @aids.empty? %>
             <div class="aids-block">
-              <h2><%= t(".Already responded") %>:</h2>
+              <h3><%= t(".Already responded") %>:</h3>
               <% @aids.each do |aid| %>
                 <% if aid.status == 1 %>
                   <div class="aid-item post">
@@ -55,8 +82,8 @@
                   </div>
                 <% end %>
               <% end %>
-              <h4><%= t(".Thank you, everyone who called on this request for help !!!") %></h4>
             </div>
+            <p><%= t(".Thank you, everyone who called on this request for help !!!") %></p>
           <% end %>
         </div><!--/sidebar-->
       </div><!--/row-->
