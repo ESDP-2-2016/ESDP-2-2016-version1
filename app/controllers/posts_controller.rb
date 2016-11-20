@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :correct_user, only: [:edit]
-  before_filter :only => [:show, :edit, :update, :destroy,:deactivate] do
+  before_filter :only => [:show, :edit, :update, :destroy,:deactivate, :closed] do
     @post = Post.find_by_slug!(params[:id])
   end
 
@@ -27,7 +27,8 @@ class PostsController < ApplicationController
 
   def show
     # @post = Post.find_by(slug: params[:id])
-    @aids = Aid.where(post_id: @post.id, status: 1)
+    @aids_all = Aid.where(post_id: @post.id)
+    @aids = Aid.where(post_id: @post.id, status: 2)
     @aid = Aid.new
     @respond_post = @post
     @user_already_helped
@@ -52,20 +53,27 @@ class PostsController < ApplicationController
   def deactivate
     # @post = Post.find(params[:id])
     @post.update_attribute(:active, false)
-
     flash[:success] = 'Вы удалили пост!'
     redirect_to posts_path
   end
+
+
+  def closed
+    @post.update_attribute(:open, false)
+    redirect_to :back
+  end
+
   def nonactiveposts
     @post_history = Post.all.where(active: false, user_id: current_user.id)
   end
+
   def non_active_post
     @nonactivepost = Post.find_by_slug!(params[:id])
   end
 
   private
   def post_params
-      params.require(:post).permit(:title, :body, :keywords, :post_category_id, :organization_id, :user_id, :active)
+      params.require(:post).permit(:title, :body, :keywords, :post_category_id, :organization_id, :user_id, :active, :open)
   end
 
   def correct_user

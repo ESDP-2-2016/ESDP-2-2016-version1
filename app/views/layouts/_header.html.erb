@@ -34,12 +34,10 @@
               </li>
             </ul>
         <% else  %>
-          <%= link_to t('layouts._header.Registration'), new_user_registration_path, class: 'btn btn-default navbar-btn'  %>
-          <%= link_to t('layouts._header.Sign in'), new_user_session_path, class: 'btn btn-default navbar-btn'  %>
+          <%= link_to t('layouts._header.Registration'), new_user_registration_path, class: 'btn btn-primary navbar-btn'  %>
+          <%= link_to t('layouts._header.Sign in'), new_user_session_path, class: 'btn btn-primary navbar-btn'  %>
         <% end %>
       </ul>
-
-
     </div>
   </nav>
 </header>

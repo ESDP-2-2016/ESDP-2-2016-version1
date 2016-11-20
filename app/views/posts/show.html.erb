@@ -26,6 +26,36 @@
           </div>
         </div>
         <div class="sidebar col-md-4">
+          <% if @post.post_category.id == 1 %>
+            <div class="post-status">
+              <h3>Статус публикации:</h3>
+              <% if user_signed_in? %>
+                <% if current_user == @post.user %>
+                  <% if @post.open != false %>
+                    <p class="opened">Публикация актуальна! Eсли помощь уже оказана, рекомендуем Вам закрыть данную публикацию!</p>
+                    <div class="link"><%= link_to "Закрыть", post_closed_path(@post), method: :put %></div>
+                  <% else %>
+                    <p class="closed"><span class="glyphicon glyphicon-ok"></span>Публикация закрыта! Помощь оказана!</p>
+                    <div class="post-report"></div>
+                  <% end %>
+                <% else %>
+                  <% if @post.open != false %>
+                    <p class="opened">Публикация актуальна!</p>
+                  <% else %>
+                    <p class="closed"><span class="glyphicon glyphicon-ok"></span>Публикация закрыта! Помощь оказана!</p>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if @post.open != false %>
+                    <p class="opened">Публикация актуальна!</p>
+                    <p>Ecли Вы хотите откликнуться на данный запрос о помощи, Вам необходимо авторизоваться!</p>
+                <% else %>
+                    <p class="closed"><span class="glyphicon glyphicon-ok"></span>Публикация закрыта! Помощь оказана!</p>
+                <% end %>
+              <% end %>
+            </div><!--/post-status-->
+          <% end %>
+
           <% if user_signed_in? && (@post.post_category.id == 1) && (current_user != @post.user) %>
             <div class="aids-form-block">
               <% if @user_already_helped %>
@@ -33,8 +63,7 @@
               <% else %>
                 <div><span class="aid-pseudolink" id="show-hide-aids-form"><%= t(".i want to help") %></span></div>
                 <div class="aids-form" id="aids-form">
-                  <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we
-                       will contact you by phone or e-mail!") %></p>
+                  <p><%= t(".We are pleased that you want to help us! Please, please, about your desire to help, and we will contact you by phone or e-mail!") %></p>
                   <div class="form-block">
                     <%= render 'aids/form', btn_txt: t('.Reply') %>
                   </div>
@@ -42,46 +71,62 @@
               <% end %>
             </div>
           <% end %>
-          <% unless @aids.empty? %>
-            <div class="aids-block">
-              <h2><%= t(".Already responded") %>:</h2>
-              <% @aids.each do |aid| %>
-                <% if aid.status == 1 %>
-                  <div class="aid-item post">
-                    <div class="aid-author">
-                      <div><span class="glyphicon glyphicon-user"></span><%= aid.user.name %></div>
-                      <div><%= t(".Organization") %>: <b><%= aid.organization.name %></b></div>
+
+          <% if @post.post_category.id == 1 %>
+            <% unless @aids_all.empty? %>
+              <div class="aids-block">
+                <% if @post.open != false %>
+                  <div class="post-aids-num"><%= t(".Responded") %>: <span><%= @aids_all.length %></span></div>
+                  <% @aids_all.each do |aid| %>
+                    <div class="aid-item post">
+                      <div class="aid-author">
+                        <div><span class="glyphicon glyphicon-user"></span><%= aid.user.name %></div>
+                        <div><%= t(".Organization") %>: <b><%= aid.organization.name %></b></div>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
+                <% else %>
+                  <% unless @aids.empty? %>
+                    <h3><%= t(".Assistance was") %>:</h3>
+                    <% @aids.each do |aid| %>
+                      <div class="aid-item post">
+                        <div class="aid-author">
+                          <div><span class="glyphicon glyphicon-user"></span><%= aid.user.name %></div>
+                          <div><%= t(".Organization") %>: <b><%= aid.organization.name %></b></div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <h4><%= t(".Thank you, everyone who called on this request for help !!!") %></h4>
-            </div>
+                <p><%= t(".Thank you, everyone who called on this request for help !!!") %></p>
+              </div>
+            <% else %>
+              <p>На данный запрос о помощи нет откликов!</p>
+            <% end %>
           <% end %>
         </div><!--/sidebar-->
       </div><!--/row-->
 
-
-        <div class="comments-list">
-          <h2><%= t(".Comments") %>:</h2>
-          <div id="hypercomments_widget"></div>
-          <script type="text/javascript">
-            _hcwp = window._hcwp || [];
-            _hcwp.push({widget: "Stream", widget_id: 81181});
-            (function () {
-              if ("HC_LOAD_INIT" in window)return;
-              HC_LOAD_INIT = true;
-              var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-              var hcc = document.createElement("script");
-              hcc.type = "text/javascript";
-              hcc.async = true;
-              hcc.src = ("https:" == document.location.protocol ? "https" : "http") + "://w.hypercomments.com/widget/hc/81181/" + lang + "/widget.js";
-              var s = document.getElementsByTagName("script")[0];
-              s.parentNode.insertBefore(hcc, s.nextSibling);
-            })();
-          </script>
-          <!--<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>-->
-        </div>
+      <div class="comments-list">
+        <h2><%= t(".Comments") %>:</h2>
+        <div id="hypercomments_widget"></div>
+        <script type="text/javascript">
+          _hcwp = window._hcwp || [];
+          _hcwp.push({widget: "Stream", widget_id: 81181});
+          (function () {
+            if ("HC_LOAD_INIT" in window)return;
+            HC_LOAD_INIT = true;
+            var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+            var hcc = document.createElement("script");
+            hcc.type = "text/javascript";
+            hcc.async = true;
+            hcc.src = ("https:" == document.location.protocol ? "https" : "http") + "://w.hypercomments.com/widget/hc/81181/" + lang + "/widget.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hcc, s.nextSibling);
+          })();
+        </script>
+        <!--<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>-->
+      </div>
     <% else %>
         <div class="message-post-deleted">
           <%= t(".Page not found, the post has been deleted!") %>

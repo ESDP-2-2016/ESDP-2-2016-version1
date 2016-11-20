@@ -94,7 +94,7 @@
               <%= link_to t(".Edit"), edit_aid_path(respond_post: aid.post) %>
               <%= link_to t(".Delete"), aid_path, method: :delete, data: { confirm: t(".confirm_delete")} %>
             </div>
-        <% elsif aid.status == 1 %>
+        <% elsif aid.status == 2 %>
             <div class="aid-status"><b><%= t(".Status") %>: </b><%= t(".You are assisted, on the request, Thank you for your response") %>!!!</div>
         <% else %>
             <div class="aid-status"><b><%= t(".Status") %>: </b><%= t(".You responded, but aid does not have") %></div>

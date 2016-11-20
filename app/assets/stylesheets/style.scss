@@ -1,6 +1,10 @@
 body{
   padding-top: 70px;
   font-family: 'Roboto', sans-serif;
+  min-width: 980px;
+}
+.container{
+  min-width: 980px;
 }
 .navbar{
   background: #fff;
@@ -9,6 +13,9 @@ body{
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21);
   z-index: 999;
+}
+.navbar-toggle{
+  border: 1px solid red;
 }
 .navbar-nav>li a{
   text-transform: uppercase;
@@ -73,6 +80,20 @@ body{
   border-color: #32aae1;
 }
 
+.all_posts{
+  position: absolute;
+  top:0;
+  left: 50px;
+  z-index: 5;
+  font-size: 16px;
+  text-decoration: underline;
+
+}
+
+.organizations h4 em{
+  font-weight: normal;
+  font-size: 14px;
+}
 
 /*post-detail*/
 .post-detail {
@@ -107,7 +128,8 @@ body{
     }
   }
   .sidebar{
-    margin-top: 20px;
+    margin-top: 4px;
+    padding-left: 40px;
     .inner{
       padding: 0 0 0 20px;
     }
@@ -116,11 +138,61 @@ body{
       height: 28px;
     }
   }
+  .post-status {
+    font-size: 14px;
+    margin: 0 0 12px;
+    h3{
+      margin: 17px 0 12px;
+      font-size: 18px;
+    }
+    p{
+      position: relative;
+      padding: 0 0 15px 25px;
+      margin: 0 0 0 -25px;
+    }
+    .link{
+      text-align: right;
+    }
+    .opened {
+      &:before {
+        content: "!";
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        background: #ff0000;
+        color: #fff;
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 50%;
+      }
+    }
+    .closed{
+      span{
+        color: green;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.post-aids-num{
+  padding: 0 0 10px;
+  span{
+    display: inline-block;
+    color: #32aae1;
+    font-weight: bold;
+    font-size: 15px;
+  }
 }
 
 /*aids-block*/
 .aids-block{
-  h2{
+  margin: 0 0 20px;
+  h3{
     margin: 17px 0 12px;
     font-size: 19px;
   }
@@ -209,22 +281,15 @@ body{
 }
 
 
+.alert{
+  width: 80%;
+  margin: 0 auto 20px;
+  text-align:  center;
+}
 .alert.alert-error{
   background: rgba(204, 31, 4, 0.5);
   color: #170401;
   padding: 15px 20px;
-  text-align: center;
 }
-.organizations h4 em{
-  font-weight: normal;
-  font-size: 14px;
-}
-.all_posts{
-  position: absolute;
-  top:0;
-  left: 50px;
-  z-index: 5;
-  font-size: 16px;
-  text-decoration: underline;
 
-}
+

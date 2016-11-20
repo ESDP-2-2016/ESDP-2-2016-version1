@@ -46,7 +46,7 @@ organization_category_1 = OrganizationCategory.create!(
 )
 organization_category_2= OrganizationCategory.create!(   
   name: 'Детский дом', 
-  description: 'Детские учреждение',
+  description: 'Детские учреждения',
   active: true    
 )
 organization_category_3 = OrganizationCategory.create!(   
@@ -773,15 +773,15 @@ end
 
 posts = Post.all
 
-50.times do
-  PostComment.create!([
-    {
-      body: FFaker::Lorem.paragraph,
-      post: posts[rand(0...posts.size)],
-      user: users[rand(0...users.size)]
-    }
-  ])
-end
+# 50.times do
+#  PostComment.create!([
+#    {
+#      body: FFaker::Lorem.paragraph,
+#      post: posts[rand(0...posts.size)],
+#      user: users[rand(0...users.size)]
+#    }
+#  ])
+# end
 
 aid_posts = Post.all.where(post_category_id: 1)
 

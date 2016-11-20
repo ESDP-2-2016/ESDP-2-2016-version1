@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :aids
 
   put 'posts/deactivate/:id' => 'posts#deactivate', as: 'post_deactivate'
+  put 'posts/closed/:id' => 'posts#closed', as: 'post_closed'
   put 'organizations/deactivate/:id' => 'organizations#deactivate', as: 'organization_deactivate'
   post 'organizations/participation_request/:id' => 'organizations#participation_request', as: 'organization_participation_request'
   put 'organizations/approved/:id' => 'organizations#approved', as: 'organization_approved'
