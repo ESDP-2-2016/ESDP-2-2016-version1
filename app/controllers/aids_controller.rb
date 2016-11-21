@@ -5,10 +5,8 @@ class AidsController < ApplicationController
   def create
     @aid = Aid.new(aid_params)
     if @aid.save
-      @idpost = @aid.post_id
-      @post = Post.find_by(id: @idpost)
+      @post = Post.find_by(id: @aid.post_id)
       @authorid = @post.user_id.to_i
-      @author = User.find_by(id: @authorid)
       UserMailer.aid_reply(User.find_by(id: @authorid),AdminUser.first).deliver_now
       redirect_to :back
       flash[:success] = 'Ваше сообщение отправлено! Мы свяжемся с Вами в ближайшее время!'

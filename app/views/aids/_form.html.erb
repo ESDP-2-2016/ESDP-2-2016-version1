@@ -13,7 +13,7 @@
             <p> Публикуется от имени <%=current_user.organizations.first.name %></p>
             <%= f.hidden_field :organization_id, :value => current_user.organizations.first.id %>
         <% elsif current_user.organizations.count > 1 %>
-            <label class="control-label">От имени какой организации, будет оказана помощь:</label>
+            <label class="control-label"><%= t(".On behalf of the organization which will be assisted") %>:</label>
             <div><%= f.collection_select :organization_id, current_user.organizations, :id, :name, class: "form-select from-control"  %></div>
         <% end %>
       </div>

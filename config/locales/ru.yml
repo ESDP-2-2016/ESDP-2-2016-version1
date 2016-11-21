@@ -3,7 +3,8 @@ ru:
       _form:
       index:
   aids:
-      _form:
+      form:
+        On behalf of the organization which will be assisted: "От имени какой организации, будет оказана помощь"
   devise:
       confirmations:
           new:
@@ -206,6 +207,8 @@ ru:
             title: "Тема"
             post_category: "Категория публикации"
             body: "Текст"
+        aid:
+            description: "Описание"
       models:
         organization: 'Организация'
 #          one: 'Организация'
