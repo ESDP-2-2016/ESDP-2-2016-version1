@@ -2,7 +2,7 @@
   <h1 class="al-center"><%= t(".Edit organization") %></h1>
   <div class="row">
       <div class="col-md-6 form-block">
-        <%=  render 'form' %>
+        <%=  render 'form', url_action:  {:action => :update} %>
       </div>
       <div class="col-md-6">
         <%= render 'map_for_form' %>

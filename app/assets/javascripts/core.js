@@ -6,7 +6,7 @@ $(document).ready(function () {
     });
 
     $('.post-item-pseudolink').click(function(){
-        $(this).next('.post-item-body').slideToggle();
+        $(this).next('.post-item-content').slideToggle();
     });
 
     var all_org = $("#organization-list").html();

@@ -1,84 +1,106 @@
 <% content_for :title, @user.name %>
-<div class="container">
+<div class="container user-profile">
   <div class="row">
-    <div class="col-md-6">
-      <h1><%= t(".Profile") %>: <% @user.name  %></h1>
-      <p><%= t(".Phone") %>: <%= @user.phone  %></p>
-      <p><%= t(".Email") %>: <%= @user.email  %></p>
-      <p><%= link_to t('.Registration organization'),  new_organization_path, class: 'btn btn-primary' %></p>
-      <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary' %></p>
+    <div class="user-info col-md-8">
+      <div class="user-info-main">
+        <h1><%= t(".Profile") %>: <%= @user.name  %></h1>
+        <p><%= t(".Phone") %>: <%= @user.phone  %></p>
+        <p><%= t(".Email") %>: <%= @user.email  %></p>
+      </div>
+      <div class="user-organizations">
+        <h2><%= t('.Organizations in which you owner') %>: </h2>
+        <% unless @owner_organizations.empty? %>
+          <% @owner_organizations.each do |item| %>
+              <% if item.organization.active == true %>
+                  <div class="user-organization">
+                    <% id=item.organization.slug %>
+                    <p><%= link_to item.organization.name, organization_show_path(id) %>
+                      <span><%= link_to t(".Edit"), organization_edit_path(id) %>
+                      <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: t(".confirm_delete")} %></span>
+                    </p>
+                  </div>
+              <% end %>
+          <% end %>
+          <div class="al-right"><%= link_to t('.Register a new organization'),  new_organization_path, class: 'btn btn-primary btn-sm' %></div>
+        <% else %>
+            <p>Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!</p>
+            <div class="al-right"><%= link_to t('.Register a new organization'),  new_organization_path, class: 'btn btn-primary btn-sm' %></div>
+        <% end %>
+      </div>
+      <div class="user-organizations">
+        <h2><%= t(".Organizations in which you participant") %>: </h2>
+        <ul>
+        <% @participant_organizations.each do |item| %>
+            <% if item.organization.active == true %>
+                <li><%= item.organization.name %></li>
+            <% end %>
+        <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-6">
-      <br>
-      <br>
-      <br>
-      <p><%= link_to t(".My_non_active_posts"),posts_nonactiveposts_path,class: 'btn btn-primary' %></p>
+
+    <div class="sidebar col-md-4">
+      <p class="not-active-post"><%= link_to t(".My_non_active_posts"),posts_nonactiveposts_path, class: 'btn btn-warning btn-sm' %></p>
+      <div class="user-order">
+        <h4><%= t(".Your organization participation request") %>: </h4>
+        <% unless @waiting_for_approval.empty? %>
+        <ul>
+          <% @waiting_for_approval.each do |item| %>
+              <li><%= item.organization.name %></li>
+          <% end %>
+        </ul>
+        <% else %>
+          <p>Заявок нет!</p>
+        <% end %>
+      </div>
+      <div class="user-order">
+        <h4><%= t(".requests to joining to your organization") %>:</h4>
+        <% unless @requests.empty? %>
+        <ul>
+          <% @requests.each do |item| %>
+              <% qw=item.user_id%>
+              <li>
+                <% pol= User.find_by(id:qw) %>
+                <%= pol.name %>
+                <%= t(".wants to join your organization") %>
+                <% orgid= item.organization_id %>
+                <% org=Organization.find_by(id:orgid) %>
+                <%= org.name %>
+                <%= link_to t('.Approve'), organization_approved_path(item), method: :put %>
+              </li>
+          <%end %>
+        </ul>
+        <% else %>
+          <p>Заявок нет!</p>
+        <% end %>
+      </div>
     </div>
   </div>
-  <h2><%= t('.Organizations in which you owner') %>: </h2>
-  <ul>
-  <% UserOrganization.where(user_id:@user,role:1).each do |item| %>
-    <% if item.organization.active == true %>
-      <li><%= item.organization.name %></li>
-      <% id=item.organization.slug %>
-        <%= link_to t(".Edit"), edit_organization_path(id) %>
-        <%= link_to t(".Delete"), organization_deactivate_path(id), method: :put, data: { confirm: t(".confirm_delete")} %>
-    <% end %>
-  <% end %>
-  </ul>
-  <h2><%= t(".Organizations in which you participant") %>: </h2>
-  <ul>
-    <% @participant_organizations.each do |item| %>
-      <% if item.organization.active == true %>
-        <li><%= item.organization.name %></li>
-      <% end %>
-    <% end %>
-  </ul>
-  <h2><%= t(".Your organization participation request") %>: </h2>
-  <ul>
-    <% @waiting_for_approval.each do |item| %>
-        <li><%= item.organization.name %></li>
-    <% end %>
-  </ul>
-  <h2><%= t(".requests to joining to your organization") %></h2>
-  <ul>
 
-      <% @requests.each do |item| %>
-        <% qw=item.user_id%>
-        <li>
-        <% pol= User.find_by(id:qw) %>
-        <%= pol.name %>
-          <%= t(".wants to join your organization") %>
-        <% orgid= item.organization_id %>
-        <% org=Organization.find_by(id:orgid) %>
-        <%= org.name %>
-          <%= link_to t('.Approve'), organization_approved_path(item), method: :put %>
-
-        </li>
-    <%end %>
-  </ul>
   <div class="aids-block">
     <h2><%= t(".Your pending posts of help request") %>:</h2>
+    <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
     <% @opened_posts.each do |post| %>
       <div class="post-item">
-        <h3 class="post-item-pseudolink"><%= post.title %></h3>
-        <div class="post-item-body">
-          <%= post.body %>
-        </div>
-        <div class="post-aids">
-          <h4><%= t(".At the request for assistance responded") %>:</h4>
-          <% post.aids.each do |post_aid| %>
-            <div class="aid-item">
-              <div class="aid-author">
-                <div><b><%= t(".Published from name organization") %>:</b> <%= post_aid.organization.name %>, <em>дата публикации:</em> <%= post_aid.created_at %></div>
+        <h4 class="post-item-pseudolink"><%= post.title %></h4>
+        <div class="post-item-content">
+          <div class="post-item-body">
+            <%= post.body %>
+          </div>
+          <div class="post-aids">
+            <h4><%= t(".At the request for assistance responded") %>:</h4>
+            <% post.aids.each do |post_aid| %>
+              <div class="aid-item">
+                <div class="aid-author">
+                  <div><b><%= t(".Published from name organization") %>:</b> <%= post_aid.organization.name %>, <em>дата публикации:</em> <%= post_aid.created_at %></div>
+                </div>
+                <p><%= post_aid.description %></p>
               </div>
-              <p><%= post_aid.description %></p>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
-
   </div>
   <div class="aids-block">
   <h2><%= t(".Your responses to the requests for assistance") %>:</h2>
@@ -94,7 +116,7 @@
               <%= link_to t(".Edit"), edit_aid_path(respond_post: aid.post) %>
               <%= link_to t(".Delete"), aid_path, method: :delete, data: { confirm: t(".confirm_delete")} %>
             </div>
-        <% elsif aid.status == 1 %>
+        <% elsif aid.status == 2 %>
             <div class="aid-status"><b><%= t(".Status") %>: </b><%= t(".You are assisted, on the request, Thank you for your response") %>!!!</div>
         <% else %>
             <div class="aid-status"><b><%= t(".Status") %>: </b><%= t(".You responded, but aid does not have") %></div>
