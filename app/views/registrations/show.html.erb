@@ -80,28 +80,36 @@
   <div class="aids-block">
     <h2><%= t(".Your pending posts of help request") %>:</h2>
     <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
-    <% @opened_posts.each do |post| %>
-      <div class="post-item">
-        <h4 class="post-item-pseudolink"><%= post.title %></h4>
-        <div class="post-item-content">
-          <div class="post-item-body">
-            <%= post.body %>
-          </div>
-          <div class="post-aids">
-            <h4><%= t(".At the request for assistance responded") %>:</h4>
+    <div class="row">
+      <% @opened_posts.each do |post| %>
+        <div class="post-item col-md-12">
+          <div class="inner">
+            <h5 class="post-item-link"><%= link_to post.title, post_path(post) %></h5>
+            <p>Откликнулись:</p>
+
             <% post.aids.each do |post_aid| %>
-              <div class="aid-item">
+                <div class="post-item-aid">
                 <div class="aid-author">
-                  <div><b><%= t(".Published from name organization") %>:</b> <%= post_aid.organization.name %>, <em>дата публикации:</em> <%= post_aid.created_at %></div>
+                  <div><span class="glyphicon glyphicon-time"></span><%= post_aid.created_at.strftime("%d %b %Y") %></div>
+                  <div><span class="glyphicon glyphicon-user"></span><%= post_aid.user.name %></div>
+                  <div><span class="glyphicon glyphicon-envelope"></span><%= post_aid.user.email %></div>
+                  <div><span class="glyphicon glyphicon-earphone"></span><%= post_aid.user.phone %></div>
                 </div>
-                <p><%= post_aid.description %></p>
+                <div class="aid-description "><%= post_aid.description %></div>
+                <div class="post-item-aid-bot">
+                  <div><%= t(".Organization") %>: <b><%= post_aid.organization.name %></b></div>
+                </div>
               </div>
             <% end %>
+
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  </div><!--/aids-block-->
+
+
+
   <div class="aids-block">
   <h2><%= t(".Your responses to the requests for assistance") %>:</h2>
   <% @aids.each do |aid| %>

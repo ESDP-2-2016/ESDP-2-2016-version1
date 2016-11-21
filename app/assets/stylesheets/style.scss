@@ -16,6 +16,10 @@ h4{
   font-size: 16px;
   margin: 0 0 10px;
 }
+h5{
+  font-size: 14px;
+  margin: 0 0 10px;
+}
 .container{
   min-width: 980px;
 }
@@ -99,44 +103,6 @@ h4{
   background-color: #32aae1;
   border-color: #32aae1;
 }
-
-.user-info{
-  .user-info-main{
-    padding: 0 0 20px;
-    p{
-      margin: 0;
-    }
-  }
-  .user-organizations{
-    padding: 0 0 20px;
-  }
-  .user-organization{
-    padding: 0 210px 5px 0;
-    margin: 0 0 15px;
-    border-bottom: 1px dotted #ccc;
-    position: relative;
-    span{
-      margin: 0 10px;
-      font-size: 14px;
-      width: 200px;
-      text-align: right;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  }
-
-}
-.not-active-post{
-  padding: 20px 0;
-}
-.user-order{
-  p, li{
-    font-size: 14px;
-    color: #888888;
-  }
-}
-
 
 
 .all_posts{
@@ -275,24 +241,8 @@ h4{
     border-radius: 0;
     width: 100%;
   }
-  .post-item{
-    padding: 0 0 15px;
-    margin: 0 0 5px;
-    border-bottom:1px dotted #ccc;
-  }
-  .post-item-pseudolink{
-    color: #2e6da4;
-    border-bottom: 1px dashed #2e6da4;
-    display: inline-block;
-    margin-bottom: 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-  .post-item-content{
-    display: none;
-  }
 }
+
 .message-post-deleted{
   width: 80%;
   max-width: 600px;
@@ -313,6 +263,7 @@ h4{
     padding: 10px;
     box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.13);
     border-radius: 4px;
+    margin: 0 0 15px;
     .aid-response {
       color: #2e6da4;
       display: inline-block;
@@ -331,13 +282,89 @@ h4{
     border: 1px dotted #ccc;
   }
 }
-
 .comments-list{
   h2{
     font-size: 20px;
     margin: 17px 0;
   }
 }
+
+.user-profile {
+  .user-info {
+    .user-info-main {
+      padding: 0 0 20px;
+      p {
+        margin: 0;
+      }
+    }
+    .user-organizations {
+      padding: 0 0 20px;
+    }
+    .user-organization {
+      padding: 0 210px 5px 0;
+      margin: 0 0 15px;
+      border-bottom: 1px dotted #ccc;
+      position: relative;
+      span {
+        margin: 0 10px;
+        font-size: 14px;
+        width: 200px;
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  .post-item{
+    .inner{
+      margin: 0 10px 30px 0;
+      padding: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0px 2px 4px 0 rgba(0,0,0,0.13);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    h5{
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    .post-item-aid{
+      .aid-author > div{
+        display: inline-block;
+        margin: 0 15px 0 0;
+      }
+    }
+    .aid-description{
+      padding: 0 0 10px;
+      font-size: 13px;
+      color: #444;
+    }
+
+  }
+}
+
+
+
+.not-active-post{
+  padding: 20px 0;
+}
+.user-order{
+  p, li{
+    font-size: 14px;
+    color: #888888;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 .alert{

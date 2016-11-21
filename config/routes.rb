@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   put 'organizations/deactivate/:id' => 'organizations#deactivate', as: 'organization_deactivate'
   post 'organizations/participation_request/:id' => 'organizations#participation_request', as: 'organization_participation_request'
   put 'organizations/approved/:id' => 'organizations#approved', as: 'organization_approved'
-
+  put 'aids/accepted/:id' => 'aids#accepted', as: 'aid_accepted'
   get 'organizations/filter_organizations/:id' => 'organizations#filter_organizations', as: 'filter_organizations'
 
 

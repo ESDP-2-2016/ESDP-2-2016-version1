@@ -180,6 +180,7 @@ ru:
             You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
             To become an administrator for your organization, you need to register it! If your organization is already registered, you can become a member!: Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!
             No requests: "Заявок нет"
+            Organization: "Организация"
 
   activerecord:
       attributes:

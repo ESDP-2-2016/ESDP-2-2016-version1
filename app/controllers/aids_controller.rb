@@ -27,6 +27,18 @@ class AidsController < ApplicationController
     end
   end
 
+  def accepted
+    @aid = Aid.find(params[:id])
+    @aid.status = params[:up_status]
+    @aid.save
+    if @aid.status == 1
+      redirect_to user_profile_path(current_user)
+    else
+      redirect_to :back
+    end
+
+  end
+
   def destroy
     @aid = Aid.find(params[:id])
     if @aid.delete
