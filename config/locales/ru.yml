@@ -179,8 +179,9 @@ ru:
             You responded: "Вы откликнулись"
             You are assisted, on the request, Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
             You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
-            To become an administrator for your organization, you need to register it! If your organization is already registered, you can become a member!: Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!
+            To become an administrator for your organization, you need to register it! If your organization is already registered, you can become a member!: "Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!"
             No requests: "Заявок нет"
+            Organization: "Организация"
 
   activerecord:
       attributes:
@@ -218,7 +219,7 @@ ru:
 #          other: 'Категории организации'
         post: 'Публикация'
 #          one: 'публикация'
-#          other: 'Пцбликации'
+#          other: 'Публикации'
         post_category: 'Категория публикаций'
         aboutп: 'О проекте'
         admin_user: ' Админы'

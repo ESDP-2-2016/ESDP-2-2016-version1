@@ -83,6 +83,19 @@
                         <div><span class="glyphicon glyphicon-user"></span><%= aid.user.name %></div>
                         <div><%= t(".Organization") %>: <b><%= aid.organization.name %></b></div>
                       </div>
+                      <% if user_signed_in? && (current_user == @post.user) %>
+                          <% if aid.status == 0 %>
+                            <div class="aid-status">
+                              <span class="glyphicon glyphicon-eye-close"></span>
+                              <%= link_to "Принять", aid_accepted_path(aid.id, up_status: 1), method: :put %>
+                            </div>
+                          <% else %>
+                            <div class="aid-status">
+                              <span class="glyphicon glyphicon-eye-open"></span>
+                              <span>Просмотрено</span>
+                            </div>
+                          <% end %>
+                      <% end %>
                     </div>
                   <% end %>
                 <% else %>
