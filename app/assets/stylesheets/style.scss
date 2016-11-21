@@ -139,15 +139,6 @@ h4{
 
 
 
-.all_posts{
-  position: absolute;
-  top:0;
-  left: 50px;
-  z-index: 5;
-  font-size: 16px;
-  text-decoration: underline;
-
-}
 
 .organizations h4 em{
   font-weight: normal;
@@ -352,3 +343,12 @@ h4{
 }
 
 
+.navbar-brand{
+  width: 40px;
+  height: 40px;
+  padding: 5px 0 0 0;
+}
+.navbar-brand img{
+  width: 100%;
+  height: 100%;
+}
