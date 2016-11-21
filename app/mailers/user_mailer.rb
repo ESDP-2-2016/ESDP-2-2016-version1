@@ -11,6 +11,14 @@ class UserMailer < ApplicationMailer
     @url1  = 'http:localhost:3000/admin/organizations/' + @id.to_s + '/edit'
     mail(to: user.email, subject: 'Welcome to My Awesome Site')
   end
+
+  def aid_reply(user,author)
+    @user = user
+    @author = author
+    mail(to: author.email, subject: 'Omurbek')
+    mail(to: user.email, subject: 'Gilani')
+  end
+
   def notification(user,id,org)
     @user = user
     @org = org

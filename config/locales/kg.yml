@@ -1,0 +1,361 @@
+ru:
+  about:
+      _form:
+      index:
+  aids:
+      _form:
+  devise:
+      confirmations:
+          new:
+      mailer:
+      passwords:
+      registrations:
+      sessions:
+      shared:
+      unlocks:
+  layouts:
+      _header:
+          Donors: 'Доноры'
+          Organizations: 'Организации'
+          All Posts: 'Все публикации'
+          About Project: 'О проекте'
+          Registration: 'Регистрация'
+          Sign in: 'Вход'
+          Edit profile: 'Редактировать профиль'
+          Register the organization: 'Зарегистрировать организацию'
+          Create new post: 'Создать новую публикацию'
+          Exit: 'Выход'
+          select language: 'Выбрать язык'
+          View profile: 'Личный кабинет'
+          Account: 'Мой профиль'
+          Help: 'Помощь'
+      application:
+      mailer:
+  organizations:
+      map_for_form:
+            Reset Map: "сбросить карту"
+            Specify the location of the organization on the map: "Укажите расположение организации на карте"
+      form:
+      organizations:
+            Category: "Категория"
+            Location: "Местоположение"
+            Adress: "Адрес"
+            Phone: "Телефон"
+      donors:
+      edit:
+      participation_request:
+            success: "Ваша заявка отправлена на рассмотрение владельцу организации"
+      approved:
+            success: "заявка одобрена"
+      create:
+            create: 'Ваш запрос о регистрации организации отправлен на рассмотрение администратору!'
+      deactivate:
+            deactivate: 'Вы удалили организацию!'
+      index:
+            details: "подробно"
+            All posts: "Посмотреть все публикации"
+            Category: "Категория"
+            Organization: "Организация"
+            Author: "Автор"
+            Published: "Опубликовано"
+            Request about help: "Просьба о помощи"
+            Read: "Читать"
+            New organizations: "Новые организации"
+            Location: "Местоположение"
+            Region: "Область"
+            Adress: "Адрес"
+            Phone: "Телефон"
+            Organizations that needs help: "Социальные учреждения которым нужна ваша помощь"
+            Social organizations: "Социальные учреждения"
+            Your location: "Вы находитесь здесь"
+            My location: "Мое местоположение"
+      donors:
+            Organizations Aids: "Организации доноры"
+      list:
+            All organizations: "Все организации"
+            List of all organizations: "Список всех организаций"
+            Select a category: "Выбрать организации одной категории"
+      new:
+            Register your organization: "Зарегистрировать организацию"
+            Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
+      edit:
+            Edit organization: "Редактировать организацию"
+            Specify the location of the organization on the map: "Укажите местонахождение организации на карте"
+      show:
+        Edit: 'Редактировать'
+        join to organization: "Присоединиться к организации"
+        General information about the organization: "Общая информация об организации"
+        Description: "Описание"
+        Location: "Местоположение"
+        Oblast: "Область"
+        Address: "Адрес"
+        Phone: "Телефон"
+        Category: "Категория"
+        Author: "Автор"
+        Organization: "Организация"
+        Published: "Опубликовано"
+        Read: "Читать"
+        Location of organization on the map: "Расположение организации на карте"
+        For the organization is no information on its location on the map!: "Для данной организации нет информации о ее расположении на карте!"
+
+  post_comments:
+      _form:
+      edit:
+          Edit comment: "Редактировать комментарий"
+  user_mailer:
+      welcome_email:
+          New organization has been created by: "Создана новая организация"
+          Welcome Admin: "Добро пожаловать админ"
+          To activate organization: "Чтобы активировать организацию"
+          click: "нажмите"
+          Thanks for help and have a great day!: "Спасибо за помощь, хорошего вам дня"
+      notification:
+          Hello: "Добрый день"
+          Your organization has been confirmed by Admin: "Ваша организация была одобрена админом"
+          Thanks for joining us and have a great day!: "Спасибо, что присоединились к нам доброго вам дня!"
+  posts:
+      form:
+            Published by: "Публикуется от имени"
+            Publish: "Опубликовать"
+      edit:
+            Editing post: "Редактирование публикации"
+      index:
+            Read: 'Читать'
+            All posts: 'Все публикации'
+            Category: "Категория"
+            Organization: "Организация"
+            Author: "Автор"
+            Published: "Опубликовано"
+      new:
+          Add new post: "Добавить новую публикацию"
+      nonactiveposts:
+            Your nonactive posts: "Ваши не активные публикации"
+      show:
+            category: "Категория"
+            author: "Автор"
+            organization: "Организация"
+            published: "Опубликовано"
+            i want to help: "Я хочу помочь!"
+            Comments: "Комментарии"
+            On the request for assistance called: "На запрос о помощи откликнулись"
+            Responded: "Откликнулись"
+            Page not found, the post has been deleted!: "Cтраница не найдена, публикация была удалена!"
+            Thank you, everyone who called on this request for help !!!: "Благодарим, Всех, кто окликнулся на данный запрос о помощи!!! "
+            Organization: "Организация"
+            You have responded to the request for help!: "Вы откликнулись на данный запрос о помощи!"
+            We are pleased that you want to help us! Write, please, about your desire to help, and we will contact you by phone or e-mail!: "Мы рады, что Вы хотите нам помочь! Напишите, пожалуста, о Вашем желании оказать помощь и мы свяжемся с Вами по телефону или по e-mail!"
+            edit: 'Редактировать'
+            delete: 'Удалить'
+            Reply: 'Откликнуться'
+            Save changes: 'Сохранить изменения'
+            confirm_delete: 'Вы уверены?'
+            Assistance was: "Помощь оказали"
+      create:
+            create: "Вы создали публикацию!"
+  registrations:
+      show:
+            Status: "Статус"
+            Your pending posts of help request: "Ваши незакрытые публикации с просьбой о помощи"
+            At the request for assistance responded: "На данный запрос о помощи откликнулись"
+            My_non_active_posts: "Мои неактивные публикации"
+            Approve: "Одобрить"
+            confirm_delete: 'Вы уверены, что хотите удалить организацию?'
+            Profile: "Профиль"
+            Phone: "Телефон"
+            Email: "Почта"
+            Edit: "Редактировать"
+            Delete: "Удалить"
+            wants to join your organization: "Хочет присоединиться к организации"
+            Your organization participation request: "Ваши заявки на участие"
+            requests to joining to your organization: "Заявки на присоединение к вашей организации"
+            Registration organization: "Регистрация организации"
+            Register a new organization: "Зарегистрировать новую организацию"
+            Create new post: "Создать новую публикацию"
+            Organizations in which you owner: "Организации, в которых Вы являетесь администратором"
+            Organizations in which you participant: "Организации, в которых вы являетесь участником"
+            Your responses to the requests for assistance: "Ваши отклики на запросы о помощи"
+            Published from name organization: "Опубликовано от имени организации"
+            You responded: "Вы откликнулись"
+            You are assisted, on the request, Thank you for your response: " Вы оказали помощь, по данному запросу. Благодарим за отклик"
+            You responded, but aid does not have: "Вы откликнулись, но помошь не оказали"
+            To become an administrator for your organization, you need to register it! If your organization is already registered, you can become a member!: Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!
+            No requests: "Заявок нет"
+
+  activerecord:
+      attributes:
+        organization:
+            name: 'Имя'
+            organization_category_id: 'Категории организаций'
+            oblast_id: 'Область'
+            user_organizations: 'юзерорганизашнс'
+            posts: 'Темы'
+            users: 'Пользователи'
+            aids: 'Помощи'
+            location: 'Местоположение'
+            address: 'Адрес'
+            phone: 'Телефон'
+            longitude: 'Долгота'
+            latitude: 'Широта'
+            description: "Описание"
+            contact_person: 'Контактные данные'
+            active: 'Статус'
+            url: 'Ссылка'
+            created_at: 'Создано'
+            updated_at: 'Обновлено'
+        post:
+            title: "Тема"
+            post_category: "Категория публикации"
+            body: "Текст"
+      models:
+        organization: 'Организация'
+#          one: 'Организация'
+#          other: 'Организации'
+        organization_category: 'Категория организации'
+#          one: 'Категория организации'
+#          other: 'Категории организации'
+        post: 'Публикация'
+#          one: 'публикация'
+#          other: 'Пцбликации'
+        post_category: 'Категория публикаций'
+        aboutп: 'О проекте'
+        admin_user: ' Админы'
+        comment: 'Комментарий'
+  active_admin:
+    dashboard: "Панель управления"
+    dashboard_welcome:
+      welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."
+      call_to_action: "Чтобы добавить сюда что-нибудь загляните в 'app/admin/dashboard.rb'"
+    view: "Открыть"
+    edit: "Изменить"
+    delete: "Удалить"
+    delete_confirmation: "Вы уверены, что хотите удалить это?"
+    new_model: "Создать %{model}"
+    edit_model: "Изменить %{model}"
+    delete_model: "Удалить %{model}"
+    details: "%{model} подробнее"
+    cancel: "Отмена"
+    empty: "Пусто"
+    previous: "Пред."
+    next: "След."
+    download: "Загрузка:"
+    has_many_new: "Добавить %{model}"
+    has_many_delete: "Удалить"
+    has_many_remove: "Убрать"
+    filters:
+      buttons:
+        filter: "Фильтровать"
+        clear: "Очистить"
+      predicates:
+        contains: "Содержит"
+        equals: "Равно"
+        starts_with: "Начинается с"
+        ends_with: "Заканчивается"
+        greater_than: "Больше"
+        less_than: "Меньше"
+    search_status:
+      headline: "Статус поиска:"
+      current_scope: "Область:"
+      current_filters: "Текущий фильтр:"
+      no_current_filters: "Ни один"
+    status_tag:
+      "yes": "Да"
+      "no": "Нет"
+    main_content: "Создайте %{model}#main_content для отображения содержимого."
+    logout: "Выйти"
+    powered_by: "Работает на %{active_admin} %{version}"
+    sidebars:
+      filters: "Фильтры"
+      search_status: "Статус поиска"
+    pagination:
+      empty: "%{model} не найдено"
+      one: "Результат: <b>1</b> %{model}"
+      one_page: "Результат: <b>%{n}</b> %{model}"
+      multiple: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{total}</b>"
+      multiple_without_total: "Результат: %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      entry:
+        one: "запись"
+        few: "записи"
+        many: "записей"
+        other: "записей"
+    any: "Любой"
+    blank_slate:
+      content: "Пока нет %{resource_name}."
+      link: "Создать"
+    dropdown_actions:
+      button_label: "Oперации"
+    batch_actions:
+      button_label: "Групповые операции"
+      default_confirmation: "Вы уверены, что вы хотите это сделать?"
+      delete_confirmation: "Вы уверены, что хотите удалить %{plural_model}?"
+      succesfully_destroyed:
+        one: "Успешно удалено: 1 %{model}"
+        few: "Успешно удалено: %{count} %{plural_model}"
+        many: "Успешно удалено: %{count} %{plural_model}"
+        other: "Успешно удалено: %{count} %{plural_model}"
+      selection_toggle_explanation: "(Отметить всё / Снять выделение)"
+      link: "Создать"
+      action_label: "%{title} выбранное"
+      labels:
+        destroy: "Удалить"
+    comments:
+      created_at: "Дата создания"
+      resource_type: "Тип ресурса"
+      author_type: "Тип автора"
+      body: "Текст"
+      author: "Автор"
+      title: "Комментарий"
+      add: "Добавить Комментарий"
+      delete: "Удалить Комментарий"
+      delete_confirmation: "Вы уверены, что хотите удалить этот комментарий?"
+      resource: "Ресурс"
+      no_comments_yet: "Пока нет комментариев"
+      author_missing: "Аноним"
+      title_content: "Комментарии (%{count})"
+      errors:
+        empty_text: "Комментарий не сохранен, текст не должен быть пустым"
+    devise:
+      username:
+        title: "Имя пользователя"
+      email:
+        title: "Эл. почта"
+      subdomain:
+        title: "Поддомен"
+      password:
+        title: "Пароль"
+      sign_up:
+        title: "Зарегистрироваться"
+        submit: "Зарегистрироваться"
+      login:
+        title: "Войти"
+        remember_me: "Запомнить меня"
+        submit: "Войти"
+      reset_password:
+        title: "Забыли пароль?"
+        submit: "Сбросить пароль"
+      change_password:
+        title: "Изменение пароля"
+        submit: "Изменение пароля"
+      unlock:
+        title: "Повторно отправить инструкции по разблокировке"
+        submit: "Повторно отправить инструкции по разблокировке"
+      resend_confirmation_instructions:
+        title: "Выслать повторно письмо с активацией"
+        submit: "Выслать повторно письмо с активацией"
+      links:
+        sign_up: "Зарегистрироваться"
+        sign_in: "Войти"
+        forgot_your_password: "Забыли пароль?"
+        sign_in_with_omniauth_provider: "Войти с помощью %{provider}"
+        resend_unlock_instructions: "Повторная отправка инструкций разблокировки"
+        resend_confirmation_instructions: "Повторная отправка инструкций подтверждения"
+    unsupported_browser:
+      headline: "Пожалуйста, обратите внимание, что Active Admin больше не поддерживает старые версии Internet Explorer начиная с версии IE 8"
+      recommendation: "Мы рекомендуем обновить версию вашего браузера (<a href=\"http://windows.microsoft.com/ie\">Internet Explorer</a>, <a href=\"https://chrome.google.com/\">Google Chrome</a>, или <a href=\"https://mozilla.org/firefox/\">Firefox</a>)."
+      turn_off_compatibility_view: "Если вы используете IE 9 или новее, убедитесь, что <a href=\"http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer\">вы выключили опцию \"Просмотр в режиме совместимости\"</a>."
+    access_denied:
+      message: "Вы не авторизованы для выполнения данного действия."
+    index_list:
+      table: "Таблица"
+      block: "Список"
+      grid: "Сетка"
+      blog: "Блог"
