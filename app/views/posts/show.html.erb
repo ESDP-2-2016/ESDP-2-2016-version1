@@ -78,7 +78,7 @@
                 <% if @post.open != false %>
                   <div class="post-aids-num"><%= t(".Responded") %>: <span><%= @aids_all.length %></span></div>
                   <% @aids_all.each do |aid| %>
-                    <div class="aid-item post new">
+                    <div class="aid-item post">
                       <div class="aid-author">
                         <div><span class="glyphicon glyphicon-user"></span><%= aid.user.name %></div>
                         <div><%= t(".Organization") %>: <b><%= aid.organization.name %></b></div>
@@ -86,17 +86,15 @@
                       <% if user_signed_in? && (current_user == @post.user) %>
                           <% if aid.status == 0 %>
                             <div class="aid-status">
-                              <span class="glyphicon glyphicon-eye-open"></span>
+                              <span class="glyphicon glyphicon-eye-close"></span>
                               <%= link_to "Принять", aid_accepted_path(aid.id, up_status: 1), method: :put %>
                             </div>
-                          <% elsif aid.status == 1 %>
-                              <div class="aid-status">
-                                <span class="glyphicon glyphicon-eye-close"></span>
-                                <span>Просмотрено</span>
-                              </div>
+                          <% else %>
+                            <div class="aid-status">
+                              <span class="glyphicon glyphicon-eye-open"></span>
+                              <span>Просмотрено</span>
+                            </div>
                           <% end %>
-
-                        <%= link_to "Одобрить", aid_accepted_path(aid.id, up_status: 2), method: :put %>
                       <% end %>
                     </div>
                   <% end %>

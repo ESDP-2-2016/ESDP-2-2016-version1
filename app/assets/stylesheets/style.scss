@@ -241,6 +241,23 @@ h5{
     border-radius: 0;
     width: 100%;
   }
+  .aid-status{
+    font-size: 13px;
+    position: relative;
+    padding: 0 0 0 20px;
+    .glyphicon{
+      color: #337ab7;
+      font-size: 14px;
+      position: absolute;
+      top: 1px;
+      left: 0;
+    }
+  }
+  .aid-status.error{
+    .glyphicon{
+      color: #ff0000;
+    }
+  }
 }
 
 .message-post-deleted{
@@ -298,14 +315,14 @@ h5{
       }
     }
     .user-organizations {
-      padding: 0 0 20px;
+      padding: 0 0 30px;
     }
     .user-organization {
       padding: 0 210px 5px 0;
       margin: 0 0 15px;
       border-bottom: 1px dotted #ccc;
       position: relative;
-      span {
+      .user-org-action {
         margin: 0 10px;
         font-size: 14px;
         width: 200px;
@@ -331,31 +348,54 @@ h5{
       font-weight: normal;
     }
     .post-item-aid{
+      padding: 0 0 20px;
       .aid-author > div{
         display: inline-block;
         margin: 0 15px 0 0;
       }
+    }
+    .aid-org{
+      padding: 0 0 5px;
     }
     .aid-description{
       padding: 0 0 10px;
       font-size: 13px;
       color: #444;
     }
-
+    .post-item-aid-bot{
+      em{
+        font-size: 12px;
+        color: #444;
+      }
+      .glyphicon-ok{
+        color: green;
+      }
+    }
   }
-}
-
-
-
-.not-active-post{
-  padding: 20px 0;
-}
-.user-order{
-  p, li{
-    font-size: 14px;
-    color: #888888;
+  .not-active-post{
+    padding: 20px 0;
   }
+  .user-orders{
+    padding: 0 0 20px;
+  }
+  .user-order{
+    padding: 0 0 7px;
+    p, li{
+      font-size: 14px;
+      color: #888888;
+    }
+  }
+  .aid-publ{
+    font-size: 13px;
+    line-height: 1.3;
+    padding: 0 0 8px;
+  }
+
 }
+
+
+
+
 
 
 
