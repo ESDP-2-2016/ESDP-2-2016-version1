@@ -419,3 +419,29 @@ h5{
   width: 100%;
   height: 100%;
 }
+.new_message a{
+  color: #1761b7 !important;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  padding: 13px 13px 0 0!important;
+}
+.new_message:hover a{
+  background: none!important;
+}
+
+.new_message a span{
+  background: red;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top:6px;
+  right:4px;
+  font-family:Sans-Serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  line-height:15px;
+}

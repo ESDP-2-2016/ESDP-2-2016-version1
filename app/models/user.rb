@@ -15,5 +15,9 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  def unread_aids
+    @user_posts_aids = Aid.find_by_sql("SELECT * FROM Aids WHERE post_id IN (SELECT id FROM Posts WHERE user_id = " + self.id.to_s + ") AND status = 0")
+  end
 end
 
