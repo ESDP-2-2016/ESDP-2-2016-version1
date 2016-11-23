@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get 'registrations/show/:id' => 'registrations#show', as: 'user_profile'
   end
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+
   # scope '(/:locale)', locale: /ru/, defaults: { locale: I18n.locale } do
     ActiveAdmin.routes(self)
   # end
