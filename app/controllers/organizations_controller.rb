@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      UserMailer.welcome_email(AdminUser.first,@organization.id,@organization.name,current_user).deliver_now
+      UserMailer.welcome_email(User.where(admin: true).first,@organization.id,@organization.name,current_user).deliver_now
       flash[:success] = t(".create")
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
                                                     user_id: current_user.id, role: 1,approved: true)

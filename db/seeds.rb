@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'ffaker'
 
-AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
-
+# AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
+User.create!(name:"socialhubs",phone: '0556190010',email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016',admin: true)
 MetaTag.create!(
     title: 'Помомщь социально уязвимым слоям населения',
     keywords: 'Кыргызстан, Бишкек, благотворительность, Десткий-дом, Дом-интернат,
