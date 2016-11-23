@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
     flash[:danger] = exception.message
     redirect_to root_url
   end
-
-
   private
 
   def configure_permited_parameters
