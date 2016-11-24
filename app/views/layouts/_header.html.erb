@@ -10,10 +10,10 @@
         <li><%= link_to t("layouts._header.About Project"), about_index_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('layouts._header.select language') %><span class="caret"></span></a>
-          <%= link_to "Russian", change_locale_path(:ru) %>
           <ul class="dropdown-menu lang">
             <%= link_to "English", change_locale_path(:en) %>
             <li role="separator" class="divider"></li>
+            <%= link_to "Russian", change_locale_path(:ru) %>
           </ul>
         </li>
       </ul>

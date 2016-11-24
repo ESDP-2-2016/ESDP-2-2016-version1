@@ -138,6 +138,7 @@ class OrganizationsController < ApplicationController
   def show
     # @organization = Organization.find_by(slug: params[:id])
     @org_user = @organization.user_organizations.find_by(organization_id: @organization.id,role:1)
+    @org_user_participant = @organization.user_organizations.find_by(organization_id: @organization.id, role:2, user_id: current_user.id)
     @post = Post.where(organization_id: @organization.id)
     unless @org_user.nil?
       @user = @org_user.user

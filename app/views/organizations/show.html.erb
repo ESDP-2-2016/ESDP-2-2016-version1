@@ -34,31 +34,38 @@
       <% end %>
     </div>
 
-    <% if user_signed_in? && (current_user == @user) %>
-      <%= link_to t('.Edit'), edit_organization_path(@organization) %>
-    <%else %>
+    <% if user_signed_in? %>
+      <% if current_user == @user %>
+        <%= link_to t('.Edit'), edit_organization_path(@organization) %>
+      <% elsif @org_user_participant == nil %>
         <%= link_to t('.join to organization'), organization_participation_request_path(@organization), method: :post %>
-    <% end  %>
-    <hr>
-    <div class="posts-all">
-      <% @post.each do |post| %>
-          <div class="post col-md-4">
-            <div class="panel panel-success">
-              <div class="panel-heading">
-                <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
-              </div>
-              <div class="panel-body">
-                <p><%= t(".Category") %>: <%= post.post_category.name %> </p>
-                <p><%= t(".Organization") %>: <%= post.organization.name %></p>
-                <p><%= t(".Author") %>: <%= post.user.name %></p>
-                <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
-                <div class="text-right">
-                  <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
+      <% end  %>
+    <% end %>
+
+    <div class="post-all-orgs">
+      <h3><%= t('.Publications') %>:</h3>
+      <div class="posts-all">
+        <% @post.each do |post| %>
+            <div class="post">
+              <div class="panel">
+                <% (post.post_category.id == 1) ? div_class = 'panel-category help' : div_class = 'panel-category' %>
+                <div class="<%= div_class %>">
+                  <%= post.post_category.name %>!
+                </div>
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
+                </div>
+                <div class="panel-body">
+                  <div><span class="glyphicon glyphicon-user"></span><%= post.user.name %></div>
+                  <div><span class="glyphicon glyphicon-time"></span><%= post.created_at.strftime("%d %b %Y" ) %></div>
                 </div>
               </div>
-            </div>
-          </div>
-      <% end %>
-    </div>
+            </div><!--/post-->
+        <% end %>
+      </div>
+    </div><!--/post-all-orgs-->
   </div>
 </div>
+
+
+
