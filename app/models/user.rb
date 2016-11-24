@@ -19,5 +19,8 @@ class User < ApplicationRecord
   def unread_aids
     @user_posts_aids = Aid.find_by_sql("SELECT * FROM Aids WHERE post_id IN (SELECT id FROM Posts WHERE user_id = " + self.id.to_s + ") AND status = 0")
   end
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
 end
 

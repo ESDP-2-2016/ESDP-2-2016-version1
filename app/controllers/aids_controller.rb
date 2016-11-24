@@ -7,7 +7,7 @@ class AidsController < ApplicationController
     if @aid.save
       @post = Post.find_by(id: @aid.post_id)
       @authorid = @post.user_id.to_i
-      UserMailer.aid_reply(User.find_by(id: @authorid),AdminUser.first).deliver_now
+      UserMailer.aid_reply(User.find_by(id: @authorid),User.first).deliver_now
       redirect_to :back
       flash[:success] = 'Ваше сообщение отправлено! Мы свяжемся с Вами в ближайшее время!'
     else

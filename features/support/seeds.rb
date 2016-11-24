@@ -7,7 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'ffaker'
 
-AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
+# AdminUser.create!(email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016')
+User.create!(name:"socialhubs",phone: '0556190010',email: 'socialhubs2016@gmail.com', password: 'bishkek2016', password_confirmation: 'bishkek2016',admin: true)
+MetaTag.create!(
+    title: 'Помомщь социально уязвимым слоям населения',
+    keywords: 'Кыргызстан, Бишкек, благотворительность, Десткий-дом, Дом-интернат,
+   Дом-престарелых, Специализированный дом ребёнка',
+    description: 'Инструмент для визуального представления о количестве и качестве социальных объектов
+         (детских домов, домов для престарелых, домов по уходу за детьми с ограниченными возможностями
+          здоровья, временные убежища для женщин,
+          пострадавших от домашнего насилия).
+          Дать сотрудникам социальных объектов инструмент для привлечения внимания со
+          стороны государственных органов и сообщества.'
+)
+
+About.create!(
+    title: 'О проекте',
+    description: 'Эта страничка О нас. Она создается из админки.',
+    meta_title: 'мета заголовок модели о проекте',
+    meta_description: 'описание страницы о проекте для мета тэга description',
+    meta_keywords: 'SocialHubs, о проекте, ключевые слова'
+)
 
 user1 = User.create!(name: FFaker::NameRU.name, phone: '0700620000', email: 'user1@example.com', password: '123456', password_confirmation: '123456')
 user2 = User.create!(name: FFaker::NameRU.name, phone: '0555671214', email: 'user2@example.com', password: '123456', password_confirmation: '123456')
@@ -17,7 +37,7 @@ user5 = User.create!(name: "User_5", phone: '0556190010', email: 'user5@example.
 
 users = User.all
 
-about = About.create!(description: 'Эта страничка О нас. Она создается из админки.')
+
 
 organization_category_1 = OrganizationCategory.create!(
     name: 'Активисты',
@@ -26,7 +46,7 @@ organization_category_1 = OrganizationCategory.create!(
 )
 organization_category_2= OrganizationCategory.create!(
     name: 'Детский дом',
-    description: 'Детскиое учреждение',
+    description: 'Детские учреждения',
     active: true
 )
 organization_category_3 = OrganizationCategory.create!(
@@ -74,95 +94,103 @@ organizations = Organization.create!([
                                              oblast_id: oblast_1.id,
                                              location: 'г. Бишкек',
                                              address: 'Кыргызстан, Чуйская область, г. Бишкек',
-                                             phone: '+996313433172',
+                                             phone: '0555333344',
                                              organization_category_id: organization_category_1.id,
                                              active: true,
                                              latitude: '42.87596410238256',
-                                             longitude: '74.54360961914062'
+                                             longitude: '74.54360961914062',
+                                             description: 'Волонтеры, неравнодушные, активные жители'
                                          },
                                          {
                                              name: 'Военно-Антоновский детский дом',
                                              oblast_id: oblast_9.id,
                                              location: 'с. Военно-Антоновка',
                                              address: 'Кыргызстан, Чуйская область, Сокулукский район, с. Военно-Антоновка, ул. Фрунзе, 118',
-                                             phone: '+996313433172',
+                                             phone: '0700887766',
                                              organization_category_id: organization_category_2.id,
                                              url: 'www.v-adetdom.kg',
                                              active: true,
                                              latitude: '42.9008671451945',
-                                             longitude: '74.64300155639648'
+                                             longitude: '74.64300155639648',
+                                             description: 'Детский дом семейного типа'
                                          },
                                          {
                                              name: 'Ак-Суйский детский дом',
                                              oblast_id: oblast_5.id,
                                              location: 'с. Теплоключенка',
                                              address: 'Кыргызстан, Иссык-Кульская область, Ак-Суйский район, с. Теплоключенка, ул. Ленина, 152',
-                                             phone: '+996394891109',
+                                             phone: '0555891109',
                                              organization_category_id: organization_category_2.id,
                                              url: '',
                                              active: true,
-                                             latitude: '42.91155476081381',
-                                             longitude: '74.59613800048828'
+                                             latitude: '42.4991874040583',
+                                             longitude: '78.52306365966797',
+                                             description: 'Детский дом семейного типа'
                                          },
                                          {
                                              name: 'Бишкекский городской дом-интернат общего типа для престарелых',
                                              oblast_id: oblast_9.id,
                                              location: 'г. Бишкек',
                                              address: 'Кыргызстан, Чуйская область, Первомайский район, г. Бишкек, ул. Абая, 57',
-                                             phone: '+996312540305',
+                                             phone: '0555009988',
                                              organization_category_id: organization_category_3.id,
                                              url: ' www.dominter.biz',
                                              active: true,
                                              latitude: '42.86413792617463',
-                                             longitude: '74.58824157714844'
+                                             longitude: '74.58824157714844',
+                                             description: 'Дом-интернат общего типа для престарелых'
                                          },
                                          {
                                              name: 'Дом-интернат для пожилых людей Ленинского района мэрии г. Бишкек',
                                              oblast_id: oblast_9.id,
                                              location: 'г. Бишкек',
                                              address: 'Кыргызстан, Чуйская область, Ленинский район, г. Бишкек, ул. Интергельпо, 8',
-                                             phone: '+996312653711',
+                                             phone: '0777232323',
                                              organization_category_id: organization_category_3.id,
                                              url: '',
                                              active: true,
                                              latitude: '42.850799307092515',
-                                             longitude: '74.6407699584961'
+                                             longitude: '74.6407699584961',
+                                             description: 'Дом-интернат общего типа для престарелых'
                                          },
                                          {
                                              name: 'Орловский детский дом',
                                              oblast_id: oblast_9.id,
                                              location: 'пгт. Орловка',
                                              address: 'Кыргызстан, Чуйская область, Кеминский район, пгт. Орловка, ул. Победы, 16',
-                                             phone: '+996313723459',
+                                             phone: '0702454545',
                                              organization_category_id: organization_category_2.id,
                                              url: '',
                                              active: true,
-                                             latitude: '42.124115125125',
-                                             longitude: '75.1241215125'
+                                             latitude: '42.74679156623176',
+                                             longitude: '75.58990716934204',
+                                             description: 'Детский дом'
                                          },
                                          {
                                              name: 'Специализированный дом ребёнка (СДР)',
                                              oblast_id: oblast_9.id,
                                              location: 'г. Бишкек',
                                              address: 'Кыргызстан, Чуйская область, Октябрьский район, г. Бишкек, ул. Белорусская, 121',
-                                             phone: '+996313862971',
+                                             phone: '0772020202',
                                              organization_category_id: organization_category_2.id,
                                              url: '',
                                              active: true,
                                              latitude: '42.835947266683796',
-                                             longitude: '74.60609436035156'
+                                             longitude: '74.60609436035156',
+                                             description: 'Дом ребенка'
                                          },
                                          {
                                              name: 'Rotary club',
                                              oblast_id: oblast_9.id,
                                              location: 'г. Бишкек',
                                              address: 'Кыргызстан, Чуйская область, Октябрьский район, г. Бишкек, ул. Солнечная, 121',
-                                             phone: '+996312345678',
+                                             phone: '0558232323',
                                              organization_category_id: organization_category_4.id,
                                              url: '',
                                              active: true,
                                              latitude: '42.435947266683796',
-                                             longitude: '74.20609436035156'
+                                             longitude: '74.20609436035156',
+                                             description: 'Благотворительная организация'
                                          }
                                      ])
 
@@ -170,27 +198,27 @@ UserOrganization.create!([
                              {
                                  user_id: user1.id,
                                  organization_id: organizations[0].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user2.id,
                                  organization_id: organizations[0].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user3.id,
                                  organization_id: organizations[0].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user4.id,
                                  organization_id: organizations[0].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user5.id,
                                  organization_id: organizations[0].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user1.id,
@@ -205,12 +233,12 @@ UserOrganization.create!([
                              {
                                  user_id: user1.id,
                                  organization_id: organizations[5].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user2.id,
                                  organization_id: organizations[3].id,
-                                 role: 2
+                                 role: 2, approved: true
                              },
                              {
                                  user_id: user2.id,
@@ -644,6 +672,67 @@ posts_data = [
     {
         title: 'Давайте поможем Дому Малютки!',
         body: 'Скоро 1 июня и многие захотят оказать помощь детям. Мы с подругами побывали в Доме малютке на Белорусской 121, отвезли немного вещей (акт прилагается, выложу утром). Администрация передала список нужд детей, просили помочь по этому списку. Если кто-нибудь может поехать к ним и что-то передать, просьба при передаче вещей просить акт приема комиссией и по возможности приехать к ним еще разок через месяцок в гости к детям и глянуть, ходят ли дети в ваших футболках, проводятся ли занятия и игры с вашими игрушками и т.д. Помогать - это хорошо, но и проверять, по назначению ли пошла помощь, не грех! Заранее спасибо откликнувшимся! ',
+        keywords: "Малютка, помощь, дети",
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+    },
+    {
+        title: 'СРОЧНО! НУЖНА ПОМОЩЬ МАЛЬЧИКУ! Необходима операция за рубежом!',
+        body: 'Акбарову Азамату срочно нужна ваша помощь! Его диагноз - двусторонняя нейросенсорная тугоухость. Он совсем не слышит! После долгих обследований, консультаций у врачей, мы узнали, что у нас еще есть возможность помочь Азамату. Операцию по восстановлению слуха будем делать в Турции. Расходы на операцию взяла на себя Турецкая компания. Нам нужны деньги для госпитализации и реабилитации. Необходима сумма в размере 10 000$. Операция будет в течении этого месяца (октябрь). Собрать такие деньги в короткий срок, у нас нет возможности.',
+        keywords: "Помощь, дети",
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+
+    },
+    {
+        title: 'Нужна помощь беременной девушке',
+        body: 'Сегодня утром на Ортосайском базаре увидела беременную женщину лет 33-35. По сроку примерно 30 недель. Подруга сказала оказывается каждый день стоит там. Подошла спросила нужна ли помощь. Она попросила только одежду для детей для новорожденного и девочки 2,5 года. Живет в 10 микро. Вещи можно отвезти ей домой или на Ортосайский базар около Серкова стоит с 10 до 12 утра каждый день. ',
+        keywords: 'Помощь',
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+    },
+    {
+        title: 'Токмакскому дому ребенка требуется помощь!!!!',
+        body: 'Токмакскому дому ребенка требуется помощь! Дети от 0 до 6 лет! Вещи,обувь,пеленки можно б\у. Детское питание.
+                Канц.товары(ручки, карандаши, пластилин, клей, альбомы, раскраски и т.д).
+                Мыло моющие средства(мыло, стиральный порошок, белизна, влажные салфетки, памперсы, хлорка и т.д).
+                Игрушки,кубики не ЛЕГО.',
+        keywords: "Помощь, дети",
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+    },
+    {
+        title: 'Семейный детский дом, нуждается в помощи',
+        body: 'В нашем семейном детском доме воспитывается 10 детей сирот, мы как семейный детский дом существуем с 1996 года, старшие взрослые дети уходят, приходят маленькие дети 6 - 8 лет. Мы уверены что есть добрые отзывчивые люди, которые хотят помочь таким детям, будем рады любой помощи.',
+        keywords: "Помощь, дети",
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+    },
+    {
+        title: 'Требуется помощь с жильем!',
+        body: 'Нужна помощь с жильем нужен дом или пол дома в Бишкеке. Мы семья с 4 детьми живем в съемной квартире что очень трудно. Если у кого есть дом в котором не живете и продавать срочно не надо пожалуйста отзовитесь.',
+        keywords: 'Помощь, жилье',
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+    },
+    {
+        title: 'Сосновский кризисный центр нуждается в финансировании',
+        body: 'Здравствуйте, сегодня Сосновский кризисный центр нуждается в финансировании. В с. Сосновка группой энтузиастов ведется строительство кризисного центра для женщин на 4-ре семьи, где женщины лишенные жилья или оставшиеся с детьми и без крова будут проходить реабилитацию и получать возможность жить дальше. Уже есть семьи , которым нужна реабилитация, но у нас на данный момент нет возможности довести строительство до конца из-за отсутствия финансирования. Дом уже строится 3 года, по инновационным технологиям из ЛСТК конструкций.',
+        keywords: 'Помощь, кризисный центр',
+        post_category: post_categories.first,
+        organization: user_organizations[0].organization,
+        user: user_organizations[0].user
+    },
+    {
+        title: '9-ти летнему Сереже нужна кровь!!!',
+        body: 'Нужна кровь любой группы крови (Желательно 4+)!!! Кто может сдать кровь любой группы в центре крови по Манаса для ребёнка у которого лейкоз. Он на данный момент находится на лечении в нашей детской онкологии. Сдать нужно для Сергея Юнкер 9 лет. Потом квитанцию передать маме.',
+        keywords: 'Помощь, нужна кровь',
         post_category: post_categories.first,
         organization: user_organizations[0].organization,
         user: user_organizations[0].user
@@ -684,15 +773,15 @@ end
 
 posts = Post.all
 
-50.times do
-  PostComment.create!([
-                          {
-                              body: FFaker::Lorem.paragraph,
-                              post: posts[rand(0...posts.size)],
-                              user: users[rand(0...users.size)]
-                          }
-                      ])
-end
+# 50.times do
+#  PostComment.create!([
+#    {
+#      body: FFaker::Lorem.paragraph,
+#      post: posts[rand(0...posts.size)],
+#      user: users[rand(0...users.size)]
+#    }
+#  ])
+# end
 
 aid_posts = Post.all.where(post_category_id: 1)
 

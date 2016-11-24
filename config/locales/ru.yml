@@ -27,6 +27,7 @@ ru:
           Create new post: 'Создать новую публикацию'
           Exit: 'Выход'
           select language: 'Выбрать язык'
+          Dashboard: "Панель управления"
           View profile: 'Личный кабинет'
           Account: 'Мой профиль'
           Help: 'Помощь'
