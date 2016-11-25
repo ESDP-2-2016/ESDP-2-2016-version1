@@ -578,7 +578,7 @@ h5{
   background: none!important;
 }
 
-.new_message a span{
+.new_message a .red_circle{
   background: red;
   color: #fff;
   width: 15px;
@@ -592,4 +592,18 @@ h5{
   font-weight: 600;
   text-align: center;
   line-height:15px;
+}
+
+.red_circle{
+  animation: blink 1s infinite linear;
+  -webkit-animation:  blink 1s infinite linear;
+}
+
+@-webkit-keyframes blink {
+  50% { opacity: 0; }
+  100% { opacity: 1;}
+}
+@keyframes blink {
+  50% { opacity: 0; }
+  100% { opacity: 1;}
 }
