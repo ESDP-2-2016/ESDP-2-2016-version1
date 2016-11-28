@@ -26,3 +26,5 @@
 
 # Ignore test/ directory if someone creates it again
 /test/**/*
+
+public/assets/**
