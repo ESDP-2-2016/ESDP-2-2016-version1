@@ -17,6 +17,10 @@ When(/^ввожу в поле "([^"]*)" текст "([^"]*)"$/) do |field, value
   fill_in field, with:value
   sleep(0.5)
 end
+When(/^ввожу в поле ckeditor "([^"]*)" текст "([^"]*)"$/) do |field, value|
+  fill_in_ckeditor field, with:value
+  sleep(0.5)
+end
 
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
   page.assert_text(text)

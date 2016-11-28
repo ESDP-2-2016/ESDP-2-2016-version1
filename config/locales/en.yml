@@ -44,6 +44,8 @@ en:
         form:
               Published by: "Published by"
               Publish: "Publish"
+        deactivate:
+                    deactivate: 'Post deleted!'
 
   hello: "Hello world"
 

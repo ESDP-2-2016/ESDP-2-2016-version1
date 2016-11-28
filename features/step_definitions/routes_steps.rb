@@ -37,6 +37,10 @@ When(/^я на странице админ "\/admin\/organizations"$/) do
   visit admin_organizations_path
   sleep(0.5)
 end
+When(/^я на странице админ публикации "\/admin\/posts"$/) do
+  visit admin_posts_path
+  sleep(0.5)
+end
 
 When(/^перехожу на "\/organizations\/list"$/) do
   visit ('/organizations/list')

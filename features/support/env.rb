@@ -71,12 +71,26 @@ After('@logout') do
   end
 end
 
+# Used to fill ckeditor fields
+# @param [String] locator label text for the textarea or textarea id
+def fill_in_ckeditor(locator, params = {})
+  # Find out ckeditor id at runtime using its label
+  locator = find('label', text: locator)[:for] if page.has_css?('label', text: locator)
+  # Fill the editor content
+  page.execute_script <<-SCRIPT
+      var ckeditor = CKEDITOR.instances.#{locator}
+      ckeditor.setData('#{params[:with]}')
+      ckeditor.focus()
+      ckeditor.updateElement()
+  SCRIPT
+end
+
 
 Before('@logadmin') do
-  visit new_admin_user_session_path
-  fill_in "Эл. почта", with:"socialhubs2016@gmail.com"
-  fill_in "Пароль",with: "bishkek2016"
-  click_button "Войти"
+  visit new_user_session_path
+  fill_in "Email", with:"socialhubs2016@gmail.com"
+  fill_in "Password",with: "bishkek2016"
+  click_button "Log in"
 end
 
 at_exit do

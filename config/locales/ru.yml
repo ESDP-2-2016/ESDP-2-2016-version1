@@ -154,6 +154,8 @@ ru:
             Assistance was: "Помощь оказали"
       create:
             create: "Вы создали публикацию!"
+      deactivate:
+                  deactivate: 'Вы удалили публикацию!'
   registrations:
       show:
             Status: "Статус"

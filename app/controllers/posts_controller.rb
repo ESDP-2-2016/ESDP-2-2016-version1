@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   def deactivate
     # @post = Post.find(params[:id])
     @post.update_attribute(:active, false)
-    flash[:success] = 'Вы удалили пост!'
+    flash[:success] = t('.deactivate')
     redirect_to posts_path
   end
 
