@@ -31,8 +31,9 @@
         <h2><%= t(".Organizations in which you participant") %>: </h2>
         <ul>
         <% @participant_organizations.each do |item| %>
+            <% id=item.organization.slug %>
             <% if item.organization.active == true %>
-                <li><%= item.organization.name %></li>
+                <li><%= link_to item.organization.name, organization_show_path(id) %></li>
             <% end %>
         <% end %>
         </ul>
@@ -123,7 +124,7 @@
               <div><span class="glyphicon glyphicon-time"></span><%= aid.created_at.strftime("%d %b %Y") %></div>
               <div class="aid-publ"><%= t(".Published from name organization") %>: <b><%= aid.organization.name %></b></div>
             </div>
-            <p><%= link_to aid.post.title, post_path(aid.post.slug) %></p>
+            <p class="post-title"><%= link_to aid.post.title, post_path(aid.post.slug) %></p>
             <p><%= aid.description %></p>
             <% if aid.status == 0 %>
               <div class="aid-status"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded") %></div>

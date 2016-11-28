@@ -99,7 +99,7 @@ ru:
         Read: "Читать"
         Location of organization on the map: "Расположение организации на карте"
         For the organization is no information on its location on the map!: "Для данной организации нет информации о ее расположении на карте!"
-
+        Publications: "Публикации"
   post_comments:
       _form:
       edit:
