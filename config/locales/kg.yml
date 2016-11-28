@@ -1,4 +1,4 @@
-ru:
+kg:
   about:
       _form:
       index:
@@ -15,7 +15,7 @@ ru:
       unlocks:
   layouts:
       _header:
-          Donors: 'Доноры'
+          Donors: 'Донорбек'
           Organizations: 'Организации'
           All Posts: 'Все публикации'
           About Project: 'О проекте'
