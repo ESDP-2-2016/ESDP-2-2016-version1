@@ -26,7 +26,7 @@ en:
         approved:
               success: "Your request approved"
         create:
-              create: "your organization create request sent to admin"
+               "your organization create request sent to admin"
         deactivate:
               deactivate: "your organization deleted"
         index:

@@ -22,6 +22,7 @@ class OrganizationsController < ApplicationController
     if organization_params
       # If data submitted already by the form we call the create method
       create
+      p params
       return
     end
 
@@ -33,7 +34,9 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      UserMailer.welcome_email(User.where(admin: true).first,@organization.id,@organization.name,current_user).deliver_now
+      User.where(admin: true).each do |item|
+      UserMailer.welcome_email(item,@organization.id,@organization.name,current_user).deliver_now
+      end
       flash[:success] = t(".create")
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
                                                     user_id: current_user.id, role: 1,approved: true)
