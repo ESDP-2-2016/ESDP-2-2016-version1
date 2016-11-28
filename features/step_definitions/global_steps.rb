@@ -12,6 +12,10 @@ When(/^кликаю на кнопку "([^"]*)"$/) do |button|
   click_button button
   sleep(0.5)
 end
+When(/^ввожу в поле phone "([^"]*)" текст "([^"]*)"$/) do |field, value|
+  fill_in field, with:value.to_s
+  sleep(1.5)
+end
 
 When(/^ввожу в поле "([^"]*)" текст "([^"]*)"$/) do |field, value|
   fill_in field, with:value

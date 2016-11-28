@@ -59,7 +59,8 @@
       <div class="form-group row <%= 'has-error' if @organization.errors[:name].any? %>">
         <%= f.label :phone, class: "col-sm-4 control-label" %>
         <div class="col-sm-6">
-          <%= f.text_field :phone, class: "form-control phone", placeholder: "0XXXXXXXXX" %>
+          <%= f.text_field :phone, placeholder: "0555123456" %>
+          <%#= f.text_field :phone, class: "form-control phone", placeholder: "0XXXXXXXXX" %>
           <%= render 'shared/field_errors', object: @organization, field_name: :phone %>
         </div>
       </div>
