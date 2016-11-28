@@ -55,7 +55,7 @@ ru:
             deactivate: 'Вы удалили организацию!'
       index:
             details: "подробно"
-            All posts: "Посмотреть все публикации"
+            Last posts: "Последние публикации"
             Category: "Категория"
             Organization: "Организация"
             Author: "Автор"
