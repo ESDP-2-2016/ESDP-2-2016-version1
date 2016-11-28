@@ -71,6 +71,7 @@ After('@logout') do
   end
 end
 
+
 # Used to fill ckeditor fields
 # @param [String] locator label text for the textarea or textarea id
 def fill_in_ckeditor(locator, params = {})
