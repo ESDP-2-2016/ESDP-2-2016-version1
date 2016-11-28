@@ -26,8 +26,7 @@
         <div><%= t(".My location") %></div>
       </div>
      <div class="imagebox col-md-3">
-
-       <div><a href="#post_section" class="btn btn-primary"><%= t(".All posts")%></a></div>
+       <div><a href="#post_section" class="link-scroll btn btn-primary"><%= t(".Last posts")%></a></div>
      </div>
     </div>
   </div>
@@ -41,24 +40,17 @@
 <ul id="result"></ul>
 <div class="container" id="post_section">
   <% content_for :title, "Главная" %>
-
-    <div class="block_needhelp">
-      <h2><%= t(".Request about help") %></h2>
-      <hr>
+  <h2><%= t(".Request about help") %></h2>
+    <div class="posts-all">
       <% @posts.each do |post| %>
-          <div class="post col-md-4">
-            <div class="panel panel-success">
+          <div class="post">
+            <div class="panel">
               <div class="panel-heading">
                 <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
               </div>
               <div class="panel-body">
-                <p><%= t(".Category") %>: <%= post.post_category.name %> </p>
-                <p><%= t(".Organization") %>: <%= post.organization.name %></p>
-                <p<%= t(".Author") %>: <%= post.user.name %></p>
-                <p><%= t(".Published") %>: <%= post.created_at.strftime("%d %b. %Y") %></p>
-                <div class="text-right">
-                  <%= link_to t(".Read"), post_path(post), class: "btn btn-default" %>
-                </div>
+                <div><span class="glyphicon glyphicon-user"></span><%= post.user.name %></div>
+                <div><span class="glyphicon glyphicon-time"></span><%= post.created_at.strftime("%d %b %Y" ) %></div>
               </div>
             </div>
           </div>

@@ -9,6 +9,19 @@ $(document).ready(function () {
         $(this).next('.post-item-content').slideToggle();
     });
 
+
+    $('.link-scroll').click(function(e){
+      e.preventDefault();
+      var id_block = $(this).attr('href');
+      var top = $(id_block).offset().top;
+        console.log(top);
+        var top = $(id_block).offset().top - 70;
+        console.log(top);
+      $('body').animate({scrollTop: top}, 1500);
+    });
+
+
+
     var all_org = $("#organization-list").html();
 
     function renderOneOrg(org){
