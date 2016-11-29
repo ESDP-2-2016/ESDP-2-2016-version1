@@ -10,7 +10,7 @@
     <div class="col-md-6">
       <h5><%= t(".General information about the organization") %>:</h5>
       <ul>
-        <li><%= t(".Description") %>: <%= @organization.description %></li>
+        <li><%= t(".Description") %>: <%= @organization.description.html_safe %></li>
         <li><%= t(".Location") %>: <%= @organization.location %></li>
         <li><%= t(".Oblast") %>: <%= @organization.oblast.name %></li>
         <li><%= t(".Address") %>: <%= @organization.address %></li>
