@@ -2,9 +2,6 @@ class OrganizationsController < ApplicationController
   before_filter :only => [:show, :edit, :update, :destroy, :participation_request, :deactivate] do
     @organization = Organization.find_by_slug!(params[:id])
   end
-  # def to_param
-  #   "#{id}-#{title.parameterize}"
-  # end
 
   def index
     @posts = Post.all.where(post_category_id:1).order(created_at: :desc).last(4)
@@ -13,7 +10,6 @@ class OrganizationsController < ApplicationController
   end
 
   def new
-    # @organization = Organization.new
     if organization_params
       # If data submitted already by the form we call the create method
       create
@@ -42,7 +38,6 @@ class OrganizationsController < ApplicationController
   end
 
   def participation_request
-    # @organization = Organization.find(params[:id])
     @user_organization = UserOrganization.new(organization_id: @organization.id,
                                               user_id: current_user.id, role: 2,approved: false)
     if @user_organization.save
@@ -61,11 +56,10 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    # @organization = Organization.find(params[:id])
+
   end
 
   def update
-    # @organization = Organization.find(params[:id])
     if @organization.update(organization_params)
       redirect_to organizations_list_path
     else
@@ -74,9 +68,7 @@ class OrganizationsController < ApplicationController
   end
 
   def deactivate
-    # @organization = Organization.find(params[:id])
     @organization.update_attribute(:active, false)
-
     flash[:success] = t(".deactivate")
     redirect_to root_path
   end
@@ -99,15 +91,8 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    # @organization=Organization.find(params[:id])
     @organization.destroy
     redirect_to :back
-    # @organization.destroy
-    # if @organization.delete
-    #   flash[:success] ='organization has been deleted'
-    # else
-    #   render @organization
-    # end
   end
 
   def filter_organizations
@@ -134,9 +119,10 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    # @organization = Organization.find_by(slug: params[:id])
     @org_user = @organization.user_organizations.find_by(organization_id: @organization.id,role:1)
-    @org_user_participant = @organization.user_organizations.find_by(organization_id: @organization.id, role:2, user_id: current_user.id)
+    if user_signed_in?
+      @org_user_participant = @organization.user_organizations.find_by(organization_id: @organization.id, role:2, user_id: user_participant.id)
+    end
     @post = Post.where(organization_id: @organization.id)
     unless @org_user.nil?
       @user = @org_user.user

@@ -47,8 +47,10 @@
               <div class="post-item col-md-12">
                 <div class="inner">
                   <h5 class="post-item-link"><%= link_to post.title, post_path(post) %></h5>
-                  <div class="post-aids-num">Откликнулись: <span><%= post.aids.length %></span></div>
-                  <ul>
+                  <div class="post-aids-num">Откликнулись: <span><%= post.aids.length %></span>
+                    <a href="" style="margin-left: 30px;">Смотреть отклики</a>
+                  </div>
+                  <ul class="post-aids-list">
                     <% post.aids.each do |post_aid| %>
                         <li class="post-item-aid">
                           <div class="aid-author">

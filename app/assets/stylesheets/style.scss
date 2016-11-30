@@ -267,13 +267,21 @@ h5{
       position: absolute;
       top: 1px;
       left: 0;
+      &.glyphicon-ok{
+        color: #04751b;
+      }
     }
+
   }
   .aid-status.error{
     .glyphicon{
       color: #ff0000;
     }
   }
+}
+
+.post-aids-list{
+  display: none;
 }
 
 .message-post-deleted{

@@ -2,8 +2,9 @@
 <% meta_tag :title, @about.meta_title %>
 <% meta_tag :description, @about.meta_description %>
 <% meta_tag :keywords, @about.meta_keywords %>
-
-<div class="htmlpage">
-  <h1><%= @about.title %></h1>
-  <div><%= @about.description.html_safe %></div>
+<div class="container">
+  <div class="htmlpage">
+    <h1><%= @about.title %></h1>
+    <div><%= @about.description.html_safe %></div>
+  </div>
 </div>

@@ -5,8 +5,8 @@
 <% meta_tag :description, @organization.description  %>
 
 <div class="container">
+  <h1><%= @organization.name %></h1>
   <div class="row">
-    <h1><%= @organization.name %></h1>
     <div class="col-md-6">
       <h5><%= t(".General information about the organization") %>:</h5>
       <ul>
@@ -17,23 +17,20 @@
         <li><%= t(".Phone") %>: <%= @organization.phone %></li>
       </ul>
     </div>
-
     <div class="col-md-6">
       <h4><%= t(".Location of organization on the map") %>:</h4>
-
       <% unless @organization.latitude.empty? || @organization.longitude.empty? %>
-          <div class="org-coordinate">
-            <div id="org-latitude"><%= @organization.latitude %></div>
-            <div id="org-longitude"><%= @organization.longitude %></div>
-          </div>
-
-          <div id="organization-map" class="organization-map"></div>
-      <br><br>
+        <div class="org-coordinate">
+          <div id="org-latitude"><%= @organization.latitude %></div>
+          <div id="org-longitude"><%= @organization.longitude %></div>
+        </div>
+        <div id="organization-map" class="organization-map"></div>
       <% else %>
       <p><%= t(".For the organization is no information on its location on the map!") %></p>
       <% end %>
     </div>
-
+  </div><!--/row-->
+  <div>
     <% if user_signed_in? %>
       <% if current_user == @user %>
         <%= link_to t('.Edit'), edit_organization_path(@organization) %>
@@ -41,30 +38,31 @@
         <%= link_to t('.join to organization'), organization_participation_request_path(@organization), method: :post %>
       <% end  %>
     <% end %>
-
-    <div class="post-all-orgs">
-      <h3><%= t('.Publications') %>:</h3>
-      <div class="posts-all">
-        <% @post.each do |post| %>
-            <div class="post">
-              <div class="panel">
-                <% (post.post_category.id == 1) ? div_class = 'panel-category help' : div_class = 'panel-category' %>
-                <div class="<%= div_class %>">
-                  <%= post.post_category.name %>!
-                </div>
-                <div class="panel-heading">
-                  <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
-                </div>
-                <div class="panel-body">
-                  <div><span class="glyphicon glyphicon-user"></span><%= post.user.name %></div>
-                  <div><span class="glyphicon glyphicon-time"></span><%= post.created_at.strftime("%d %b %Y" ) %></div>
-                </div>
-              </div>
-            </div><!--/post-->
-        <% end %>
-      </div>
-    </div><!--/post-all-orgs-->
   </div>
+  <% unless @post.empty? %>
+  <div class="post-all-orgs">
+    <h3><%= t('.Publications') %>:</h3>
+    <div class="posts-all">
+      <% @post.each do |post| %>
+          <div class="post">
+            <div class="panel">
+              <% (post.post_category.id == 1) ? div_class = 'panel-category help' : div_class = 'panel-category' %>
+              <div class="<%= div_class %>">
+                <%= post.post_category.name %>!
+              </div>
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
+              </div>
+              <div class="panel-body">
+                <div><span class="glyphicon glyphicon-user"></span><%= post.user.name %></div>
+                <div><span class="glyphicon glyphicon-time"></span><%= post.created_at.strftime("%d %b %Y" ) %></div>
+              </div>
+            </div>
+          </div><!--/post-->
+      <% end %>
+    </div>
+  </div><!--/post-all-orgs-->
+  <% end %>
 </div>
 
 
