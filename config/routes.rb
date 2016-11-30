@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   put 'organizations/approved/:id' => 'organizations#approved', as: 'organization_approved'
   put 'aids/accepted/:id' => 'aids#accepted', as: 'aid_accepted'
   get 'organizations/filter_organizations/:id' => 'organizations#filter_organizations', as: 'filter_organizations'
-
+  put 'posts/show_aids/:id' => 'posts#show_aids', as: 'show_aids'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

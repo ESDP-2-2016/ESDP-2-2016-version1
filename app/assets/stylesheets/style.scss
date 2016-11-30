@@ -395,6 +395,24 @@ h5{
         color: green;
       }
     }
+    .mes-ushow-aids{
+      font-size: 10px;
+      color: #32aae1;
+    }
+    .show_aids{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-decoration: none;
+      padding: 4px 4px 2px;
+      border: 1px solid #32aae1;
+      background: #fff;
+      border-radius: 3px;
+      line-height: 1;
+      span{
+        color: #32aae1;
+      }
+    }
   }
   .not-active-post{
     padding: 20px 0;

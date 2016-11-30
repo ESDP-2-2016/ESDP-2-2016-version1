@@ -48,7 +48,14 @@
                 <div class="inner">
                   <h5 class="post-item-link"><%= link_to post.title, post_path(post) %></h5>
                   <div class="post-aids-num">Откликнулись: <span><%= post.aids.length %></span>
-                    <a href="" style="margin-left: 30px;">Смотреть отклики</a>
+                    <% if post.unshow_aids.count > 0 %>
+                      <em class="mes-ushow-aids">(Есть новые!)</em>
+                    <% end %>
+                    <% unless post.aids.empty? %>
+                      <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids' do %>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                      <% end %>
+                    <% end %>
                   </div>
                   <ul class="post-aids-list">
                     <% post.aids.each do |post_aid| %>
@@ -63,11 +70,11 @@
                           <div class="aid-description "><%= post_aid.description %></div>
                           <div class="post-item-aid-bot">
                             <% if post_aid.status != 2 %>
-                                <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,
-                                  кликните на кнопку:</em>&nbsp;&nbsp;<%= link_to "Одобрить", aid_accepted_path(post_aid.id, up_status: 2), method: :put, class: "btn btn-primary btn-xs" %>
+                              <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,
+                                кликните на кнопку:</em>&nbsp;&nbsp;<%= link_to "Одобрить", aid_accepted_path(post_aid.id, up_status: 2), method: :put, class: "btn btn-primary btn-xs" %>
                             <% else %>
-                                <span class="glyphicon glyphicon-ok"></span>
-                                <em>Автор данного отклика принял реальное участие в оказании помощи по данной публикации!</em>
+                              <span class="glyphicon glyphicon-ok"></span>
+                              <em>Автор данного отклика принял реальное участие в оказании помощи по данной публикации!</em>
                             <% end %>
                           </div>
                         </li>
@@ -88,7 +95,7 @@
           <% unless @waiting_for_approval.empty? %>
           <ul>
             <% @waiting_for_approval.each do |item| %>
-                <li><%= item.organization.name %></li>
+              <li><%= item.organization.name %></li>
             <% end %>
           </ul>
           <% else %>
@@ -100,16 +107,16 @@
           <% unless @requests.empty? %>
           <ul>
             <% @requests.each do |item| %>
-                <% qw=item.user_id%>
-                <li>
-                  <% pol= User.find_by(id:qw) %>
-                  <%= pol.name %>
-                  <%= t(".wants to join your organization") %>
-                  <% orgid= item.organization_id %>
-                  <% org=Organization.find_by(id:orgid) %>
-                  <%= org.name %>
-                  <%= link_to t('.Approve'), organization_approved_path(item), method: :put %>
-                </li>
+              <% qw=item.user_id%>
+              <li>
+                <% pol= User.find_by(id:qw) %>
+                <%= pol.name %>
+                <%= t(".wants to join your organization") %>
+                <% orgid= item.organization_id %>
+                <% org=Organization.find_by(id:orgid) %>
+                <%= org.name %>
+                <%= link_to t('.Approve'), organization_approved_path(item), method: :put %>
+              </li>
             <%end %>
           </ul>
           <% else %>

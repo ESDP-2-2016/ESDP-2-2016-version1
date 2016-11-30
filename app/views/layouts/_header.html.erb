@@ -26,11 +26,11 @@
               <li class="new_message">
 
                 <%= link_to(user_profile_path(current_user), class: " glyphicon glyphicon-envelope") do %>
-
+                  <% if current_user.unread_aids.count > 0 %>
                   <span class="red_circle">
                     <%= current_user.unread_aids.count %>
                   </span>
-
+                    <% end %>
                 <% end %>
               </li>
               <li class="dropdown">

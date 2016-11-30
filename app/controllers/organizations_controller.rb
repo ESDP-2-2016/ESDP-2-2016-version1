@@ -121,7 +121,7 @@ class OrganizationsController < ApplicationController
   def show
     @org_user = @organization.user_organizations.find_by(organization_id: @organization.id,role:1)
     if user_signed_in?
-      @org_user_participant = @organization.user_organizations.find_by(organization_id: @organization.id, role:2, user_id: user_participant.id)
+      @org_user_participant = @organization.user_organizations.find_by(organization_id: @organization.id, role:2, user_id: current_user.id)
     end
     @post = Post.where(organization_id: @organization.id)
     unless @org_user.nil?

@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-
       flash[:success] = t(".create")
       redirect_to @post
     else
@@ -26,9 +25,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    # @post = Post.find_by(slug: params[:id])
     @aids_all = Aid.where(post_id: @post.id)
-
     @aids = Aid.where(post_id: @post.id, status: 0)
     @aid = Aid.new
     @respond_post = @post
@@ -39,11 +36,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-    # @post = Post.find(params[:id])
+
   end
 
   def update
-    # @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to @post
     else
@@ -52,7 +48,6 @@ class PostsController < ApplicationController
   end
 
   def deactivate
-    # @post = Post.find(params[:id])
     @post.update_attribute(:active, false)
     flash[:success] = t('.deactivate')
     redirect_to posts_path
@@ -72,6 +67,16 @@ class PostsController < ApplicationController
     @nonactivepost = Post.find_by_slug!(params[:id])
   end
 
+  def show_aids
+    @post = Post.find(params[:this_post_id])
+    @aids = @post.aids.where(status: 0)
+    unless @aids.empty?
+      @aids.each do |aid|
+        aid.update_attribute(:status, 1)
+      end
+    end
+  end
+
   private
   def post_params
       params.require(:post).permit(:title, :body, :keywords, :post_category_id, :organization_id, :user_id, :active, :open)
@@ -81,4 +86,9 @@ class PostsController < ApplicationController
     @post = Post.find_by_slug!(params[:id])
     redirect_to(@post) unless current_user == @post.user
   end
+
+  def aid_params
+    params.require(:aid).permit(:description, :status, :organization_id, :user_id, :post_id)
+  end
+
 end

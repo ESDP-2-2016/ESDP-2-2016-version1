@@ -9,6 +9,28 @@ $(document).ready(function () {
         $(this).next('.post-item-content').slideToggle();
     });
 
+    /*function show_aids(){
+        $.ajax({
+            type: "POST",
+            url:  "/registrations/show/" + user,
+            data: { aids: { status: 0 } },
+            success: function(data) {
+
+            }
+        });
+    }*/
+
+
+    $('.show_aids').click(function(e){
+        e.preventDefault();
+        $(this).parent('.post-aids-num').next('.post-aids-list').slideToggle();
+        if($(this).children('span').hasClass('glyphicon-chevron-down')){
+            $(this).children('span').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        }else{
+            $(this).children('span').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+        }
+    });
+
 
     $('.link-scroll').click(function(e){
       e.preventDefault();
