@@ -45,7 +45,7 @@ class AidsController < ApplicationController
   def destroy
     @aid = Aid.find(params[:id])
     if @aid.delete
-      redirect_to user_profile_path(current_user.id)
+      redirect_to user_profile_path(current_user.slug)
     else
       render @aid
     end
