@@ -138,7 +138,7 @@
             <% if aid.status == 0 %>
               <div class="aid-status"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded") %></div>
               <div>
-                <%= link_to t(".Edit"), edit_aid_path(respond_post: aid.post) %>
+                <%= link_to t(".Edit"), edit_aid_path(aid) %>
                 <%= link_to t(".Delete"), aid_path, method: :delete, data: { confirm: t(".confirm_delete")} %>
               </div>
             <% elsif aid.status == 2 %>
