@@ -1,3 +1,57 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores deserunt
-incidunt nobis ratione recusandae! Amet aut, distinctio necessitatibus porro
-tempora tenetur vitae. Aut, blanditiis dicta eius explicabo iusto unde velit?
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color:#f5f5f5;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;min-width:700px">
+<style>
+  body{background-color: #f5f5f5;margin: 0;}
+  .header,.middle,.footer {margin:0;text-align: left;background-color: #f5f5f5;table-layout: fixed;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;min-width:700px}
+</style>
+
+<div class="middle" style="-webkit-font-smoothing:subpixel-antialiased;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;text-align:left;background-color:#f5f5f5;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;width:700px">
+  <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0">
+    <tr>
+      <td height="17" colspan="4"><div style="height:17px;"></div></td>
+    </tr>
+    <tr>
+
+      <td colspan="2">
+        <div style="font-family:arial,sans-serif;color:#2c2e3b;font-size:24px;line-height:30px; ; text-decoration: none;">
+          <a style="text-decoration: none; color: #32aae1; " href="www.socialhelp.kg"><b>Socialhelp.kg</b></a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" height="20"><div style="height:20px;"></div></td>
+    </tr>
+    <tr>
+      <td width="32"><div style="width:32px"></div></td>
+      <td colspan="2">
+        <div style="font-family:arial,sans-serif;color:#3a3c42;font-size:12px;line-height:15px;">
+          На Ваш публикацию отклинулись: <%= @aid_user.name %>
+        </div>
+        <div style="font-family:arial,sans-serif;color:#000;font-size:12px;line-height:15px;margin-top: 20px; border-top: 1px solid #ccc;padding-top: 10px;">
+          <span><%= @description %></span>
+        </div>
+        <p><%= link_to 'Перейти в свой кабинет', user_profile_url(@user) %></p>
+      </td>
+
+    </tr>
+
+  </table>
+</div>
+<div class="footer" style="-webkit-font-smoothing:subpixel-antialiased;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;text-align:left;background-color:#f5f5f5;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;width:700px;">
+  <table style="border-collapse:collapse;margin:0;width:700px; background: #32aae1; margin-top: 50px;">
+
+    <tr>
+      <td height="40" style="width:700px;height: 40px; padding-left: 30px;color: #fff;font-family: sans-serif;">
+        <span>copyright © 2016</span>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
