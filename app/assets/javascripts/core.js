@@ -32,13 +32,13 @@ $(document).ready(function () {
     });
 
 
-    $('.link-scroll').click(function(e){
+    $('.link-scroll ').click(function(e){
       e.preventDefault();
       var id_block = $(this).attr('href');
       var top = $(id_block).offset().top;
-        console.log(top);
+
         var top = $(id_block).offset().top - 70;
-        console.log(top);
+
       $('body').animate({scrollTop: top}, 1500);
     });
 

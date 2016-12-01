@@ -66,3 +66,29 @@
   border:none;
   outline:none;
 }
+footer{
+  margin-top: 50px;
+  min-height: 50px;
+  background: #32aae1;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: relative;
+}
+footer p{
+  line-height: 50px;
+  margin:0;
+
+}
+footer p a{
+  color: #000;
+}
+.headertop{
+  background: url(scrollup.png)0 0 no-repeat;
+
+  background-size: 50px 50px;
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+}
