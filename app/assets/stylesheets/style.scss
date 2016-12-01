@@ -395,6 +395,24 @@ h5{
         color: green;
       }
     }
+    .mes-ushow-aids{
+      font-size: 10px;
+      color: #e91e63;
+    }
+    .show_aids{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-decoration: none;
+      padding: 4px 4px 2px;
+      border: 1px solid #32aae1;
+      background: #fff;
+      border-radius: 3px;
+      line-height: 1;
+      span{
+        color: #32aae1;
+      }
+    }
   }
   .not-active-post{
     padding: 20px 0;
@@ -582,24 +600,28 @@ h5{
   font-size: 18px;
   padding: 13px 13px 0 0!important;
 }
-.new_message:hover a{
-  background: none!important;
+.nav > li.new_message:focus,
+.nav > li.new_message:hover a,
+.nav > li.new_message a:hover,
+.nav > li .new_message a:focus{
+  background: transparent;
+  outline: none;
 }
 
 .new_message a .red_circle{
-  background: red;
+  background: #e91e63;
   color: #fff;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   position: absolute;
-  top:6px;
-  right:4px;
-  font-family:Sans-Serif;
+  top: 6px;
+  right: 4px;
+  font-family: sans-serif;
   font-size: 12px;
   font-weight: 600;
   text-align: center;
-  line-height:15px;
+  line-height: 15px;
 }
 
 .red_circle{

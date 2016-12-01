@@ -24,7 +24,7 @@ class AidsController < ApplicationController
   def update
     @aid = Aid.find(params[:id])
     if @aid.update(aid_params)
-      redirect_to user_profile_path(current_user.id)
+      redirect_to user_profile_path(current_user.slug)
     else
       render 'edit'
     end
