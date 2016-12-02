@@ -61,7 +61,7 @@
                         <% unless post.aids.empty? %>
                           <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids' do %>
                             <span class="glyphicon glyphicon-chevron-down"></span>
-                        <% end %>
+                          <% end %>
                         <% end %>
                       </div>
                       <ul class="post-aids-list">
@@ -89,6 +89,7 @@
                       </ul>
                     </div>
                   </div>
+              <% end %>
           <% end %>
         </div>
       </div><!--/aids-block-->
