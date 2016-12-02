@@ -9,21 +9,12 @@ $(document).ready(function () {
         $(this).next('.post-item-content').slideToggle();
     });
 
-    /*function show_aids(){
-        $.ajax({
-            type: "POST",
-            url:  "/registrations/show/" + user,
-            data: { aids: { status: 0 } },
-            success: function(data) {
-
-            }
-        });
-    }*/
-
 
     $('.show_aids').click(function(e){
         e.preventDefault();
-        $(this).parent('.post-aids-num').next('.post-aids-list').slideToggle();
+        var post_aids_num = $(this).parent('.post-aids-num');
+        $(post_aids_num).next('.post-aids-list').slideToggle();
+
         if($(this).children('span').hasClass('glyphicon-chevron-down')){
             $(this).children('span').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
         }else{
@@ -36,13 +27,9 @@ $(document).ready(function () {
       e.preventDefault();
       var id_block = $(this).attr('href');
       var top = $(id_block).offset().top;
-
-        var top = $(id_block).offset().top - 70;
-
+      var top = $(id_block).offset().top - 70;
       $('body').animate({scrollTop: top}, 1500);
     });
-
-
 
     var all_org = $("#organization-list").html();
 

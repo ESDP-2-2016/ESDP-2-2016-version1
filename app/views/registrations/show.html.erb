@@ -1,7 +1,7 @@
 <% content_for :title, @user.name %>
 <div class="container user-profile">
   <div class="row">
-    <div class="user-info col-md-8 col-sm-8">
+    <div class="user-info col-xs-8">
       <div class="user-info-main">
         <h1><%= t(".Profile") %>: <%= @user.name  %></h1>
         <p><%= t(".Phone") %>: <%= @user.phone  %></p>
@@ -41,7 +41,7 @@
 
       <div class="aids-block">
         <h2><%= t(".Your pending posts of help request") %>:</h2>
-        <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
+        <p class="create-post"><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
         <div class="row">
           <% @opened_posts.each do |post| %>
               <div class="post-item col-md-12">
@@ -70,7 +70,7 @@
                           <div class="aid-description "><%= post_aid.description %></div>
                           <div class="post-item-aid-bot">
                             <% if post_aid.status != 2 %>
-                              <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,
+                              <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,<br>
                                 кликните на кнопку:</em>&nbsp;&nbsp;<%= link_to "Одобрить", aid_accepted_path(post_aid.id, up_status: 2), method: :put, class: "btn btn-primary btn-xs" %>
                             <% else %>
                               <span class="glyphicon glyphicon-ok"></span>
@@ -87,7 +87,7 @@
       </div><!--/aids-block-->
     </div><!--/user-info col-md-8-->
 
-    <div class="sidebar col-md-4 col-sm-4">
+    <div class="sidebar col-xs-4">
       <p class="not-active-post"><%= link_to t(".My_non_active_posts"),posts_nonactiveposts_path, class: 'btn btn-warning btn-sm' %></p>
       <div class="user-orders">
         <div class="user-order">
@@ -139,7 +139,7 @@
               <div class="aid-status"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded") %></div>
               <div>
                 <%= link_to t(".Edit"), edit_aid_path(aid) %>
-                <%= link_to t(".Delete"), aid_path, method: :delete, data: { confirm: t(".confirm_delete")} %>
+                <%= link_to t(".Delete"), aid_path(aid), method: :delete, data: { confirm: t(".confirm_delete")} %>
               </div>
             <% elsif aid.status == 2 %>
                 <div class="aid-status"><span class="glyphicon glyphicon-ok"></span><%= t(".You are assisted, on the request, Thank you for your response") %>!!!</div>
