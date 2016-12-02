@@ -1,3 +1,6 @@
+body, html{
+  height: 100%
+}
 body{
   padding-top: 70px;
   font-family: 'Roboto', sans-serif;
@@ -5,6 +8,9 @@ body{
   @media (max-width: 980px){
     position: relative;
   }
+}
+.all{
+  min-height: 100%;
 }
 h1{
   font-size: 20px;
