@@ -7,7 +7,7 @@ class AidsController < ApplicationController
     if @aid.save
       @post = Post.find_by(id: @aid.post_id)
       @authorid = @post.user_id.to_i
-      UserMailer.aid_reply(User.find_by(id: @authorid),User.first).deliver_now
+      UserMailer.aid_reply(User.find_by(id: @authorid),User.first, current_user, @aid.description).deliver_now
       redirect_to :back
       flash[:success] = 'Ваше сообщение отправлено! Мы свяжемся с Вами в ближайшее время!'
     else
@@ -45,7 +45,7 @@ class AidsController < ApplicationController
   def destroy
     @aid = Aid.find(params[:id])
     if @aid.delete
-      redirect_to user_profile_path(current_user.id)
+      redirect_to user_profile_path(current_user.slug)
     else
       render @aid
     end

@@ -12,9 +12,11 @@ class UserMailer < ApplicationMailer
     mail(to: user.email, subject: 'Welcome to My Awesome Site')
   end
 
-  def aid_reply(user,author)
+  def aid_reply(user,author, current_user, description)
     @user = user
     @author = author
+    @aid_user = current_user
+    @description = description
     mail(to: author.email, subject: 'Omurbek')
     mail(to: user.email, subject: 'Gilani')
   end

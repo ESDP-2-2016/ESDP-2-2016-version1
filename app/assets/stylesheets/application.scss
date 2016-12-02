@@ -55,9 +55,9 @@
   background: url(my_icon.png) 0 0 no-repeat;
   display: inline-block;
   position: absolute;
-  top:80px;
-  left:7px;
-  background-size:30px 30px;
+  top: 80px;
+  left: 7px;
+  background-size: 30px 30px;
   width: 30px;
   height: 30px;
   z-index: 2;
@@ -65,4 +65,32 @@
 .pure-button:focus{
   border:none;
   outline:none;
+}
+.pseudo-footer{
+  height: 70px;
+}
+footer{
+  margin-top: -50px;
+  height: 50px;
+  background: #32aae1;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: relative;
+}
+footer p{
+  line-height: 50px;
+  margin: 0;
+  color: #fff;
+}
+footer a{
+  color: #fff;
+}
+.headertop{
+  background: url(scrollup.png) 0 0 no-repeat;
+  background-size: 45px 45px;
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  width: 45px;
+  height: 45px;
 }

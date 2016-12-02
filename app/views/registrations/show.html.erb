@@ -1,7 +1,7 @@
 <% content_for :title, @user.name %>
 <div class="container user-profile">
   <div class="row">
-    <div class="user-info col-md-8 col-sm-8">
+    <div class="user-info col-xs-8">
       <div class="user-info-main">
         <h1><%= t(".Profile") %>: <%= @user.name  %></h1>
         <p><%= t(".Phone") %>: <%= @user.phone  %></p>
@@ -47,7 +47,7 @@
 
       <div class="aids-block">
         <h2><%= t(".Your pending posts of help request") %>:</h2>
-        <p><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
+        <p class="create-post"><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
         <div class="row">
           <% unless @opened_posts.empty? %>
               <% @opened_posts.each do |post| %>
@@ -61,7 +61,7 @@
                         <% unless post.aids.empty? %>
                           <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids' do %>
                             <span class="glyphicon glyphicon-chevron-down"></span>
-                          <% end %>
+                        <% end %>
                         <% end %>
                       </div>
                       <ul class="post-aids-list">
@@ -89,13 +89,12 @@
                       </ul>
                     </div>
                   </div>
-              <% end %>
           <% end %>
         </div>
       </div><!--/aids-block-->
     </div><!--/user-info col-md-8-->
 
-    <div class="sidebar col-md-4 col-sm-4">
+    <div class="sidebar col-xs-4">
       <p class="not-active-post"><%= link_to t(".My_non_active_posts"),posts_nonactiveposts_path, class: 'btn btn-warning btn-sm' %></p>
       <div class="user-orders">
         <div class="user-order">
