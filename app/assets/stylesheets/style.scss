@@ -584,26 +584,19 @@ h5{
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .alert{
   width: 80%;
-  margin: 0 auto 20px;
   text-align:  center;
+  position: absolute;
+  top: 5px;
+  left: 10%;
+  background: rgba(158, 232, 168, 0.9);
+  z-index: 1000;
+  color: #051513;
 }
 .alert.alert-error{
-  background: rgba(204, 31, 4, 0.5);
-  color: #170401;
-  padding: 15px 20px;
+  background: rgba(245, 120, 135, 0.9);
+  color: #442927;
 }
 
 

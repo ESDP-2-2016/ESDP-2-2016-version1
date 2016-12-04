@@ -26,6 +26,12 @@ $(document).ready(function () {
         }
     });
 
+    if($('body').find('.alert')){
+        setTimeout(function() {
+            $('.alert').fadeOut(1500);
+        }, 1500);
+    }
+
 
     $('.link-scroll ').click(function(e){
       e.preventDefault();
