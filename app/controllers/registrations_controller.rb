@@ -12,9 +12,8 @@ class RegistrationsController < Devise::RegistrationsController
     end
     @participant_organizations = UserOrganization.where(user_id: @user.id, role: 2, approved: true)
     @waiting_for_approval = UserOrganization.where(user_id: @user.id, role: 2, approved: false)
-    @aids = Aid.where(user_id: @user.id)
-    # @organization = UserOrganization.find(@user)
-    @opened_posts = Post.where(user_id: @user.id, post_category_id: 1, active: true, open: true)
+    @aids = Aid.where(user_id: @user.id).order('created_at DESC')
+    @opened_posts = Post.where(user_id: @user.id, post_category_id: 1, active: true, open: true).order('created_at DESC')
   end
 
   def create

@@ -1,0 +1,7 @@
+$('.show_aids').bind('ajax:success', function() {
+  $(this).siblings('.mes-ushow-aids').fadeOut();
+  $('.red_circle').html('<%= current_user.unread_aids.count %>')
+  <% if current_user.unread_aids.count == 0 %>
+    $('.red_circle').fadeOut();
+  <% end %>
+});

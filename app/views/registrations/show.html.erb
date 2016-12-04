@@ -59,7 +59,7 @@
                           <em class="mes-ushow-aids">(Есть новые!)</em>
                         <% end %>
                         <% unless post.aids.empty? %>
-                          <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids' do %>
+                          <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids', remote: true do %>
                             <span class="glyphicon glyphicon-chevron-down"></span>
                           <% end %>
                         <% end %>
@@ -77,7 +77,7 @@
                               <div class="aid-description "><%= post_aid.description %></div>
                               <div class="post-item-aid-bot">
                                 <% if post_aid.status != 2 %>
-                                  <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,
+                                  <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,<br>
                                     кликните на кнопку:</em>&nbsp;&nbsp;<%= link_to "Одобрить", aid_accepted_path(post_aid.id, up_status: 2), method: :put, class: "btn btn-primary btn-xs" %>
                                 <% else %>
                                   <span class="glyphicon glyphicon-ok"></span>

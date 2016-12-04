@@ -75,6 +75,10 @@ class PostsController < ApplicationController
         aid.update_attribute(:status, 1)
       end
     end
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
   end
 
   private
