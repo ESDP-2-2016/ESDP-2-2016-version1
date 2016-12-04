@@ -143,6 +143,8 @@
                   <div class="aid-publ"><%= t(".Published from name organization") %>: <b><%= aid.organization.name %></b></div>
                 </div>
                 <p class="post-title"><%= link_to aid.post.title, post_path(aid.post.slug) %></p>
+                <span class="pseudo-link show-hide-aid-descr">Подробнее &rarr;</span>
+                <div class="aid-descr">
                 <p><%= aid.description %></p>
                 <% if aid.status == 0 %>
                   <div class="aid-status"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded") %></div>
@@ -156,6 +158,7 @@
                     <div class="aid-status error"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded, but aid does not have") %></div>
                 <% end %>
               </div>
+              </div><!--/aid-item-->
             <% end %>
           <% else %>
             <p class="color-grey">У вас нет откликов на запросы о помощи!</p>

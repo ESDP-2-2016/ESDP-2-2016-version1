@@ -133,9 +133,13 @@ h5{
   background-color: #32aae1;
   border-color: #32aae1;
 }
-
-
-
+.pseudo-link{
+  color: #2e6da4;
+  border-bottom: 1px dashed #2e6da4;
+  display: inline-block;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
 .organizations h4 em{
   font-weight: normal;
   font-size: 14px;
@@ -452,7 +456,12 @@ h5{
         display: block;
       }
     }
-
+    .pseudo-link{
+      font-size: 13px;
+    }
+    .aid-descr{
+      display: none;
+    }
   }
 
 }

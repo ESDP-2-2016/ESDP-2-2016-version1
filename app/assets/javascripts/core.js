@@ -9,6 +9,10 @@ $(document).ready(function () {
         $(this).next('.post-item-content').slideToggle();
     });
 
+    $('.show-hide-aid-descr').click(function(){
+        $(this).next('.aid-descr').slideToggle();
+    });
+
 
     $('.show_aids').click(function(e){
         e.preventDefault();
