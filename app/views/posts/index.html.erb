@@ -6,10 +6,15 @@
     <% @posts.each do |post| %>
       <% if post.organization.active == true %>
       <div class="post">
-        <div class="panel">
+        <% (post.open == false) ? panel_class = 'panel post_close' : panel_class = 'panel' %>
+        <div class="<%= panel_class %>">
           <% (post.post_category.id == 1) ? div_class = 'panel-category help' : div_class = 'panel-category' %>
           <div class="<%= div_class %>">
-            <%= post.post_category.name %>!
+            <% if (post.post_category.id == 1) && (post.open == false) %>
+              Помощь оказана!
+            <% else %>
+              <%= post.post_category.name %>!
+            <% end %>
           </div>
           <div class="panel-heading">
             <h3 class="panel-title"><%= link_to post.title, post_path(post) %></h3>
