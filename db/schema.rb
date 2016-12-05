@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122101225) do
+ActiveRecord::Schema.define(version: 20161205174844) do
 
   create_table "abouts", force: :cascade do |t|
     t.text     "description"
@@ -47,6 +47,22 @@ ActiveRecord::Schema.define(version: 20161122101225) do
     t.index ["organization_id"], name: "index_aids_on_organization_id"
     t.index ["post_id"], name: "index_aids_on_post_id"
     t.index ["user_id"], name: "index_aids_on_user_id"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

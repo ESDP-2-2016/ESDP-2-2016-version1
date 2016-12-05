@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get 'posts/nonactiveposts'
   get 'posts/non_active_post/:id' =>'posts#non_active_post', as: 'non_active'
   get 'about/index'

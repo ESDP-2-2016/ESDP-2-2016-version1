@@ -5,6 +5,7 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "Esdp22016 Test"
+  config.site_title_link  = "/"
 
   # config.namespace :admin do |admin|
   #   admin.build_menu :utility_navigation do |menu|
