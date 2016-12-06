@@ -28,3 +28,5 @@
 /test/**/*
 
 public/assets/**
+
+public/ckeditor_assets/**
