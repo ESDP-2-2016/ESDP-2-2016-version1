@@ -87,12 +87,12 @@
                         <% if aid.status == 0 %>
                           <div class="aid-status">
                             <span class="glyphicon glyphicon-eye-close"></span>
-                            <%= link_to "Принять", aid_accepted_path(aid.id, up_status: 1), method: :put %>
+                            <%= link_to t(".View"), user_profile_path(current_user) %>
                           </div>
                         <% else %>
                           <div class="aid-status">
                             <span class="glyphicon glyphicon-eye-open"></span>
-                            <span>Просмотрено</span>
+                            <span><%= t(".Viewed") %></span>
                           </div>
                         <% end %>
                       <% end %>

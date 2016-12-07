@@ -152,6 +152,8 @@ ru:
             Save changes: 'Сохранить изменения'
             confirm_delete: 'Вы уверены?'
             Assistance was: "Помощь оказали"
+            View: "Просмотреть"
+            Viewed: "Просмотрено"
       create:
             create: "Вы создали публикацию!"
       deactivate:
