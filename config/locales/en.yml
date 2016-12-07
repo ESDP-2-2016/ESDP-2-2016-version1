@@ -48,4 +48,7 @@ en:
                     deactivate: 'Post deleted!'
 
   hello: "Hello world"
+  aids:
+        edit:
+          Save changes: "Save changes"
 

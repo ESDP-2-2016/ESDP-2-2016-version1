@@ -5,6 +5,8 @@ ru:
   aids:
       form:
         On behalf of the organization which will be assisted: "От имени какой организации, будет оказана помощь"
+      edit:
+        Save changes: "Сохранить изменения"
   devise:
       confirmations:
           new:
@@ -187,6 +189,7 @@ ru:
             To become an administrator for your organization, you need to register it! If your organization is already registered, you can become a member!: "Чтобы стать администратором организации, нужно ее зарегистрировать! Если организация уже зарегистрирована, Вы можете стать ее участником!"
             No requests: "Заявок нет"
             Organization: "Организация"
+            Save changes: "Сохранить изменения"
 
   activerecord:
       attributes:

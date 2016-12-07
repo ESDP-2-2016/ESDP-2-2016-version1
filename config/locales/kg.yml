@@ -3,7 +3,10 @@ kg:
       _form:
       index:
   aids:
-      _form:
+        form:
+          On behalf of the organization which will be assisted: "От имени какой организации, будет оказана помощь"
+        edit:
+          Save changes: "өзгөрүүлөрдү сактоо"
   devise:
       confirmations:
           new:
