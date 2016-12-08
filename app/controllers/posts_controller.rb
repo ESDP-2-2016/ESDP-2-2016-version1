@@ -60,12 +60,13 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
-  def nonactiveposts
-    @post_history = Post.all.where(active: false, user_id: current_user.id)
+  def closed_posts
+    @post_history = Post.all.where(open: false, user_id: current_user.id)
   end
 
-  def non_active_post
-    @nonactivepost = Post.find_by_slug!(params[:id])
+  def show_closed_post
+    @closed_post = Post.find_by_slug!(params[:id])
+    @aids = @closed_post.aids
   end
 
   def show_aids

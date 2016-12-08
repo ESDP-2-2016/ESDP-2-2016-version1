@@ -1,9 +1,9 @@
 <div class="container">
-  <%= t(".Your nonactive posts") %>
+  <h2><%= t(".Your closed posts") %></h2>
   <% @post_history.each do |item|%>
   <ul>
     <li>
-      <%= link_to item.title, non_active_path(item) %>
+      <%= link_to item.title, closed_post_path(item) %>
     </li>
   </ul>
   <% end %>

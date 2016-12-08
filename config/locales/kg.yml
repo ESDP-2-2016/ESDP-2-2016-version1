@@ -131,8 +131,8 @@ kg:
             Published: "Опубликовано"
       new:
           Add new post: "Добавить новую публикацию"
-      nonactiveposts:
-            Your nonactive posts: "Ваши не активные публикации"
+      closed_posts:
+            Your closed posts: "Ваши закрытые публикации"
       show:
             category: "Категория"
             author: "Автор"
@@ -160,7 +160,7 @@ kg:
             Status: "Статус"
             Your pending posts of help request: "Ваши незакрытые публикации с просьбой о помощи"
             At the request for assistance responded: "На данный запрос о помощи откликнулись"
-            My_non_active_posts: "Мои неактивные публикации"
+            My closed posts: "Мои закрытые публикации"
             Approve: "Одобрить"
             confirm_delete: 'Вы уверены, что хотите удалить организацию?'
             Profile: "Профиль"

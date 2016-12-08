@@ -463,8 +463,52 @@ h5{
       display: none;
     }
   }
-
 }
+.closed-post{
+  .post-aids-list{
+    display: block;
+  }
+  .post-item-aid{
+    padding: 0 0 20px;
+    margin: 0 0 15px;
+    border-bottom: 1px dotted #ccc;
+    .aid-author > div{
+      display: inline-block;
+      margin: 0 15px 0 0;
+    }
+    .aid-author{
+      color: #888888;
+      font-size: 14px;
+      line-height: 24px;
+      span{
+        margin-right: 10px;
+      }
+    }
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+  .aid-org{
+    padding: 0 0 5px;
+  }
+  .aid-description{
+    padding: 0 0 10px;
+    font-size: 13px;
+    color: #444;
+  }
+  .post-item-aid-bot{
+    em{
+      font-size: 12px;
+      color: #444;
+    }
+    .glyphicon-ok{
+      color: green;
+    }
+  }
+}
+
+
+
 .posts-all{
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -596,7 +640,7 @@ h5{
   top: 5px;
   left: 10%;
   background: rgba(158, 232, 168, 0.9);
-  z-index: 1000;
+  z-index: 1050;
   color: #051513;
 }
 .alert.alert-error{

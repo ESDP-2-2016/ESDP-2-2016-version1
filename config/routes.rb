@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  get 'posts/nonactiveposts'
-  get 'posts/non_active_post/:id' =>'posts#non_active_post', as: 'non_active'
+  get 'posts/closed_posts' => 'posts#closed_posts', as: 'closed_posts'
+  get 'posts/show_closed_post/:id' =>'posts#show_closed_post', as: 'closed_post'
   get 'about/index'
   get 'help/index'
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale

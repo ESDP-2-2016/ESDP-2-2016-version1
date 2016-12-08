@@ -1,0 +1,33 @@
+<div class="container closed-post">
+  <h1> <%= @closed_post.title %></h1>
+  <div class="post-body">
+    <p> <%= @closed_post.body %></p>
+  </div>
+  <h2>Откликнулись:</h2>
+
+      <% unless @aids.empty? %>
+        <ul class="post-aids-list row">
+          <% @aids.each do |post_aid| %>
+            <li class="post-item-aid col-xs-6">
+              <div class="aid-author">
+                <div><span class="glyphicon glyphicon-time"></span><%= post_aid.created_at.strftime("%d %b %Y") %></div>
+                <div><span class="glyphicon glyphicon-user"></span><%= post_aid.user.name %></div>
+                <div><span class="glyphicon glyphicon-envelope"></span><%= post_aid.user.email %></div>
+                <div><span class="glyphicon glyphicon-earphone"></span><%= post_aid.user.phone %></div>
+              </div>
+              <div class="aid-org"><%= t(".Organization") %>: <b><%= post_aid.organization.name %></b></div>
+              <div class="aid-description "><%= post_aid.description %></div>
+              <div class="post-item-aid-bot">
+                <% if post_aid.status == 2 %>
+                  <span class="glyphicon glyphicon-ok"></span>
+                  <em>Автор данного отклика принял реальное участие в оказании помощи по данной публикации!</em>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>К данному посту не было откликов!</p>
+      <% end %>
+
+</div>

@@ -29,20 +29,18 @@
       </div>
       <div class="user-organizations">
         <h2><%= t(".Organizations in which you participant") %>: </h2>
-
         <% unless @participant_organizations.empty? %>
           <ul>
-          <% @participant_organizations.each do |item| %>
+            <% @participant_organizations.each do |item| %>
               <% id=item.organization.slug %>
               <% if item.organization.active == true %>
-                  <li><%= link_to item.organization.name, organization_show_path(id) %></li>
+                <li><%= link_to item.organization.name, organization_show_path(id) %></li>
               <% end %>
-          <% end %>
+            <% end %>
           </ul>
-          <% else %>
+        <% else %>
           <p>У Вас нет организаций, в которых Вы являетесь участником. </p>
         <% end %>
-
       </div>
 
       <div class="aids-block">
@@ -50,53 +48,53 @@
         <p class="create-post"><%= link_to t('.Create new post'), new_post_path, class: 'btn btn-primary btn-sm' %></p>
         <div class="row">
           <% unless @opened_posts.empty? %>
-              <% @opened_posts.each do |post| %>
-                  <div class="post-item col-md-12">
-                    <div class="inner">
-                      <h5 class="post-item-link"><%= link_to post.title, post_path(post) %></h5>
-                      <div class="post-aids-num">Откликнулись: <span><%= post.aids.length %></span>
-                        <% if post.unshow_aids.count > 0 %>
-                          <em class="mes-ushow-aids">(Есть новые!)</em>
-                        <% end %>
-                        <% unless post.aids.empty? %>
-                          <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids', remote: true do %>
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                          <% end %>
-                        <% end %>
-                      </div>
-                      <ul class="post-aids-list">
-                        <% post.aids.each do |post_aid| %>
-                            <li class="post-item-aid">
-                              <div class="aid-author">
-                                <div><span class="glyphicon glyphicon-time"></span><%= post_aid.created_at.strftime("%d %b %Y") %></div>
-                                <div><span class="glyphicon glyphicon-user"></span><%= post_aid.user.name %></div>
-                                <div><span class="glyphicon glyphicon-envelope"></span><%= post_aid.user.email %></div>
-                                <div><span class="glyphicon glyphicon-earphone"></span><%= post_aid.user.phone %></div>
-                              </div>
-                              <div class="aid-org"><%= t(".Organization") %>: <b><%= post_aid.organization.name %></b></div>
-                              <div class="aid-description "><%= post_aid.description %></div>
-                              <div class="post-item-aid-bot">
-                                <% if post_aid.status != 2 %>
-                                  <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,<br>
-                                    кликните на кнопку:</em>&nbsp;&nbsp;<%= link_to "Одобрить", aid_accepted_path(post_aid.id, up_status: 2), method: :put, class: "btn btn-primary btn-xs" %>
-                                <% else %>
-                                  <span class="glyphicon glyphicon-ok"></span>
-                                  <em>Автор данного отклика принял реальное участие в оказании помощи по данной публикации!</em>
-                                <% end %>
-                              </div>
-                            </li>
-                        <% end %>
-                      </ul>
-                    </div>
+            <% @opened_posts.each do |post| %>
+              <div class="post-item col-md-12">
+                <div class="inner">
+                  <h5 class="post-item-link"><%= link_to post.title, post_path(post) %></h5>
+                  <div class="post-aids-num">Откликнулись: <span><%= post.aids.length %></span>
+                    <% if post.unshow_aids.count > 0 %>
+                      <em class="mes-ushow-aids">(Есть новые!)</em>
+                    <% end %>
+                    <% unless post.aids.empty? %>
+                      <%= link_to show_aids_path(this_post_id: post.id), method: :put, class: 'show_aids', remote: true do %>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                      <% end %>
+                    <% end %>
                   </div>
-              <% end %>
+                  <ul class="post-aids-list">
+                    <% post.aids.each do |post_aid| %>
+                      <li class="post-item-aid">
+                        <div class="aid-author">
+                          <div><span class="glyphicon glyphicon-time"></span><%= post_aid.created_at.strftime("%d %b %Y") %></div>
+                          <div><span class="glyphicon glyphicon-user"></span><%= post_aid.user.name %></div>
+                          <div><span class="glyphicon glyphicon-envelope"></span><%= post_aid.user.email %></div>
+                          <div><span class="glyphicon glyphicon-earphone"></span><%= post_aid.user.phone %></div>
+                        </div>
+                        <div class="aid-org"><%= t(".Organization") %>: <b><%= post_aid.organization.name %></b></div>
+                        <div class="aid-description "><%= post_aid.description %></div>
+                        <div class="post-item-aid-bot">
+                          <% if post_aid.status != 2 %>
+                            <em>Ecли автор отклика, принял реальное участие в оказании помощи по данной публикации,<br>
+                              кликните на кнопку:</em>&nbsp;&nbsp;<%= link_to "Одобрить", aid_accepted_path(post_aid.id, up_status: 2), method: :put, class: "btn btn-primary btn-xs" %>
+                          <% else %>
+                            <span class="glyphicon glyphicon-ok"></span>
+                            <em>Автор данного отклика принял реальное участие в оказании помощи по данной публикации!</em>
+                          <% end %>
+                        </div>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div><!--/aids-block-->
     </div><!--/user-info col-md-8-->
 
     <div class="sidebar col-xs-4">
-      <p class="not-active-post"><%= link_to t(".My_non_active_posts"),posts_nonactiveposts_path, class: 'btn btn-warning btn-sm' %></p>
+      <p class="not-active-post"><%= link_to t(".My closed posts"),closed_posts_path, class: 'btn btn-warning btn-sm' %></p>
       <div class="user-orders">
         <div class="user-order">
           <h4><%= t(".Your organization participation request") %>: </h4>
@@ -136,15 +134,15 @@
       <div class="aids-block">
         <h2><%= t(".Your responses to the requests for assistance") %>:</h2>
         <% unless @aids.empty? %>
-            <% @aids.each do |aid| %>
-              <div class="aid-item">
-                <div class="aid-author">
-                  <div><span class="glyphicon glyphicon-time"></span><%= aid.created_at.strftime("%d %b %Y") %></div>
-                  <div class="aid-publ"><%= t(".Published from name organization") %>: <b><%= aid.organization.name %></b></div>
-                </div>
-                <p class="post-title"><%= link_to aid.post.title, post_path(aid.post.slug) %></p>
-                <span class="pseudo-link show-hide-aid-descr">Подробнее &rarr;</span>
-                <div class="aid-descr">
+          <% @aids.each do |aid| %>
+            <div class="aid-item">
+              <div class="aid-author">
+                <div><span class="glyphicon glyphicon-time"></span><%= aid.created_at.strftime("%d %b %Y") %></div>
+                <div class="aid-publ"><%= t(".Published from name organization") %>: <b><%= aid.organization.name %></b></div>
+              </div>
+              <p class="post-title"><%= link_to aid.post.title, post_path(aid.post.slug) %></p>
+              <span class="pseudo-link show-hide-aid-descr">Подробнее &rarr;</span>
+              <div class="aid-descr">
                 <p><%= aid.description %></p>
                 <% if aid.status == 0 %>
                   <div class="aid-status"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded") %></div>
@@ -158,13 +156,12 @@
                     <div class="aid-status error"><span class="glyphicon glyphicon-exclamation-sign"></span><%= t(".You responded, but aid does not have") %></div>
                 <% end %>
               </div>
-              </div><!--/aid-item-->
-            <% end %>
-          <% else %>
-            <p class="color-grey">У вас нет откликов на запросы о помощи!</p>
-        <%end %>
+            </div><!--/aid-item-->
+          <% end %>
+        <% else %>
+          <p class="color-grey">У вас нет откликов на запросы о помощи!</p>
+        <% end %>
       </div>
-
     </div><!--/sidebar col-md-4-->
   </div> <!--/row-->
 </div><!--/container-->
