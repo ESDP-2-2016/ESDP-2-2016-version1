@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   get 'posts/closed_posts' => 'posts#closed_posts', as: 'closed_posts'
-  get 'posts/show_closed_post/:id' =>'posts#show_closed_post', as: 'closed_post'
   get 'about/index'
   get 'help/index'
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
   root 'organizations#index'
 
-  get 'about/index'
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }

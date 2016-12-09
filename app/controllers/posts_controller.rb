@@ -61,12 +61,7 @@ class PostsController < ApplicationController
   end
 
   def closed_posts
-    @post_history = Post.all.where(open: false, user_id: current_user.id)
-  end
-
-  def show_closed_post
-    @closed_post = Post.find_by_slug!(params[:id])
-    @aids = @closed_post.aids
+    @post_history = Post.all.where(open: false, active: true, user_id: current_user.id)
   end
 
   def show_aids
