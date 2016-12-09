@@ -13,6 +13,9 @@ $(document).ready(function () {
         $(this).next('.aid-descr').slideToggle();
     });
 
+    $('.show-hide-aids').click(function(){
+        $(this).next('.post-aids-list').slideToggle(500);
+    })
 
     $('.show_aids').click(function(e){
         e.preventDefault();

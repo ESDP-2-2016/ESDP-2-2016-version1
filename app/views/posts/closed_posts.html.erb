@@ -1,10 +1,41 @@
-<div class="container">
-  <h2><%= t(".Your closed posts") %></h2>
-  <% @post_history.each do |item|%>
-  <ul>
-    <li>
-      <%= link_to item.title, closed_post_path(item) %>
-    </li>
-  </ul>
-  <% end %>
+<div class="container closed-post">
+  <div class="aids-block">
+    <% unless @post_history.empty? %>
+      <h2><%= t(".Your closed posts") %></h2>
+      <% @post_history.each do |post| %>
+        <div class="post-item">
+          <div class="inner">
+            <h5 class="post-item-link"><%= link_to post.title, post_path(post) %></h5>
+            <% unless post.aids.empty? %>
+              <span class="show-hide-aids pseudo-link">Cмотреть отклики:</span>
+              <ul class="post-aids-list">
+                <% post.aids.each do |post_aid| %>
+                  <li class="post-item-aid">
+                    <div class="aid-author">
+                      <div><span class="glyphicon glyphicon-time"></span><%= post_aid.created_at.strftime("%d %b %Y") %></div>
+                      <div><span class="glyphicon glyphicon-user"></span><%= post_aid.user.name %></div>
+                      <div><span class="glyphicon glyphicon-envelope"></span><%= post_aid.user.email %></div>
+                      <div><span class="glyphicon glyphicon-earphone"></span><%= post_aid.user.phone %></div>
+                    </div>
+                    <div class="aid-org"><%= t(".Organization") %>: <b><%= post_aid.organization.name %></b></div>
+                    <div class="aid-description "><%= post_aid.description %></div>
+                    <div class="post-item-aid-bot">
+                      <% if post_aid.status == 2 %>
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <em>Автор данного отклика принял реальное участие в оказании помощи по данной публикации!</em>
+                      <% end %>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <span class="not-aids-mes">Никто не откликнулся!</span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>У Вас пока нет закрытых публикаций!</p>
+    <% end %>
+  </div><!--/aids-block-->
 </div>

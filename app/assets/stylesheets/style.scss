@@ -43,7 +43,10 @@ h5{
 .al-right{
   text-align: right;
 }
-
+img{
+  max-width: 100%;
+  vertical-align: top;
+}
 .navbar{
   background: #fff;
   border-top: 1px solid #cccccc;
@@ -465,8 +468,17 @@ h5{
   }
 }
 .closed-post{
-  .post-aids-list{
-    display: block;
+  .post-item{
+    margin: 0 0 15px;
+  }
+  .post-item-link{
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0 0 2px;
+  }
+  .not-aids-mes{
+    color: #c35d4a;
+    font-size: 12px;
   }
   .post-item-aid{
     padding: 0 0 20px;
@@ -594,6 +606,7 @@ h5{
     padding: 0 0 20px;
   }
 }
+
 
 
 .pagination{
