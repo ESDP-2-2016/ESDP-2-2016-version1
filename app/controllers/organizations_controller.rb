@@ -26,7 +26,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     if @organization.save
       User.where(admin: true).each do |item|
-      UserMailer.welcome_email(item,@organization.id,@organization.name,current_user).deliver_now
+      UserMailer.welcome_email(item,@organization.slug,@organization.name,current_user).deliver_now
       end
       flash[:success] = t(".create")
       @user_organization = UserOrganization.create!(organization_id: @organization.id,
